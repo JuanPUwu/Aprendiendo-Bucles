@@ -1,18 +1,133 @@
-# React + Vite
+# 📘 Recurso Educativo Digital para el Aprendizaje de Bucles en Scratch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web educativa desarrollada **exclusivamente en React**, basada en la propuesta de trabajo de grado titulada:
 
-Currently, two official plugins are available:
+> **“Recurso educativo digital integrado con realidad aumentada para el aprendizaje de bucles en Scratch para estudiantes de grado séptimo del Colegio de Boyacá”**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto tiene como finalidad **fortalecer la comprensión de los bucles `for` y `while` en Scratch**, mediante un recurso digital interactivo, visual y pedagógico, dirigido a **estudiantes de educación básica secundaria**.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🎯 Objetivo General
 
-Note: This will impact Vite dev & build performances.
+Diseñar e implementar un **recurso educativo digital** que facilite el aprendizaje teórico-práctico de los bucles en Scratch (`for` y `while`) en estudiantes de grado séptimo, promoviendo el desarrollo del **pensamiento computacional** a través de actividades interactivas y ejemplos contextualizados.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Objetivos Específicos
+
+* Explicar de manera clara y visual el concepto de bucles en Scratch.
+* Diferenciar el uso de los bucles `for` y `while` mediante ejemplos prácticos.
+* Proponer actividades interactivas que refuercen el aprendizaje.
+* Favorecer la comprensión de la lógica algorítmica y la secuenciación.
+* Apoyar los procesos de enseñanza-aprendizaje con recursos digitales innovadores.
+
+---
+
+## 🧠 Justificación del Proyecto
+
+Diversos estudios evidencian que los estudiantes de educación básica presentan dificultades para comprender conceptos fundamentales de programación, especialmente los bucles, debido a metodologías tradicionales y a la falta de recursos didácticos visuales.
+
+Este proyecto surge como respuesta a dicha problemática, proponiendo un **recurso educativo digital** que permita a los estudiantes **visualizar, experimentar y practicar** los bucles en Scratch, facilitando así un aprendizaje más significativo, motivador y contextualizado.
+
+---
+
+## 📚 Contenidos de la Plataforma
+
+* Introducción a Scratch
+* Concepto de bucles en programación
+* Bucle **`for`** en Scratch
+* Bucle **`while`** en Scratch
+* Comparación entre `for` y `while`
+* Ejemplos visuales inspirados en Scratch
+* Actividades prácticas y retos algorítmicos
+
+---
+
+## 🧪 Metodología Educativa
+
+El proyecto se apoya en un enfoque **constructivista**, donde el estudiante es protagonista de su aprendizaje. La estructura de contenidos sigue una secuencia progresiva:
+
+1. **Exploración guiada**: reconocimiento del entorno y conceptos básicos.
+2. **Aplicación práctica**: uso de bucles en ejemplos y ejercicios.
+3. **Resolución de retos**: actividades que promueven la lógica, la reflexión y la creatividad.
+
+---
+
+## 🧑‍🎓 Población Objetivo
+
+* Estudiantes de **grado séptimo**
+* Educación básica secundaria
+* Docentes del área de Tecnología e Informática
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+* ⚛️ **React** (Frontend)
+* 🧩 Componentes reutilizables
+* 🎨 CSS para estilos
+
+> Este proyecto no utiliza backend ni base de datos. Es una aplicación **100% frontend**.
+
+---
+
+## 🚀 Instalación y Ejecución
+
+### 1️⃣ Clonar el repositorio
+
+```bash
+git clone https://github.com/tu-usuario/nombre-del-repo.git
+```
+
+### 2️⃣ Instalar dependencias
+
+```bash
+npm install
+```
+
+### 3️⃣ Ejecutar la aplicación
+
+```bash
+npm start
+```
+
+La aplicación se abrirá en:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📌 Alcance del Proyecto
+
+* Recurso educativo digital de apoyo
+* Uso académico y pedagógico
+* Enfocado en bucles `for` y `while` en Scratch
+
+---
+
+## 🔮 Posibles Mejoras Futuras
+
+* Integración de realidad aumentada
+* Más actividades evaluativas
+* Animaciones explicativas
+* Expansión a otros conceptos de Scratch
+
+---
+
+## 👨‍💻 Autor
+
+**Pablo Rivas Alfonso**
+Basado en la propuesta de trabajo de grado de **Iyui Shaio Sanchez Melo**
+
+---
+
+## 📄 Licencia
+
+Proyecto de carácter educativo. Puede ser utilizado y adaptado con fines académicos, citando la fuente correspondiente.
+
+---
+
+✨ *La programación se aprende mejor cuando se experimenta y se visualiza* ✨
