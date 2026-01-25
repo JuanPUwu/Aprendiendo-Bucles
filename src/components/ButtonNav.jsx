@@ -4,9 +4,9 @@ import flechaImg from "../assets/img/flecha.png";
 
 export default function ButtonNav({ text, onClick, withArrow }) {
   return (
-    <div className="cont-btn-nav" onClick={onClick}>
-      <button className="btn-nav">{text}</button>
+    <button type="button" className="cont-btn-nav btn-nav" onClick={onClick}>
+      <span>{text}</span>
       {withArrow && <img src={flechaImg} alt="" className="arrow-btn-nav" />}
-    </div>
+    </button>
   );
 }
