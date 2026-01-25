@@ -1,0 +1,24 @@
+.settings-btn {
+  height: 80%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.settings-btn img {
+  height: 100%;
+  filter: invert(10%);
+}
+
+.rotate-animated {
+  transform: rotate(-120deg);
+  transition: transform 0.4s ease-in-out;
+}
+
+.rotate-instant {
+  transform: rotate(0deg);
+  transition: none;
+}

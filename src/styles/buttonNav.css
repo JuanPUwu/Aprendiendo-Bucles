@@ -1,0 +1,46 @@
+.cont-btn-nav {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.cont-btn-nav::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  bottom: 5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.cont-btn-nav:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-nav {
+  border: none;
+  font-size: 1rem;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.arrow-btn-nav {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease;
+}
+
+.cont-btn-nav:hover .arrow-btn-nav {
+  transform: scaleY(-1);
+}
