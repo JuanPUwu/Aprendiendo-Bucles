@@ -1,57 +1,77 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles/buttonNav.css";
 
 import flechaImg from "../assets/img/flecha.png";
 
-export default function ButtonNav({ text, onClick, withArrow, dropdownContent }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ButtonNav({
+  text,
+  to,
+  onClick,
+  withArrow,
+  dropdownContent,
+  dropdownId,
+  isOpen,
+  onTriggerClick,
+  onMouseEnter,
+  onMouseLeave,
+}) {
+  const isControlledDropdown = withArrow && dropdownId != null;
+  const open = isControlledDropdown ? isOpen : false;
 
   const handleClick = () => {
     if (withArrow) {
-      setIsOpen(!isOpen);
-    } else {
+      if (onTriggerClick) {
+        onTriggerClick();
+      }
+    } else if (onClick) {
       onClick();
     }
   };
 
   const handleMouseEnter = () => {
-    if (withArrow) {
-      setIsOpen(true);
+    if (withArrow && onMouseEnter) {
+      onMouseEnter();
     }
   };
 
   const handleMouseLeave = () => {
-    if (withArrow) {
-      setIsOpen(false);
+    if (withArrow && onMouseLeave) {
+      onMouseLeave();
     }
   };
 
+  const triggerClasses = `cont-btn-nav btn-nav ${open ? "dropdown-open" : ""}`;
+
   return (
-    <div 
-      className={`button-nav-wrapper ${isOpen ? 'dropdown-active' : ''}`}
+    <div
+      className={`button-nav-wrapper ${open ? "dropdown-active" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button 
-        type="button" 
-        className={`cont-btn-nav btn-nav ${isOpen ? 'dropdown-open' : ''}`} 
-        onClick={handleClick}
-      >
-        <span>{text}</span>
-        {withArrow && (
-          <img 
-            src={flechaImg} 
-            alt="" 
-            className={`arrow-btn-nav ${isOpen ? 'arrow-rotated' : ''}`} 
-          />
-        )}
-      </button>
+      {to && !withArrow ? (
+        <Link to={to} className={triggerClasses} onClick={onClick}>
+          <span>{text}</span>
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className={triggerClasses}
+          onClick={handleClick}
+        >
+          <span>{text}</span>
+          {withArrow && (
+            <img
+              src={flechaImg}
+              alt=""
+              className={`arrow-btn-nav ${open ? "arrow-rotated" : ""}`}
+            />
+          )}
+        </button>
+      )}
       {withArrow && dropdownContent && (
-        <div className={`dropdown-content ${isOpen ? 'dropdown-open' : ''}`}>
-          <div className="dropdown-inner">
-            {dropdownContent}
-          </div>
+        <div className={`dropdown-content ${open ? "dropdown-open" : ""}`}>
+          <div className="dropdown-inner">{dropdownContent}</div>
         </div>
       )}
     </div>
@@ -60,7 +80,13 @@ export default function ButtonNav({ text, onClick, withArrow, dropdownContent })
 
 ButtonNav.propTypes = {
   text: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  to: PropTypes.string,
+  onClick: PropTypes.func,
   withArrow: PropTypes.bool,
   dropdownContent: PropTypes.node,
+  dropdownId: PropTypes.string,
+  isOpen: PropTypes.bool,
+  onTriggerClick: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };

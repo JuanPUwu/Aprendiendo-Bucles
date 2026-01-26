@@ -53,6 +53,8 @@
   padding: 0;
   cursor: pointer;
   background-color: transparent;
+  text-decoration: none;
+  color: inherit;
 }
 
 .arrow-btn-nav {
@@ -95,7 +97,8 @@
   gap: 1rem;
 }
 
-.dropdown-inner button {
+.dropdown-inner button,
+.dropdown-inner a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -108,15 +111,19 @@
   font-size: 0.9rem;
   text-align: left;
   transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
 }
 
-.dropdown-inner button:hover div img {
+.dropdown-inner button:hover div img,
+.dropdown-inner a:hover div img {
   opacity: 1;
   width: 12px;
   height: 12px;
 }
 
-.dropdown-inner button p {
+.dropdown-inner button p,
+.dropdown-inner a p {
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
@@ -124,14 +131,16 @@
   display: block;
 }
 
-.dropdown-inner button div {
+.dropdown-inner button div,
+.dropdown-inner a div {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.4rem;
 }
 
-.dropdown-inner button div img {
+.dropdown-inner button div img,
+.dropdown-inner a div img {
   height: 12px;
   aspect-ratio: 1/1;
   transform: scale(1, 1);
@@ -141,11 +150,13 @@
   transition: 0.2s ease;
 }
 
-.dropdown-inner button span {
+.dropdown-inner button span,
+.dropdown-inner a span {
   font-size: 0.8rem;
   color: #777777;
 }
 
-.dropdown-inner button:last-child {
+.dropdown-inner button:last-child,
+.dropdown-inner a:last-child {
   margin-bottom: 0;
 }
