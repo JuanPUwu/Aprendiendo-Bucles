@@ -1,0 +1,14 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-container h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.page-container h3 {
+
+}

@@ -3,7 +3,6 @@
   height: 100%;
 }
 
-/* Área invisible que cubre el espacio entre el botón y el dropdown */
 .button-nav-wrapper.dropdown-active::after {
   content: "";
   position: absolute;
@@ -136,7 +135,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
 }
 
 .dropdown-inner button div img,
