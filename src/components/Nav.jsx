@@ -53,10 +53,12 @@ export default function Nav() {
     const handleClickOutside = (event) => {
       if (pinnedDropdown) {
         const clickedElement = event.target;
-        
+
         // Verificar si el clic está dentro del contenido del dropdown abierto
-        const dropdownContent = clickedElement.closest('.dropdown-content.dropdown-open');
-        
+        const dropdownContent = clickedElement.closest(
+          ".dropdown-content.dropdown-open",
+        );
+
         // Si el clic no está dentro del contenido del dropdown, cerrar
         // Esto incluye clics en otros botones del nav, título, o cualquier parte fuera del dropdown
         if (!dropdownContent) {
@@ -100,15 +102,29 @@ export default function Nav() {
       >
         <h1>Aprendiendo sobre bucles en scratch</h1>
       </Link>
-      <ButtonNav text="Bienvenida" to="/bienvenida" withArrow={false} onClick={closeDropdown} />
-      <ButtonNav text="Inicio" to="/inicio" withArrow={false} onClick={closeDropdown} />
+      <ButtonNav
+        text="Bienvenida"
+        to="/bienvenida"
+        withArrow={false}
+        onClick={closeDropdown}
+      />
+      <ButtonNav
+        text="Inicio"
+        to="/inicio"
+        withArrow={false}
+        onClick={closeDropdown}
+      />
       <ButtonNav
         text="Conceptualización"
         dropdownId={DROPDOWN_IDS.CONCEPTUALIZACION}
         withArrow={true}
         isOpen={isDropdownOpen(DROPDOWN_IDS.CONCEPTUALIZACION)}
-        onTriggerClick={() => handleDropdownTriggerClick(DROPDOWN_IDS.CONCEPTUALIZACION)}
-        onMouseEnter={() => handleDropdownMouseEnter(DROPDOWN_IDS.CONCEPTUALIZACION)}
+        onTriggerClick={() =>
+          handleDropdownTriggerClick(DROPDOWN_IDS.CONCEPTUALIZACION)
+        }
+        onMouseEnter={() =>
+          handleDropdownMouseEnter(DROPDOWN_IDS.CONCEPTUALIZACION)
+        }
         onMouseLeave={handleDropdownMouseLeave}
         dropdownContent={
           <>
@@ -119,9 +135,12 @@ export default function Nav() {
                   <p>¿Que es un bucle?</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Explicación básica de qué es un bucle y cómo se usa para repetir acciones en programación y Scratch.</span>
+                <span>
+                  Explicación básica de qué es un bucle y cómo se usa para
+                  repetir acciones en programación y Scratch.
+                </span>
               </>,
-              DROPDOWN_IDS.CONCEPTUALIZACION
+              DROPDOWN_IDS.CONCEPTUALIZACION,
             )}
             {createDropdownLink(
               "/conceptualizacion/horaDePracticar",
@@ -130,9 +149,12 @@ export default function Nav() {
                   <p>Llegó la hora de practicar</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Sección de actividades y ejercicios donde aplicar lo aprendido sobre bucles mediante ejemplos prácticos e interactivos.</span>
+                <span>
+                  Sección de actividades y ejercicios donde aplicar lo aprendido
+                  sobre bucles mediante ejemplos prácticos e interactivos.
+                </span>
               </>,
-              DROPDOWN_IDS.CONCEPTUALIZACION
+              DROPDOWN_IDS.CONCEPTUALIZACION,
             )}
             {createDropdownLink(
               "/conceptualizacion/compruebaAprendizaje",
@@ -141,9 +163,12 @@ export default function Nav() {
                   <p>Comprueba tu aprendizaje</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Espacio para evaluar lo aprendido sobre los bucles mediante preguntas y actividades de repaso.</span>
+                <span>
+                  Espacio para evaluar lo aprendido sobre los bucles mediante
+                  preguntas y actividades de repaso.
+                </span>
               </>,
-              DROPDOWN_IDS.CONCEPTUALIZACION
+              DROPDOWN_IDS.CONCEPTUALIZACION,
             )}
           </>
         }
@@ -153,7 +178,9 @@ export default function Nav() {
         dropdownId={DROPDOWN_IDS.BUCLE_FOR}
         withArrow={true}
         isOpen={isDropdownOpen(DROPDOWN_IDS.BUCLE_FOR)}
-        onTriggerClick={() => handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_FOR)}
+        onTriggerClick={() =>
+          handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_FOR)
+        }
         onMouseEnter={() => handleDropdownMouseEnter(DROPDOWN_IDS.BUCLE_FOR)}
         onMouseLeave={handleDropdownMouseLeave}
         dropdownContent={
@@ -165,9 +192,13 @@ export default function Nav() {
                   <p>¿Que es un bucle For?</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Explicación sencilla del bucle for y cómo se utiliza para repetir acciones un número determinado de veces en programación y Scratch.</span>
+                <span>
+                  Explicación sencilla del bucle for y cómo se utiliza para
+                  repetir acciones un número determinado de veces en
+                  programación y Scratch.
+                </span>
               </>,
-              DROPDOWN_IDS.BUCLE_FOR
+              DROPDOWN_IDS.BUCLE_FOR,
             )}
             {createDropdownLink(
               "/bucleFor/horaDePracticar",
@@ -176,9 +207,12 @@ export default function Nav() {
                   <p>Llegó la hora de practicar</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Sección de actividades y ejercicios donde aplicar lo aprendido sobre bucles mediante ejemplos prácticos e interactivos.</span>
+                <span>
+                  Sección de actividades y ejercicios donde aplicar lo aprendido
+                  sobre bucles mediante ejemplos prácticos e interactivos.
+                </span>
               </>,
-              DROPDOWN_IDS.BUCLE_FOR
+              DROPDOWN_IDS.BUCLE_FOR,
             )}
             {createDropdownLink(
               "/bucleFor/compruebaAprendizaje",
@@ -187,9 +221,12 @@ export default function Nav() {
                   <p>Comprueba tu aprendizaje</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Espacio para evaluar lo aprendido sobre los bucles mediante preguntas y actividades de repaso.</span>
+                <span>
+                  Espacio para evaluar lo aprendido sobre los bucles mediante
+                  preguntas y actividades de repaso.
+                </span>
               </>,
-              DROPDOWN_IDS.BUCLE_FOR
+              DROPDOWN_IDS.BUCLE_FOR,
             )}
           </>
         }
@@ -199,7 +236,9 @@ export default function Nav() {
         dropdownId={DROPDOWN_IDS.BUCLE_WHILE}
         withArrow={true}
         isOpen={isDropdownOpen(DROPDOWN_IDS.BUCLE_WHILE)}
-        onTriggerClick={() => handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_WHILE)}
+        onTriggerClick={() =>
+          handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_WHILE)
+        }
         onMouseEnter={() => handleDropdownMouseEnter(DROPDOWN_IDS.BUCLE_WHILE)}
         onMouseLeave={handleDropdownMouseLeave}
         dropdownContent={
@@ -211,9 +250,13 @@ export default function Nav() {
                   <p>¿Que es un bucle While?</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Explicación básica de qué es un bucle while y cómo se usa para repetir acciones mientras se cumple una condición en programación y en Scratch.</span>
+                <span>
+                  Explicación básica de qué es un bucle while y cómo se usa para
+                  repetir acciones mientras se cumple una condición en
+                  programación y en Scratch.
+                </span>
               </>,
-              DROPDOWN_IDS.BUCLE_WHILE
+              DROPDOWN_IDS.BUCLE_WHILE,
             )}
             {createDropdownLink(
               "/bucleWhile/horaDePracticar",
@@ -222,9 +265,12 @@ export default function Nav() {
                   <p>Llegó la hora de practicar</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Sección de actividades y ejercicios donde aplicar lo aprendido sobre bucles while mediante ejemplos prácticos e interactivos.</span>
+                <span>
+                  Sección de actividades y ejercicios donde aplicar lo aprendido
+                  sobre bucles while mediante ejemplos prácticos e interactivos.
+                </span>
               </>,
-              DROPDOWN_IDS.BUCLE_WHILE
+              DROPDOWN_IDS.BUCLE_WHILE,
             )}
             {createDropdownLink(
               "/bucleWhile/compruebaAprendizaje",
@@ -233,14 +279,22 @@ export default function Nav() {
                   <p>Comprueba tu aprendizaje</p>
                   <img src={flechaLink} alt="" />
                 </div>
-                <span>Espacio para evaluar lo aprendido sobre los bucles while mediante preguntas y actividades de repaso.</span>
+                <span>
+                  Espacio para evaluar lo aprendido sobre los bucles while
+                  mediante preguntas y actividades de repaso.
+                </span>
               </>,
-              DROPDOWN_IDS.BUCLE_WHILE
+              DROPDOWN_IDS.BUCLE_WHILE,
             )}
           </>
         }
       />
-      <ButtonNav text="Actividad recreativa" to="/actividadRecreativa" withArrow={false} onClick={closeDropdown} />
+      <ButtonNav
+        text="Actividad recreativa"
+        to="/actividadRecreativa"
+        withArrow={false}
+        onClick={closeDropdown}
+      />
       <ButtonSettings />
     </nav>
   );
