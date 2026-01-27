@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "../styles/buttonNav.css";
+import "../styles/nav.css";
 
 import flechaImg from "../assets/img/flecha.png";
 
@@ -54,11 +54,7 @@ export default function ButtonNav({
           <span>{text}</span>
         </Link>
       ) : (
-        <button
-          type="button"
-          className={triggerClasses}
-          onClick={handleClick}
-        >
+        <button type="button" className={triggerClasses} onClick={handleClick}>
           <span>{text}</span>
           {withArrow && (
             <img

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/buttonSettings.css";
+import "../styles/nav.css";
 import settingsImg from "../assets/img/settings.png";
 
 export default function ButtonSettings() {
