@@ -4,6 +4,9 @@ import { useState } from "react";
 // Components
 import CardExample from "../../components/CardExample";
 
+// Libraries
+import { motion, AnimatePresence } from "framer-motion";
+
 // Data
 import { sabiasQue, teHazPreguntado, buclesData } from "./bucleData";
 
@@ -11,20 +14,15 @@ import { sabiasQue, teHazPreguntado, buclesData } from "./bucleData";
 import "../../styles/pages.css";
 
 export default function QueEsUnBucle() {
-  const [optionSelected, setOptionSelected] = useState([]);
-  const [teHazPreguntadoSelected, setTeHazPreguntadoSelected] = useState(false);
-  const [sabiasQueSelected, setSabiasQueSelected] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const OPTIONS = {
+    SABIAS_QUE: "sabiasQue",
+    TE_HAS_PREGUNTADO: "teHasPreguntado",
+  };
 
   const SelectOption = (option) => {
-    if (option === sabiasQue) {
-      setOptionSelected(sabiasQue);
-      setSabiasQueSelected(true);
-      setTeHazPreguntadoSelected(false);
-    } else if (option === teHazPreguntado) {
-      setOptionSelected(teHazPreguntado);
-      setTeHazPreguntadoSelected(true);
-      setSabiasQueSelected(false);
-    }
+    setSelectedOption(option);
   };
 
   return (
@@ -33,23 +31,52 @@ export default function QueEsUnBucle() {
 
       <div className="cont-options-question">
         <button
-          onClick={() => SelectOption(sabiasQue)}
-          className={sabiasQueSelected ? "selected" : ""}
+          onClick={() => SelectOption(OPTIONS.SABIAS_QUE)}
+          className={selectedOption === OPTIONS.SABIAS_QUE ? "selected" : ""}
         >
           <span>¿Sabías que?...</span>
         </button>
+
         <button
-          onClick={() => SelectOption(teHazPreguntado)}
-          className={teHazPreguntadoSelected ? "selected" : ""}
+          onClick={() => SelectOption(OPTIONS.TE_HAS_PREGUNTADO)}
+          className={
+            selectedOption === OPTIONS.TE_HAS_PREGUNTADO ? "selected" : ""
+          }
         >
-          <span>¿Te haz preguntado?...</span>
+          <span>¿Te has preguntado?...</span>
         </button>
       </div>
 
       <div className="cont-option-selected">
-        {optionSelected.map((option, index) => (
-          <span key={index}>{option}</span>
-        ))}
+        <AnimatePresence mode="wait">
+          {selectedOption === OPTIONS.SABIAS_QUE && (
+            <motion.div
+              key="sabiasQue"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeIn" }}
+            >
+              {sabiasQue.map((item, index) => (
+                <span key={index}>{item}</span>
+              ))}
+            </motion.div>
+          )}
+
+          {selectedOption === OPTIONS.TE_HAS_PREGUNTADO && (
+            <motion.div
+              key="teHasPreguntado"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeIn" }}
+            >
+              {teHazPreguntado.map((item, index) => (
+                <span key={index}>{item}</span>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <h3>
