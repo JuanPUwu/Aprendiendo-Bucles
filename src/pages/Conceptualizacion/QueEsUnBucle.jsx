@@ -2,7 +2,8 @@
 import { useState } from "react";
 
 // Components
-import CardExample from "../../components/CardExample";
+import CardExample from "../../components/CardExample.jsx";
+import SoupLetter from "../../components/SoupLetter.jsx";
 
 // Libraries
 import { motion, AnimatePresence } from "framer-motion";
@@ -94,6 +95,12 @@ export default function QueEsUnBucle() {
           />
         ))}
       </div>
+      <h3 className="h3-large">
+        Completa la sopa de letras y al final descubrirás qué
+        <br />
+        es un bucle en programación según las palabras encontradas
+      </h3>
+      <SoupLetter />
     </div>
   );
 }

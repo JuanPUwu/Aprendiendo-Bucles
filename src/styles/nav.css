@@ -8,6 +8,8 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100dvw;
+  overflow: hidden;
   justify-content: space-between;
   padding: 1.4rem;
 }
