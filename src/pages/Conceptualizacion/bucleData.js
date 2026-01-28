@@ -5,35 +5,11 @@ export const sabiasQue = [
 ];
 
 export const teHazPreguntado = [
-  "¿Qué cosas o situaciones se repiten en tu vida cotidiana, una y otra vez?",
-  "¿Qué podrías crear en Scratch si tuvieras un bucle que se repite cierta cantidad de veces?",
+  "I. ¿Qué cosas o situaciones se repiten en tu vida cotidiana, una y otra vez?",
+  "II. ¿Qué podrías crear en Scratch si tuvieras un bucle que se repite cierta cantidad de veces?",
 ];
 
 export const buclesData = [
-  {
-    title: "ForEach",
-    description:
-      "Recorre directamente los elementos de una colección sin necesidad de índice. Es más legible y seguro para listas o arreglos.",
-    code: `al presionar bandera verde
-establecer i a 1
-repetir (longitud de [numeros])
-    decir (elemento (i) de [numeros]) por 1 segundos
-    cambiar i por 1`,
-    codeDescription:
-      "En este caso, la acción es mostrar el número en pantalla.",
-  },
-  {
-    title: "For (Sin condición de salida)",
-    description:
-      "Forma especial del bucle for sin condición de salida. Se repite indefinidamente hasta que se interrumpe con una instrucción como break",
-    code: `al presionar bandera verde
-por siempre
-    si <tocando borde> entonces
-        decir "¡Cuidado!"
-    fin
-fin`,
-    codeDescription: "Un reloj digital que actualiza la hora constantemente.",
-  },
   {
     title: "For",
     description:
@@ -60,7 +36,7 @@ decir "¡Llegué al borde!"`,
       "Pedir una contraseña hasta que el usuario la escriba correctamente.",
   },
   {
-    title: "Do While",
+    title: "Do-While",
     description:
       "Similar al while, pero la condición se evalúa después de ejecutar el bloque. Garantiza al menos una ejecución.",
     code: `al presionar bandera verde

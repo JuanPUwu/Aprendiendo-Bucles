@@ -6,10 +6,10 @@ import { Link, useLocation } from "react-router-dom";
 
 // Componentes
 import ButtonNav from "./ButtonNav.jsx";
-import ButtonSettings from "./ButtonSettings.jsx";
 
 // Imagenes
 import flechaLink from "../assets/img/flecha-link.png";
+import settingsImg from "../assets/img/settings.png";
 
 const DROPDOWN_IDS = {
   CONCEPTUALIZACION: "conceptualizacion",
@@ -90,6 +90,17 @@ export default function Nav() {
       </Link>
     );
   };
+
+  const [rotating, setRotating] = useState(false);
+
+  function animacionRotar() {
+    if (!rotating) {
+      setRotating(true);
+      setTimeout(() => {
+        setRotating(false);
+      }, 400);
+    }
+  }
 
   return (
     <nav ref={navRef}>
@@ -295,7 +306,13 @@ export default function Nav() {
         withArrow={false}
         onClick={closeDropdown}
       />
-      <ButtonSettings />
+      <button className="settings-btn" onClick={animacionRotar}>
+        <img
+          src={settingsImg}
+          alt="Settings"
+          className={rotating ? "rotate-animated" : "rotate-instant"}
+        />
+      </button>
     </nav>
   );
 }
