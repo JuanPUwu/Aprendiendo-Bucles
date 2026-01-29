@@ -66,6 +66,18 @@
   border-color: #999;
 }
 
+/* Desabilitar hover effects en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .cell:hover:not(.selected):not(.start) {
+    background-color: #fff;
+    border-color: #ccc;
+  }
+
+  .grid {
+    touch-action: none;
+  }
+}
+
 .word-list {
   margin: 0;
   padding: 20px;

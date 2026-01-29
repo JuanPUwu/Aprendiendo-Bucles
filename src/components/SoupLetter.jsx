@@ -104,7 +104,13 @@ export default function SoupLetter() {
   const [foundWords, setFoundWords] = useState([]);
   const [currentPath, setCurrentPath] = useState([]);
 
-  const handleCellClick = (row, col) => {
+  const getCellFromEvent = (e) => {
+    const cell = e.currentTarget;
+    const rowCol = cell.key.split("-").map(Number);
+    return rowCol;
+  };
+
+  const handleCellStart = (row, col) => {
     // Si no hay celda inicial, establecerla
     if (!startCell) {
       setStartCell([row, col]);
@@ -134,12 +140,39 @@ export default function SoupLetter() {
     reset();
   };
 
-  const handleMouseMove = (row, col) => {
+  const handleMove = (row, col) => {
     // Si hay una celda inicial pero no hemos completado la palabra, mostrar preview
     if (startCell && !selected.includes([row, col])) {
       const path = buildSelection(startCell, [row, col]);
       if (path.length > 0) {
         setCurrentPath(path);
+      }
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    if (element && element.classList.contains("cell")) {
+      const key = element.key;
+      if (key) {
+        const [row, col] = key.split("-").map(Number);
+        handleMove(row, col);
+      }
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    const touch = e.changedTouches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    if (element && element.classList.contains("cell")) {
+      const key = element.key;
+      if (key) {
+        const [row, col] = key.split("-").map(Number);
+        handleCellStart(row, col);
       }
     }
   };
@@ -186,7 +219,11 @@ export default function SoupLetter() {
 
   return (
     <div className="word-search">
-      <div className="grid">
+      <div
+        className="grid"
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {grid.map((row, r) =>
           row.map((letter, c) => (
             <div
@@ -194,8 +231,9 @@ export default function SoupLetter() {
               className={`cell ${isSelected(r, c) ? "selected" : ""} ${
                 isPreview(r, c) ? "preview" : ""
               } ${isStart(r, c) ? "start" : ""}`}
-              onClick={() => handleCellClick(r, c)}
-              onMouseMove={() => handleMouseMove(r, c)}
+              onClick={() => handleCellStart(r, c)}
+              onMouseMove={() => handleMove(r, c)}
+              onTouchStart={() => handleCellStart(r, c)}
             >
               {letter}
             </div>
