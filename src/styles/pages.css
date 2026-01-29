@@ -36,7 +36,7 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 1rem;
   background-color: rgb(246, 246, 246);
   transition: 0.1s ease-in;
   position: relative;
