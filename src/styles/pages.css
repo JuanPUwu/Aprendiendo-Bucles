@@ -13,6 +13,13 @@
   color: rgb(34, 34, 34);
 }
 
+.page-container h5 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 1rem;
+  font-weight: 400;
+}
+
 .cont-options-question {
   display: flex;
   flex-direction: row;

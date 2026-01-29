@@ -30,7 +30,7 @@ nav {
 .nav-title-link h1 {
   font-size: 1.6rem;
   margin: 0;
-  font-weight: 500;
+  font-weight: 800;
   cursor: pointer;
 }
 
@@ -94,6 +94,7 @@ nav {
   background-color: transparent;
   text-decoration: none;
   color: inherit;
+  font-weight: 600;
 }
 
 .arrow-btn-nav {
