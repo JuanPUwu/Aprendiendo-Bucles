@@ -41,7 +41,7 @@ export default function ButtonNav({
     }
   };
 
-  const triggerClasses = `cont-btn-nav btn-nav ${open ? "dropdown-open" : ""}`;
+  const triggerClasses = `btn-nav ${open ? "dropdown-open" : ""}`;
 
   return (
     <div
@@ -49,22 +49,16 @@ export default function ButtonNav({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {to && !withArrow ? (
-        <Link to={to} className={triggerClasses} onClick={onClick}>
-          <span>{text}</span>
-        </Link>
-      ) : (
-        <button type="button" className={triggerClasses} onClick={handleClick}>
-          <span>{text}</span>
-          {withArrow && (
-            <img
-              src={flechaImg}
-              alt=""
-              className={`arrow-btn-nav ${open ? "arrow-rotated" : ""}`}
-            />
-          )}
-        </button>
-      )}
+      <Link to={to || "#"} className={triggerClasses} onClick={handleClick}>
+        <span>{text}</span>
+        {withArrow && (
+          <img
+            src={flechaImg}
+            alt=""
+            className={`arrow-btn-nav ${open ? "arrow-rotated" : ""}`}
+          />
+        )}
+      </Link>
       {withArrow && dropdownContent && (
         <div className={`dropdown-content ${open ? "dropdown-open" : ""}`}>
           <div className="dropdown-inner">{dropdownContent}</div>
