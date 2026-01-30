@@ -1,0 +1,145 @@
+/* ChooseLoopGame - Juego de elegir el bucle correcto */
+
+.choose-loop-game {
+  width: 100%;
+  max-width: 60rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(246, 246, 246);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.choose-loop-question {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+
+.choose-loop-options {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .choose-loop-options {
+    flex-direction: column;
+  }
+}
+
+.choose-loop-option {
+  flex: 1;
+  min-height: 4rem;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #ffffff;
+  transition: 0.15s ease;
+  position: relative;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.choose-loop-option::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 0;
+  z-index: -1;
+  border-radius: 10px;
+  background-color: rgb(200, 200, 200);
+  transition: 0.3s ease;
+}
+
+.choose-loop-option:hover:not(.answered)::after {
+  width: calc(100% + 4px);
+}
+
+.choose-loop-option span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.choose-loop-option.correct {
+  background-color: #dcfce7;
+  border-color: #16a34a;
+  color: #166534;
+}
+
+.choose-loop-option.selected.correct::after {
+  background-color: #16a34a;
+  width: calc(100% + 4px);
+}
+
+.choose-loop-option.incorrect {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.choose-loop-option.selected.incorrect::after {
+  background-color: #ef4444;
+  width: calc(100% + 4px);
+}
+
+.choose-loop-option.dimmed {
+  opacity: 0.6;
+}
+
+.choose-loop-option.dimmed::after {
+  width: 0 !important;
+}
+
+.choose-loop-option.answered {
+  cursor: default;
+  pointer-events: none;
+}
+
+.choose-loop-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.choose-loop-next-btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.choose-loop-next-btn:hover {
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.12);
+  background-color: rgb(50, 50, 50);
+}

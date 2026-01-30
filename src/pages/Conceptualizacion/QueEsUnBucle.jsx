@@ -14,7 +14,7 @@ import { sabiasQue, teHazPreguntado, buclesData } from "./bucleData";
 import { exampleData } from "./exampleData";
 
 // Styles
-import "../../styles/pages.css";
+import "../../styles/QueEsUnBucle.css";
 
 export default function QueEsUnBucle() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -29,28 +29,26 @@ export default function QueEsUnBucle() {
   };
 
   return (
-    <div className="page-container">
-      <h2>¿Qué es un bucle?</h2>
+    <div className="page-que-es-un-bucle">
+      <h2 className="page-que-es-un-bucle__title">¿Qué es un bucle?</h2>
 
-      <div className="cont-options-question">
+      <div className="page-que-es-un-bucle__options">
         <button
           onClick={() => SelectOption(OPTIONS.SABIAS_QUE)}
-          className={selectedOption === OPTIONS.SABIAS_QUE ? "selected" : ""}
+          className={`page-que-es-un-bucle__option-btn ${selectedOption === OPTIONS.SABIAS_QUE ? "selected" : ""}`}
         >
           <span>¿Sabías que?...</span>
         </button>
 
         <button
           onClick={() => SelectOption(OPTIONS.TE_HAS_PREGUNTADO)}
-          className={
-            selectedOption === OPTIONS.TE_HAS_PREGUNTADO ? "selected" : ""
-          }
+          className={`page-que-es-un-bucle__option-btn ${selectedOption === OPTIONS.TE_HAS_PREGUNTADO ? "selected" : ""}`}
         >
           <span>¿Te has preguntado?...</span>
         </button>
       </div>
 
-      <div className="cont-option-selected">
+      <div className="page-que-es-un-bucle__selected-content">
         <AnimatePresence mode="wait">
           {selectedOption === OPTIONS.SABIAS_QUE && (
             <motion.div
@@ -82,13 +80,13 @@ export default function QueEsUnBucle() {
         </AnimatePresence>
       </div>
 
-      <h3>
+      <h3 className="page-que-es-un-bucle__subtitle">
         Tipos de bucles en programación con ejemplos
         <br />
         en pseudocódigo de Scratch.
       </h3>
 
-      <div className="cont-example">
+      <div className="page-que-es-un-bucle__examples">
         {buclesData.map((bucle, index) => (
           <CardExample
             key={index}
@@ -99,13 +97,13 @@ export default function QueEsUnBucle() {
           />
         ))}
       </div>
-      <h3 className="h3-large">
+      <h3 className="page-que-es-un-bucle__subtitle--large">
         Completa la sopa de letras y al final descubrirás qué
         <br />
         es un bucle en programación según las palabras encontradas
       </h3>
       <SoupLetter />
-      <p>
+      <p className="page-que-es-un-bucle__info-box">
         Cuando creamos <strong>videojuegos</strong>, usamos{" "}
         <strong>instrucciones</strong> para decirle al personaje qué hacer.
         Estas instrucciones forman parte del <strong>código</strong>, que sigue
@@ -119,7 +117,9 @@ export default function QueEsUnBucle() {
         vida gracias a la <strong>repetición</strong>, la{" "}
         <strong>lógica</strong> y el poder de la programación.
       </p>
-      <h3>Hagamos un repaso rápido</h3>
+      <h3 className="page-que-es-un-bucle__review-title">
+        Hagamos un repaso rápido
+      </h3>
       {exampleData.map((example, index) => (
         <CardExaPseudo
           key={index}

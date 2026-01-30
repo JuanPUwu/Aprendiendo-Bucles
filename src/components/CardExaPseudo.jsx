@@ -1,10 +1,9 @@
 // Libraries
-import { img, title } from "framer-motion/client";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // Styles
-import "../styles/cardExaPseudo.css";
+import "../styles/CardExaPseudo.css";
 
 export default function CardExaPseudo({ explain, title, img, example, code }) {
   return (

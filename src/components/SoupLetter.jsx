@@ -1,4 +1,4 @@
-import "../styles/soupLetter.css";
+import "../styles/SoupLetter.css";
 import { useState, useMemo } from "react";
 
 const WORDS = [

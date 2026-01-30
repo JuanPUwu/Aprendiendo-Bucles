@@ -1,0 +1,141 @@
+/* QueEsUnBucle - Página de conceptualización */
+
+.page-que-es-un-bucle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 2.4rem 0;
+}
+
+.page-que-es-un-bucle__title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+.page-que-es-un-bucle__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  width: 80dvw;
+  max-width: 45rem;
+  gap: 2.4rem;
+}
+
+.page-que-es-un-bucle__option-btn {
+  min-width: 0;
+  min-height: 6rem;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: rgb(246, 246, 246);
+  transition: 0.1s ease-in;
+  position: relative;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  word-wrap: break-word;
+}
+
+.page-que-es-un-bucle__option-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 0;
+  z-index: -1;
+  border-radius: 10px;
+  background-color: rgb(200, 200, 200);
+  transition: 0.3s ease;
+}
+
+.page-que-es-un-bucle__option-btn:hover:not(.selected)::after {
+  width: calc(100% + 4px);
+}
+
+.page-que-es-un-bucle__option-btn.selected::after {
+  width: calc(100% + 4px);
+  background-color: rgb(73, 73, 73);
+}
+
+.page-que-es-un-bucle__option-btn span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.page-que-es-un-bucle__selected-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80dvw;
+  max-width: 55rem;
+  min-height: 12rem;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 2px solid rgb(73, 73, 73);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.page-que-es-un-bucle__selected-content span {
+  font-size: 1.4rem;
+  display: flex;
+  text-align: center;
+}
+
+.page-que-es-un-bucle__subtitle {
+  font-size: 1.6rem;
+  margin: 0 2rem;
+  text-align: center;
+}
+
+.page-que-es-un-bucle__subtitle--large {
+  font-size: 1.6rem;
+  margin: 0 2rem;
+  text-align: center;
+}
+
+.page-que-es-un-bucle__examples {
+  width: 100%;
+  max-width: 60rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(425px, 100%), 1fr));
+  gap: 3rem;
+  box-sizing: border-box;
+}
+
+/* Centrar última tarjeta si es impar */
+.page-que-es-un-bucle__examples .card-example:last-child:nth-child(1),
+.page-que-es-un-bucle__examples
+  .card-example:last-child:nth-child(2n + 1):nth-last-child(1) {
+  grid-column: 1 / -1;
+}
+
+.page-que-es-un-bucle__info-box {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 2rem;
+  width: 80dvw;
+  max-width: 55rem;
+  text-align: center;
+  border: 2px solid rgb(133, 133, 133);
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.page-que-es-un-bucle__review-title {
+  font-size: 1.6rem;
+  margin: 0 2rem;
+  text-align: center;
+}

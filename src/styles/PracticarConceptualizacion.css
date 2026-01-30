@@ -1,0 +1,50 @@
+/* PracticarConceptualizacion - Página de práctica */
+
+.page-practicar-conceptualizacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 2.4rem 0;
+}
+
+.page-practicar-conceptualizacion__title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+.page-practicar-conceptualizacion__description {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 2rem;
+  width: 80dvw;
+  max-width: 55rem;
+  text-align: center;
+  border: 2px solid rgb(133, 133, 133);
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.page-practicar-conceptualizacion__level-title {
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0;
+}
+
+.page-practicar-conceptualizacion__feedback {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 2rem;
+  width: 80dvw;
+  max-width: 55rem;
+  text-align: center;
+  border: 2px dashed rgb(133, 133, 133);
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
