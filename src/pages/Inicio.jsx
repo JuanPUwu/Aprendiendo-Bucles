@@ -1,3 +1,3 @@
 export default function Inicio() {
-  return <div>Inicio</div>;
+  return <div>Inicio 2.0</div>;
 }
