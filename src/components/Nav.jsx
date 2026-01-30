@@ -67,8 +67,13 @@ export default function Nav() {
           ".menu-accordion-trigger",
         );
 
-        // Si el clic no está en dropdown desktop ni en triggers móviles, cerrar
-        if (!dropdownContent && !mobileAccordionTrigger) {
+        // Verificar si el clic está en un botón trigger del dropdown desktop
+        const desktopTrigger = clickedElement.closest(
+          ".button-nav-wrapper .btn-nav",
+        );
+
+        // Si el clic no está en dropdown desktop, ni en triggers, cerrar
+        if (!dropdownContent && !mobileAccordionTrigger && !desktopTrigger) {
           closeDropdown();
         }
       }

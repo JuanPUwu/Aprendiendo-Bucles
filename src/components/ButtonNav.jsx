@@ -19,8 +19,9 @@ export default function ButtonNav({
   const isControlledDropdown = withArrow && dropdownId != null;
   const open = isControlledDropdown ? isOpen : false;
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     if (withArrow) {
+      e.preventDefault();
       if (onTriggerClick) {
         onTriggerClick();
       }
@@ -41,6 +42,15 @@ export default function ButtonNav({
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (withArrow && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      if (onTriggerClick) {
+        onTriggerClick();
+      }
+    }
+  };
+
   const triggerClasses = `btn-nav ${open ? "dropdown-open" : ""}`;
 
   return (
@@ -49,16 +59,27 @@ export default function ButtonNav({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link to={to || "#"} className={triggerClasses} onClick={handleClick}>
-        <span>{text}</span>
-        {withArrow && (
+      {withArrow ? (
+        <button
+          type="button"
+          className={triggerClasses}
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+          aria-expanded={open}
+          aria-haspopup="true"
+        >
+          <span>{text}</span>
           <img
             src={flechaImg}
             alt=""
             className={`arrow-btn-nav ${open ? "arrow-rotated" : ""}`}
           />
-        )}
-      </Link>
+        </button>
+      ) : (
+        <Link to={to || "#"} className={triggerClasses} onClick={handleClick}>
+          <span>{text}</span>
+        </Link>
+      )}
       {withArrow && dropdownContent && (
         <div className={`dropdown-content ${open ? "dropdown-open" : ""}`}>
           <div className="dropdown-inner">{dropdownContent}</div>
