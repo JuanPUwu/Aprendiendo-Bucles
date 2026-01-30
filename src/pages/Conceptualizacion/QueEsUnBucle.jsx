@@ -5,6 +5,7 @@ import { useState } from "react";
 import CardExample from "../../components/CardExample.jsx";
 import SoupLetter from "../../components/SoupLetter.jsx";
 import CardExaPseudo from "../../components/CardExaPseudo.jsx";
+import Footer from "../../components/Footer.jsx";
 
 // Libraries
 import { motion, AnimatePresence } from "framer-motion";
@@ -130,6 +131,8 @@ export default function QueEsUnBucle() {
           code={example.code}
         />
       ))}
+
+      <Footer />
     </div>
   );
 }

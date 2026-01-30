@@ -1,0 +1,312 @@
+/* Inicio - Página principal */
+
+.page-inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 2.4rem 0;
+}
+
+.page-inicio__title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+}
+
+.page-inicio__description,
+.page-inicio__carousel-description,
+.page-inicio__video-description {
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 0 2rem;
+  width: 80dvw;
+  max-width: 55rem;
+  text-align: center;
+  color: rgb(60, 60, 60);
+  line-height: 1.6;
+}
+
+/* Tabs */
+
+.page-inicio__tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  width: 80dvw;
+  max-width: 55rem;
+  gap: 1.6rem;
+}
+
+.page-inicio__tab-btn {
+  min-width: 0;
+  min-height: 6rem;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: rgb(246, 246, 246);
+  transition: 0.1s ease-in;
+  position: relative;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  word-wrap: break-word;
+  color: black;
+}
+
+.page-inicio__tab-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 0;
+  z-index: -1;
+  border-radius: 10px;
+  background-color: rgb(200, 200, 200);
+  transition: 0.3s ease;
+}
+
+.page-inicio__tab-btn:hover:not(.selected)::after {
+  width: calc(100% + 4px);
+}
+
+.page-inicio__tab-btn.selected::after {
+  width: calc(100% + 4px);
+  background-color: rgb(73, 73, 73);
+}
+
+.page-inicio__tab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80dvw;
+  max-width: 55rem;
+  min-height: 20rem;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 2px solid rgb(73, 73, 73);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.page-inicio__tab-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.page-inicio__tab-item {
+  padding: 1.2rem;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(200, 200, 200);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.page-inicio__tab-item-text {
+  font-size: 1.3rem;
+  color: rgb(60, 60, 60);
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Carousel */
+
+.page-inicio__carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  width: 80dvw;
+  max-width: 60rem;
+  position: relative;
+}
+
+.page-inicio__carousel-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25rem;
+}
+
+.page-inicio__carousel-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: rgb(246, 246, 246);
+  border: 2px solid rgb(133, 133, 133);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+.page-inicio__carousel-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 12rem;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  border: 2px dashed rgb(180, 180, 180);
+  font-size: 1.4rem;
+  color: rgb(100, 100, 100);
+  font-style: italic;
+}
+
+.page-inicio__carousel-title {
+  font-size: 1.6rem;
+  margin: 0;
+  color: rgb(34, 34, 34);
+  text-align: center;
+}
+
+.page-inicio__carousel-text {
+  font-size: 1.3rem;
+  margin: 0;
+  color: rgb(60, 60, 60);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.page-inicio__carousel-btn {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid rgb(73, 73, 73);
+  background-color: rgb(246, 246, 246);
+  cursor: pointer;
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.12),
+    0 3px 8px rgba(0, 0, 0, 0.08);
+  color: rgb(73, 73, 73);
+  line-height: 1;
+  padding: 0;
+}
+
+.page-inicio__carousel-btn:hover {
+  background-color: rgb(73, 73, 73);
+  color: white;
+  transform: scale(1.1);
+}
+
+.page-inicio__carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.page-inicio__carousel-indicators {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.page-inicio__carousel-indicator {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid rgb(133, 133, 133);
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
+  transition: 0.2s ease;
+  padding: 0;
+}
+
+.page-inicio__carousel-indicator:hover {
+  background-color: rgb(150, 150, 150);
+  transform: scale(1.2);
+}
+
+.page-inicio__carousel-indicator.active {
+  background-color: rgb(73, 73, 73);
+  border-color: rgb(73, 73, 73);
+  transform: scale(1.3);
+}
+
+/* Video */
+
+.page-inicio__video {
+  width: 80dvw;
+  max-width: 55rem;
+  display: flex;
+  justify-content: center;
+}
+
+.page-inicio__video-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 20rem;
+  border-radius: 8px;
+  background-color: rgb(246, 246, 246);
+  border: 2px dashed rgb(180, 180, 180);
+  font-size: 1.4rem;
+  color: rgb(100, 100, 100);
+  font-style: italic;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Citation */
+
+.page-inicio__citation {
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 1.2rem 2rem;
+  width: 80dvw;
+  max-width: 55rem;
+  text-align: center;
+  color: rgb(80, 80, 80);
+  font-style: italic;
+  border-left: 3px solid rgb(133, 133, 133);
+  background-color: rgb(250, 250, 250);
+  line-height: 1.6;
+}
+
+.page-inicio__citation a {
+  color: rgb(40, 100, 200);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.page-inicio__citation a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .page-inicio__carousel {
+    flex-direction: column;
+  }
+
+  .page-inicio__carousel-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2rem;
+  }
+
+  .page-inicio__tabs {
+    grid-template-columns: 1fr;
+  }
+}

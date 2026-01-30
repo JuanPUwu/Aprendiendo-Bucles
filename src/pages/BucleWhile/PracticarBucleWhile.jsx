@@ -1,3 +1,11 @@
+// Components
+import Footer from "../../components/Footer.jsx";
+
 export default function PracticarBucleWhile() {
-  return <div>Practicar bucle while</div>;
+  return (
+    <div>
+      Practicar bucle while
+      <Footer />
+    </div>
+  );
 }
