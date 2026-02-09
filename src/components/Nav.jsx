@@ -8,11 +8,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Componentes
 import ButtonNav from "./ButtonNav.jsx";
+import SettingsModal from "./SettingsModal.jsx";
 
 // Imagenes
 import flechaLink from "../assets/img/flecha-link.png";
 import settingsImg from "../assets/img/settings.png";
 import arowImg from "../assets/img/flecha.png";
+import bloqueadoImg from "../assets/img/bloquear.png";
 
 const DROPDOWN_IDS = {
   CONCEPTUALIZACION: "conceptualizacion",
@@ -25,15 +27,52 @@ export default function Nav() {
   const navRef = useRef(null);
   const [pinnedDropdown, setPinnedDropdown] = useState(null);
   const [hoveredDropdown, setHoveredDropdown] = useState(null);
+  const [isSettingsDropdownOpen, setIsSettingsDropdownOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
+  const settingsDropdownRef = useRef(null);
+
+  const getUnlockState = () => ({
+    bucleFor: Boolean(localStorage.getItem("compruebaConceptualizacionResult")),
+    bucleWhile: Boolean(localStorage.getItem("compruebaBucleForResult")),
+    actividad: Boolean(localStorage.getItem("compruebaBucleWhileResult")),
+  });
+
+  const [unlockState, setUnlockState] = useState(() => getUnlockState());
+
+  useEffect(() => {
+    const handleProgressUpdate = () => {
+      setUnlockState(getUnlockState());
+    };
+
+    window.addEventListener("storage", handleProgressUpdate);
+    window.addEventListener("progress-updated", handleProgressUpdate);
+
+    return () => {
+      window.removeEventListener("storage", handleProgressUpdate);
+      window.removeEventListener("progress-updated", handleProgressUpdate);
+    };
+  }, []);
+
+  const isBucleForLocked = !unlockState.bucleFor;
+  const isBucleWhileLocked = !unlockState.bucleWhile;
+  const isActividadLocked = !unlockState.actividad;
+
+  const isDropdownLocked = (id) => {
+    if (id === DROPDOWN_IDS.BUCLE_FOR) return isBucleForLocked;
+    if (id === DROPDOWN_IDS.BUCLE_WHILE) return isBucleWhileLocked;
+    return false;
+  };
 
   const isDropdownOpen = (id) =>
     pinnedDropdown === id || (!pinnedDropdown && hoveredDropdown === id);
 
   const handleDropdownTriggerClick = (id) => {
+    if (isDropdownLocked(id)) return;
     setPinnedDropdown((prev) => (prev === id ? null : id));
   };
 
   const handleDropdownMouseEnter = (id) => {
+    if (isDropdownLocked(id)) return;
     setHoveredDropdown(id);
   };
 
@@ -46,6 +85,19 @@ export default function Nav() {
     setHoveredDropdown(null);
   }, []);
 
+  const handleSettingsDropdownClick = () => {
+    setIsSettingsDropdownOpen((prev) => !prev);
+  };
+
+  const handleSettingsOptionClick = (modalType) => {
+    setActiveModal(modalType);
+    setIsSettingsDropdownOpen(false);
+  };
+
+  const handleCloseModal = () => {
+    setActiveModal(null);
+  };
+
   const handleDropdownLinkClick = (to) => (e) => {
     closeDropdown();
     if (location.pathname === to) e.preventDefault();
@@ -54,6 +106,19 @@ export default function Nav() {
   // Cerrar dropdown al hacer clic fuera del dropdown específico
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Cerrar settings dropdown solo si el clic está completamente fuera
+      if (isSettingsDropdownOpen && settingsDropdownRef.current) {
+        // Verificar si el clic está en el botón o dentro del dropdown
+        const isClickInsideButton = event.target.closest(".settings-btn");
+        const isClickInsideDropdown =
+          event.target.closest(".settings-dropdown");
+
+        // Solo cerrar si el clic está completamente afuera
+        if (!isClickInsideButton && !isClickInsideDropdown) {
+          setIsSettingsDropdownOpen(false);
+        }
+      }
+
       if (pinnedDropdown) {
         const clickedElement = event.target;
 
@@ -84,11 +149,25 @@ export default function Nav() {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [pinnedDropdown, closeDropdown]);
+  }, [pinnedDropdown, closeDropdown, isSettingsDropdownOpen]);
 
   // Helper para crear Links del dropdown con accesibilidad condicional
-  const createDropdownLink = (to, children, dropdownId) => {
+  const createDropdownLink = (to, children, dropdownId, isLocked = false) => {
     const isOpen = isDropdownOpen(dropdownId);
+    if (isLocked) {
+      return (
+        <span
+          className="dropdown-link dropdown-link--locked"
+          tabIndex={-1}
+          aria-disabled="true"
+          aria-hidden={!isOpen}
+        >
+          {children}
+          <img src={bloqueadoImg} alt="" className="dropdown-lock-icon" />
+        </span>
+      );
+    }
+
     return (
       <Link
         to={to}
@@ -103,9 +182,6 @@ export default function Nav() {
 
   // Estado para el menú hamburguesa
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Manejo de la animación de rotación del botón de configuración
-  const [rotacion, setRotacion] = useState(0);
 
   const handleMenuToggle = () => {
     setIsMenuOpen((prev) => {
@@ -218,6 +294,8 @@ export default function Nav() {
               handleDropdownMouseEnter(DROPDOWN_IDS.BUCLE_FOR)
             }
             onMouseLeave={handleDropdownMouseLeave}
+            disabled={isBucleForLocked}
+            lockIconSrc={bloqueadoImg}
             dropdownContent={
               <>
                 {createDropdownLink(
@@ -234,6 +312,7 @@ export default function Nav() {
                     </span>
                   </>,
                   DROPDOWN_IDS.BUCLE_FOR,
+                  isBucleForLocked,
                 )}
                 {createDropdownLink(
                   "/bucleFor/horaDePracticar",
@@ -249,6 +328,7 @@ export default function Nav() {
                     </span>
                   </>,
                   DROPDOWN_IDS.BUCLE_FOR,
+                  isBucleForLocked,
                 )}
                 {createDropdownLink(
                   "/bucleFor/compruebaAprendizaje",
@@ -263,6 +343,7 @@ export default function Nav() {
                     </span>
                   </>,
                   DROPDOWN_IDS.BUCLE_FOR,
+                  isBucleForLocked,
                 )}
               </>
             }
@@ -279,6 +360,8 @@ export default function Nav() {
               handleDropdownMouseEnter(DROPDOWN_IDS.BUCLE_WHILE)
             }
             onMouseLeave={handleDropdownMouseLeave}
+            disabled={isBucleWhileLocked}
+            lockIconSrc={bloqueadoImg}
             dropdownContent={
               <>
                 {createDropdownLink(
@@ -295,6 +378,7 @@ export default function Nav() {
                     </span>
                   </>,
                   DROPDOWN_IDS.BUCLE_WHILE,
+                  isBucleWhileLocked,
                 )}
                 {createDropdownLink(
                   "/bucleWhile/horaDePracticar",
@@ -310,6 +394,7 @@ export default function Nav() {
                     </span>
                   </>,
                   DROPDOWN_IDS.BUCLE_WHILE,
+                  isBucleWhileLocked,
                 )}
                 {createDropdownLink(
                   "/bucleWhile/compruebaAprendizaje",
@@ -324,6 +409,7 @@ export default function Nav() {
                     </span>
                   </>,
                   DROPDOWN_IDS.BUCLE_WHILE,
+                  isBucleWhileLocked,
                 )}
               </>
             }
@@ -333,6 +419,8 @@ export default function Nav() {
             to="/actividadRecreativa"
             withArrow={false}
             onClick={closeDropdown}
+            disabled={isActividadLocked}
+            lockIconSrc={bloqueadoImg}
           />
         </div>
         <button
@@ -345,15 +433,51 @@ export default function Nav() {
           <span></span>
         </button>
 
-        <motion.button
-          onClick={() => setRotacion((prev) => prev - 120)}
-          animate={{ rotate: rotacion }}
-          transition={{ type: "spring", stiffness: 100 }}
-          className="settings-btn"
-        >
-          <img src={settingsImg} alt="Settings" />
-        </motion.button>
+        <div className="settings-btn-wrapper" ref={settingsDropdownRef}>
+          <button
+            onClick={handleSettingsDropdownClick}
+            className="settings-btn"
+            aria-expanded={isSettingsDropdownOpen}
+            aria-haspopup="true"
+          >
+            <img src={settingsImg} alt="Settings" />
+          </button>
+          <AnimatePresence>
+            {isSettingsDropdownOpen && (
+              <motion.div
+                className="settings-dropdown"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+              >
+                <button
+                  type="button"
+                  className="settings-dropdown-item"
+                  onClick={() => handleSettingsOptionClick("objetivos")}
+                >
+                  Objetivos
+                </button>
+                <button
+                  type="button"
+                  className="settings-dropdown-item"
+                  onClick={() => handleSettingsOptionClick("licencia")}
+                >
+                  Licencia
+                </button>
+                <button
+                  type="button"
+                  className="settings-dropdown-item"
+                  onClick={() => handleSettingsOptionClick("creditos")}
+                >
+                  Créditos
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
+
       {/* Menu hamburguesa */}
       <motion.div
         className="cont-menu-hamburguer"
@@ -444,19 +568,27 @@ export default function Nav() {
           <div className="menu-accordion">
             <button
               type="button"
-              className="menu-accordion-trigger"
+              className={`menu-accordion-trigger ${
+                isBucleForLocked ? "menu-accordion-trigger--locked" : ""
+              }`}
               aria-expanded={isDropdownOpen(DROPDOWN_IDS.BUCLE_FOR)}
               onClick={() => handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_FOR)}
+              aria-disabled={isBucleForLocked}
+              disabled={isBucleForLocked}
             >
               Bucle for
-              <motion.img
-                src={arowImg}
-                alt=""
-                animate={{
-                  rotateX: isDropdownOpen(DROPDOWN_IDS.BUCLE_FOR) ? 180 : 0,
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
+              {isBucleForLocked ? (
+                <img src={bloqueadoImg} alt="" className="menu-lock-icon" />
+              ) : (
+                <motion.img
+                  src={arowImg}
+                  alt=""
+                  animate={{
+                    rotateX: isDropdownOpen(DROPDOWN_IDS.BUCLE_FOR) ? 180 : 0,
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+              )}
             </button>
             <AnimatePresence mode="wait">
               {isDropdownOpen(DROPDOWN_IDS.BUCLE_FOR) && (
@@ -496,21 +628,29 @@ export default function Nav() {
           <div className="menu-accordion">
             <button
               type="button"
-              className="menu-accordion-trigger"
+              className={`menu-accordion-trigger ${
+                isBucleWhileLocked ? "menu-accordion-trigger--locked" : ""
+              }`}
               aria-expanded={isDropdownOpen(DROPDOWN_IDS.BUCLE_WHILE)}
               onClick={() =>
                 handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_WHILE)
               }
+              aria-disabled={isBucleWhileLocked}
+              disabled={isBucleWhileLocked}
             >
               Bucle while
-              <motion.img
-                src={arowImg}
-                alt=""
-                animate={{
-                  rotateX: isDropdownOpen(DROPDOWN_IDS.BUCLE_WHILE) ? 180 : 0,
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
+              {isBucleWhileLocked ? (
+                <img src={bloqueadoImg} alt="" className="menu-lock-icon" />
+              ) : (
+                <motion.img
+                  src={arowImg}
+                  alt=""
+                  animate={{
+                    rotateX: isDropdownOpen(DROPDOWN_IDS.BUCLE_WHILE) ? 180 : 0,
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+              )}
             </button>
             <AnimatePresence mode="wait">
               {isDropdownOpen(DROPDOWN_IDS.BUCLE_WHILE) && (
@@ -551,15 +691,27 @@ export default function Nav() {
             </AnimatePresence>
           </div>
 
-          <Link
-            to="/actividadRecreativa"
-            className="menu-link"
-            onClick={handleMobileLinkClick("/actividadRecreativa")}
-          >
-            Actividad recreativa
-          </Link>
+          {isActividadLocked ? (
+            <span className="menu-link menu-link--locked" aria-disabled="true">
+              Actividad recreativa
+              <img src={bloqueadoImg} alt="" className="menu-lock-icon" />
+            </span>
+          ) : (
+            <Link
+              to="/actividadRecreativa"
+              className="menu-link"
+              onClick={handleMobileLinkClick("/actividadRecreativa")}
+            >
+              Actividad recreativa
+            </Link>
+          )}
         </div>
       </motion.div>
+      <SettingsModal
+        isOpen={activeModal !== null}
+        modalType={activeModal}
+        onClose={handleCloseModal}
+      />
     </nav>
   );
 }

@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // Styles
-import "../styles/CardExaPseudo.css";
+import "../styles/cardExaPseudo.css";
 
 export default function CardExaPseudo({ explain, title, img, example, code }) {
   return (

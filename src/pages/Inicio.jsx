@@ -8,7 +8,16 @@ import Footer from "../components/Footer.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Styles
-import "../styles/Inicio.css";
+import "../styles/inicio.css";
+
+// Img
+import img1 from "../assets/img/inicio-img1.png";
+import img2 from "../assets/img/inicio-img2.png";
+import img3 from "../assets/img/inicio-img3.png";
+import img4 from "../assets/img/inicio-img4.png";
+import img5 from "../assets/img/inicio-img5.png";
+
+const imagesCarousel = [img1, img2, img3, img4, img5];
 
 export default function Inicio() {
   const [selectedTab, setSelectedTab] = useState("bucles");
@@ -22,19 +31,56 @@ export default function Inicio() {
 
   const tabsContent = {
     bucles: [
-      'Los videojuegos están llenos de bucles: Cada segundo un videojuego moderno se ejecuta dentro de un "game loop" que actualiza la lógica, detecta entradas del jugador y renderiza gráficos. Sin bucles, no habría acción continua.',
-      "El bucle más largo jamás ejecutado… podría estar corriendo ahora: Algunos servidores ejecutan bucles que nunca terminan, como los que gestionan redes, correos o sensores. Están diseñados para funcionar indefinidamente, ¡como un corazón digital latiendo sin parar!",
-      "Un bucle puede congelar tu computadora: Los famosos bucles infinitos ocurren cuando la condición nunca se vuelve falsa. Esto puede hacer que un programa consuma todos los recursos del sistema. ¡Un error clásico de principiantes!",
+      {
+        titulo: "Los videojuegos están llenos de bucles:",
+        descripcion:
+          'Cada segundo un videojuego moderno se ejecuta dentro de un "game loop" que actualiza la lógica, detecta entradas del jugador y renderiza gráficos. Sin bucles, no habría acción continua.',
+      },
+      {
+        titulo:
+          "El bucle más largo jamás ejecutado… podría estar corriendo ahora:",
+        descripcion:
+          "Algunos servidores ejecutan bucles que nunca terminan, como los que gestionan redes, correos o sensores. Están diseñados para funcionar indefinidamente, ¡como un corazón digital latiendo sin parar!",
+      },
+      {
+        titulo: "Un bucle puede congelar tu computadora:",
+        descripcion:
+          "Los famosos bucles infinitos ocurren cuando la condición nunca se vuelve falsa. Esto puede hacer que un programa consuma todos los recursos del sistema. ¡Un error clásico de principiantes!",
+      },
     ],
     bucleFor: [
-      "Nació por pura repetición: El bucle for surgió porque los programadores estaban cansados de escribir estructuras repetitivas con while. En los años 60, lenguajes como ALGOL lo introdujeron como una forma más elegante de repetir acciones un número determinado de veces.",
-      '¡Puedes escribirlo sin escribir nada!: En lenguajes como C o JavaScript, puedes escribir "for(;;)" y crear un bucle infinito. No hay inicialización, ni condición, ni incremento… solo un ciclo eterno. Es como un hechizo sin fin.',
-      "Es como un combo de tres instrucciones: El for agrupa tres partes: inicialización, condición y actualización. Aunque parece simple, esta estructura puede ser confusa para quienes recién comienzan, ¡y da lugar a combinaciones muy creativas (o caóticas) si se usan mal!",
+      {
+        titulo: "Nació por pura repetición:",
+        descripcion:
+          "El bucle for surgió porque los programadores estaban cansados de escribir estructuras repetitivas con while. En los años 60, lenguajes como ALGOL lo introdujeron como una forma más elegante de repetir acciones un número determinado de veces.",
+      },
+      {
+        titulo: "¡Puedes escribirlo sin escribir nada!:",
+        descripcion:
+          'En lenguajes como C o JavaScript, puedes escribir "for(;;)" y crear un bucle infinito. No hay inicialización, ni condición, ni incremento… solo un ciclo eterno. Es como un hechizo sin fin.',
+      },
+      {
+        titulo: "Es como un combo de tres instrucciones:",
+        descripcion:
+          "El for agrupa tres partes: inicialización, condición y actualización. Aunque parece simple, esta estructura puede ser confusa para quienes recién comienzan, ¡y da lugar a combinaciones muy creativas (o caóticas) si se usan mal!",
+      },
     ],
     bucleWhile: [
-      "Puede no ejecutarse nunca: A diferencia del bucle for, el bucle while evalúa la condición antes de entrar. Si la condición es falsa desde el inicio, el código dentro del bucle jamás se ejecuta. Es como un portero que no deja pasar si no hay invitación.",
-      "Es el favorito para validar entradas: ¿Contraseña incorrecta? ¿Número fuera de rango? El while es ideal para repetir preguntas hasta que el usuario dé una respuesta válida. ¡Es el guardián de la lógica interactiva!",
-      'Puede simular comportamientos humanos: En simulaciones, el while se usa para representar decisiones repetitivas: "mientras esté lloviendo, quédate en casa", "mientras no haya comida, busca alimento". ¡Una forma de modelar lógica de supervivencia!',
+      {
+        titulo: "Puede no ejecutarse nunca:",
+        descripcion:
+          "A diferencia del bucle for, el bucle while evalúa la condición antes de entrar. Si la condición es falsa desde el inicio, el código dentro del bucle jamás se ejecuta. Es como un portero que no deja pasar si no hay invitación.",
+      },
+      {
+        titulo: "Es el favorito para validar entradas:",
+        descripcion:
+          "¿Contraseña incorrecta? ¿Número fuera de rango? El while es ideal para repetir preguntas hasta que el usuario dé una respuesta válida. ¡Es el guardián de la lógica interactiva!",
+      },
+      {
+        titulo: "Puede simular comportamientos humanos:",
+        descripcion:
+          'En simulaciones, el while se usa para representar decisiones repetitivas: "mientras esté lloviendo, quédate en casa", "mientras no haya comida, busca alimento". ¡Una forma de modelar lógica de supervivencia!',
+      },
     ],
   };
 
@@ -79,37 +125,39 @@ export default function Inicio() {
   };
 
   return (
-    <div className="page-inicio">
-      <h2 className="page-inicio__title">Aquí comienza nuestra aventura</h2>
+    <div className="page-inicio page-container">
+      <h2 className="page-inicio__title page-title">
+        Aquí comienza nuestra aventura
+      </h2>
 
-      <p className="page-inicio__description">
+      <p className="page-inicio__description page-description">
         A continuación, observarás un listado con algunos datos curiosos sobre
         los bucles a nivel general y también sobre dos tipos de bucles que
         exploraremos a lo largo de este recurso.
       </p>
 
-      <div className="page-inicio__tabs">
+      <div className="page-inicio__tabs btn-grid">
         <button
           onClick={() => setSelectedTab(TABS.BUCLES)}
-          className={`page-inicio__tab-btn ${selectedTab === TABS.BUCLES ? "selected" : ""}`}
+          className={`page-inicio__tab-btn btn-standard ${selectedTab === TABS.BUCLES ? "selected" : ""}`}
         >
           Bucles en la programación
         </button>
         <button
           onClick={() => setSelectedTab(TABS.BUCLE_FOR)}
-          className={`page-inicio__tab-btn ${selectedTab === TABS.BUCLE_FOR ? "selected" : ""}`}
+          className={`page-inicio__tab-btn btn-standard ${selectedTab === TABS.BUCLE_FOR ? "selected" : ""}`}
         >
           Bucle for
         </button>
         <button
           onClick={() => setSelectedTab(TABS.BUCLE_WHILE)}
-          className={`page-inicio__tab-btn ${selectedTab === TABS.BUCLE_WHILE ? "selected" : ""}`}
+          className={`page-inicio__tab-btn btn-standard ${selectedTab === TABS.BUCLE_WHILE ? "selected" : ""}`}
         >
           Bucle while
         </button>
       </div>
 
-      <div className="page-inicio__tab-content">
+      <div className="page-inicio__tab-content content-box">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedTab}
@@ -121,14 +169,16 @@ export default function Inicio() {
           >
             {tabsContent[selectedTab].map((item, index) => (
               <div key={index} className="page-inicio__tab-item">
-                <span className="page-inicio__tab-item-text">{item}</span>
+                <span className="page-inicio__tab-item-text">
+                  <strong>{item.titulo}</strong> {item.descripcion}
+                </span>
               </div>
             ))}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <p className="page-inicio__carousel-description">
+      <p className="page-inicio__carousel-description page-description">
         Ahora observa cada imagen del carrusel y lee en qué situaciones podemos
         implementar el uso de bucles con Scratch.
       </p>
@@ -152,7 +202,7 @@ export default function Inicio() {
               className="page-inicio__carousel-slide"
             >
               <div className="page-inicio__carousel-image">
-                Acá va imagen {currentImage + 1}
+                <img src={imagesCarousel[currentImage]} alt="" />
               </div>
               <h3 className="page-inicio__carousel-title">
                 {carouselImages[currentImage].titulo}
@@ -182,15 +232,20 @@ export default function Inicio() {
         ))}
       </div>
 
-      <p className="page-inicio__video-description">
+      <p className="page-inicio__video-description page-description">
         Finalmente, debes ver este video para comprender la interfaz de Scratch
         y las herramientas que incluyen al momento de crear proyectos.
       </p>
 
       <div className="page-inicio__video">
-        <div className="page-inicio__video-placeholder">
-          Acá va video de interfaz de Scratch
-        </div>
+        <iframe
+          className="page-inicio__video-embed"
+          src="https://www.youtube.com/embed/pPueIUrLeVs"
+          title="Conoce la interfaz de SCRATCH – Capítulo 2"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
       </div>
 
       <p className="page-inicio__citation">

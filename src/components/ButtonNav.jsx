@@ -15,11 +15,17 @@ export default function ButtonNav({
   onTriggerClick,
   onMouseEnter,
   onMouseLeave,
+  disabled = false,
+  lockIconSrc,
 }) {
   const isControlledDropdown = withArrow && dropdownId != null;
   const open = isControlledDropdown ? isOpen : false;
 
   const handleClick = (e) => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
     if (withArrow) {
       e.preventDefault();
       if (onTriggerClick) {
@@ -31,18 +37,21 @@ export default function ButtonNav({
   };
 
   const handleMouseEnter = () => {
+    if (disabled) return;
     if (withArrow && onMouseEnter) {
       onMouseEnter();
     }
   };
 
   const handleMouseLeave = () => {
+    if (disabled) return;
     if (withArrow && onMouseLeave) {
       onMouseLeave();
     }
   };
 
   const handleKeyDown = (e) => {
+    if (disabled) return;
     if (withArrow && (e.key === "Enter" || e.key === " ")) {
       e.preventDefault();
       if (onTriggerClick) {
@@ -51,7 +60,9 @@ export default function ButtonNav({
     }
   };
 
-  const triggerClasses = `btn-nav ${open ? "dropdown-open" : ""}`;
+  const triggerClasses = `btn-nav ${open ? "dropdown-open" : ""} ${
+    disabled ? "btn-nav--locked" : ""
+  }`;
 
   return (
     <div
@@ -67,18 +78,37 @@ export default function ButtonNav({
           onKeyDown={handleKeyDown}
           aria-expanded={open}
           aria-haspopup="true"
+          aria-disabled={disabled}
+          disabled={disabled}
         >
           <span>{text}</span>
           <img
-            src={flechaImg}
+            src={disabled && lockIconSrc ? lockIconSrc : flechaImg}
             alt=""
-            className={`arrow-btn-nav ${open ? "arrow-rotated" : ""}`}
+            className={`arrow-btn-nav ${
+              open && !disabled ? "arrow-rotated" : ""
+            } ${disabled ? "arrow-btn-nav--locked" : ""}`}
           />
         </button>
       ) : (
-        <Link to={to || "#"} className={triggerClasses} onClick={handleClick}>
-          <span>{text}</span>
-        </Link>
+        <>
+          {disabled ? (
+            <span className={triggerClasses} aria-disabled="true">
+              <span>{text}</span>
+              {lockIconSrc && (
+                <img src={lockIconSrc} alt="" className="btn-nav-lock-icon" />
+              )}
+            </span>
+          ) : (
+            <Link
+              to={to || "#"}
+              className={triggerClasses}
+              onClick={handleClick}
+            >
+              <span>{text}</span>
+            </Link>
+          )}
+        </>
       )}
       {withArrow && dropdownContent && (
         <div className={`dropdown-content ${open ? "dropdown-open" : ""}`}>
@@ -100,4 +130,6 @@ ButtonNav.propTypes = {
   onTriggerClick: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
+  disabled: PropTypes.bool,
+  lockIconSrc: PropTypes.string,
 };

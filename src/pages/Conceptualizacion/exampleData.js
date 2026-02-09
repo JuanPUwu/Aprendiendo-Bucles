@@ -2,7 +2,6 @@
 import imgLibro from "../../assets/img/libro.png";
 import imgGalleta from "../../assets/img/galleta.png";
 import imgDiente from "../../assets/img/diente.png";
-import { code } from "framer-motion/client";
 
 export const exampleData = [
   {

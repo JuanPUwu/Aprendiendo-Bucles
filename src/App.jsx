@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 
 import Bienvenida from "./pages/Bienvenida";
@@ -19,6 +20,32 @@ import CompruebaBucleWhile from "./pages/BucleWhile/CompruebaBucleWhile";
 import ActividadRecreativa from "./pages/ActividadRecreativa";
 
 function App() {
+  const getUnlockState = () => ({
+    bucleFor: Boolean(localStorage.getItem("compruebaConceptualizacionResult")),
+    bucleWhile: Boolean(localStorage.getItem("compruebaBucleForResult")),
+    actividad: Boolean(localStorage.getItem("compruebaBucleWhileResult")),
+  });
+
+  const [unlockState, setUnlockState] = useState(() => getUnlockState());
+
+  useEffect(() => {
+    const handleProgressUpdate = () => {
+      setUnlockState(getUnlockState());
+    };
+
+    window.addEventListener("storage", handleProgressUpdate);
+    window.addEventListener("progress-updated", handleProgressUpdate);
+
+    return () => {
+      window.removeEventListener("storage", handleProgressUpdate);
+      window.removeEventListener("progress-updated", handleProgressUpdate);
+    };
+  }, []);
+
+  const isBucleForUnlocked = unlockState.bucleFor;
+  const isBucleWhileUnlocked = unlockState.bucleWhile;
+  const isActividadUnlocked = unlockState.actividad;
+
   return (
     <>
       <Nav />
@@ -28,19 +55,100 @@ function App() {
           <Route path="/bienvenida" element={<Bienvenida />} />
           <Route path="/inicio" element={<Inicio />} />
 
-          <Route path="/conceptualizacion/queEsUnBucle" element={<QueEsUnBucle />} />
-          <Route path="/conceptualizacion/horaDePracticar" element={<PracticarConceptualizacion />} />
-          <Route path="/conceptualizacion/compruebaAprendizaje" element={<CompruebaConceptualizacion />} />
+          <Route
+            path="/conceptualizacion/queEsUnBucle"
+            element={<QueEsUnBucle />}
+          />
+          <Route
+            path="/conceptualizacion/horaDePracticar"
+            element={<PracticarConceptualizacion />}
+          />
+          <Route
+            path="/conceptualizacion/compruebaAprendizaje"
+            element={<CompruebaConceptualizacion />}
+          />
 
-          <Route path="/bucleFor/queEsUnBucleFor" element={<QueEsUnBucleFor />} />
-          <Route path="/bucleFor/horaDePracticar" element={<PracticarBucleFor />} />
-          <Route path="/bucleFor/compruebaAprendizaje" element={<CompruebaBucleFor />} />
+          <Route
+            path="/bucleFor/queEsUnBucleFor"
+            element={
+              isBucleForUnlocked ? (
+                <QueEsUnBucleFor />
+              ) : (
+                <Navigate
+                  to="/conceptualizacion/compruebaAprendizaje"
+                  replace
+                />
+              )
+            }
+          />
+          <Route
+            path="/bucleFor/horaDePracticar"
+            element={
+              isBucleForUnlocked ? (
+                <PracticarBucleFor />
+              ) : (
+                <Navigate
+                  to="/conceptualizacion/compruebaAprendizaje"
+                  replace
+                />
+              )
+            }
+          />
+          <Route
+            path="/bucleFor/compruebaAprendizaje"
+            element={
+              isBucleForUnlocked ? (
+                <CompruebaBucleFor />
+              ) : (
+                <Navigate
+                  to="/conceptualizacion/compruebaAprendizaje"
+                  replace
+                />
+              )
+            }
+          />
 
-          <Route path="/bucleWhile/queEsUnBucleWhile" element={<QueEsUnBucleWhile />} />
-          <Route path="/bucleWhile/horaDePracticar" element={<PracticarBucleWhile />} />
-          <Route path="/bucleWhile/compruebaAprendizaje" element={<CompruebaBucleWhile />} />
+          <Route
+            path="/bucleWhile/queEsUnBucleWhile"
+            element={
+              isBucleWhileUnlocked ? (
+                <QueEsUnBucleWhile />
+              ) : (
+                <Navigate to="/bucleFor/compruebaAprendizaje" replace />
+              )
+            }
+          />
+          <Route
+            path="/bucleWhile/horaDePracticar"
+            element={
+              isBucleWhileUnlocked ? (
+                <PracticarBucleWhile />
+              ) : (
+                <Navigate to="/bucleFor/compruebaAprendizaje" replace />
+              )
+            }
+          />
+          <Route
+            path="/bucleWhile/compruebaAprendizaje"
+            element={
+              isBucleWhileUnlocked ? (
+                <CompruebaBucleWhile />
+              ) : (
+                <Navigate to="/bucleFor/compruebaAprendizaje" replace />
+              )
+            }
+          />
 
-          <Route path="/actividadRecreativa" element={<ActividadRecreativa />} />
+          <Route
+            path="/actividadRecreativa"
+            element={
+              isActividadUnlocked ? (
+                <ActividadRecreativa />
+              ) : (
+                <Navigate to="/bucleWhile/compruebaAprendizaje" replace />
+              )
+            }
+          />
         </Routes>
       </main>
     </>
