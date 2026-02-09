@@ -1,5 +1,5 @@
 // Estilos
-import "../styles/Nav.css";
+import "../styles/nav.css";
 
 // React y librerías
 import { useState, useEffect, useRef, useCallback } from "react";

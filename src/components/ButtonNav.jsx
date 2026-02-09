@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "../styles/ButtonNav.css";
+import "../styles/buttonNav.css";
 
 import flechaImg from "../assets/img/flecha.png";
 

@@ -1,6 +1,6 @@
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import "../styles/SettingsModal.css";
+import "../styles/settingsModal.css";
 
 import licenciaImage from "../assets/img/licencia.png";
 import creditosImage from "../assets/img/creditos.jpeg";
