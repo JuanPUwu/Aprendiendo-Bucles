@@ -79,7 +79,7 @@ export default function SettingsModal({ isOpen, modalType, onClose }) {
                   <strong>Iyui Shaio Sanchez Melo</strong>
                 </p>
                 <p>Universidad Pedagógica y Tecnológica de Colombia</p>
-                <p>Práctica Pedagógica Investigativa de Profundización</p>
+                <p>Trabajo Pedagógica Investigativa de Profundización</p>
                 <p>Colegio de Boyacá - Sección Rafael Londoño Barajas</p>
                 <p>
                   <strong>Semestre:</strong> Décimo
