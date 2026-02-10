@@ -207,7 +207,7 @@ export default function Nav() {
           title="Ir al inicio"
           onClick={closeDropdown}
         >
-          <h1>Aprendiendo sobre bucles en scratch</h1>
+          <h1>Aprendiendo sobre bucles en Scratch</h1>
         </Link>
         <div className="cont-links">
           <ButtonNav
