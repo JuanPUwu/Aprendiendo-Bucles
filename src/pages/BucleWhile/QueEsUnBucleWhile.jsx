@@ -13,6 +13,9 @@ import "../../styles/common.css";
 // Img
 import img1 from "../../assets/img/bucleWhile-img1.png";
 
+// Fondo
+import fondo from "../../assets/img/fondo-bucleWhile.png";
+
 // Sounds
 import sound1 from "../../assets/sounds/bucleWhile.mp3";
 
@@ -37,7 +40,10 @@ export default function QueEsUnBucleWhile() {
   };
 
   return (
-    <div className="page-que-es-un-bucle-while page-container">
+    <div
+      className="page-que-es-un-bucle-while page-container"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-que-es-un-bucle-while__title page-title">
         ¿Qué es el bucle while?
       </h2>

@@ -10,6 +10,9 @@ import { motion, AnimatePresence } from "framer-motion";
 // Styles
 import "../styles/inicio.css";
 
+// Fondos
+import fondo from "../assets/img/fondo-inicio-actiFinal.png";
+
 // Img
 import img1 from "../assets/img/inicio-img1.png";
 import img2 from "../assets/img/inicio-img2.png";
@@ -125,7 +128,10 @@ export default function Inicio() {
   };
 
   return (
-    <div className="page-inicio page-container">
+    <div
+      className="page-inicio page-container"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-inicio__title page-title">
         Aquí comienza nuestra aventura
       </h2>

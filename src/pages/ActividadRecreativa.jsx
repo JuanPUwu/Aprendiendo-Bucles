@@ -12,6 +12,9 @@ import Footer from "../components/Footer.jsx";
 import "../styles/common.css";
 import "../styles/settingsModal.css";
 
+// Fondo
+import fondo from "../assets/img/fondo-inicio-actiFinal.png";
+
 // Img
 import img1 from "../assets/img/actividadFinal-img1.png"; // Correcta
 import img2 from "../assets/img/actividadFinal-img2.png"; // Incorrecta
@@ -404,7 +407,10 @@ export default function ActividadRecreativa() {
   const grade = 1 + (4 * totalCorrect) / totalItems;
 
   return (
-    <div className="page-actividad-recreativa page-container">
+    <div
+      className="page-actividad-recreativa page-container"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-actividad-recreativa__title page-title">
         Evaluación final: Descubramos lo aprendido
       </h2>
@@ -587,13 +593,6 @@ export default function ActividadRecreativa() {
         ))}
       </div>
 
-      <button
-        onClick={handleShowFeedback}
-        className="page-actividad-recreativa__submit-btn btn-standard"
-      >
-        {showFeedback || isLocked ? "Ver nota" : "Ver resultados"}
-      </button>
-
       <h3 className="page-actividad-recreativa__subtitle page-subtitle">
         Practica creando tu zoológico
       </h3>
@@ -612,6 +611,16 @@ export default function ActividadRecreativa() {
             </p>
           </div>
         ))}
+      </div>
+
+      <div className="page-actividad-recreativa__submit">
+        <button
+          onClick={handleShowFeedback}
+          className="page-actividad-recreativa__submit-btn btn-standard"
+        >
+          {showFeedback || isLocked ? "Ver nota" : "Ver resultados"}
+        </button>
+        <span className="btn-standard__bg" aria-hidden="true" />
       </div>
 
       <Popup

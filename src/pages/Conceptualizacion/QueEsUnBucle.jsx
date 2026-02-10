@@ -17,6 +17,9 @@ import { exampleData } from "./exampleData";
 // Styles
 import "../../styles/common.css";
 
+// Fondo
+import fondo from "../../assets/img/fondo-conceptualizacion.png";
+
 export default function QueEsUnBucle() {
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -30,7 +33,10 @@ export default function QueEsUnBucle() {
   };
 
   return (
-    <div className="page-que-es-un-bucle page-container">
+    <div
+      className="page-que-es-un-bucle page-container"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-que-es-un-bucle__title page-title">
         ¿Qué es un bucle?
       </h2>

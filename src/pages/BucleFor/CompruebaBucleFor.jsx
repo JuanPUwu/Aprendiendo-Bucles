@@ -12,6 +12,9 @@ import Footer from "../../components/Footer.jsx";
 import "../../styles/common.css";
 import "../../styles/settingsModal.css";
 
+// Fondo
+import fondo from "../../assets/img/fondo-bucleFor.png";
+
 export default function CompruebaBucleFor() {
   const storageKey = "compruebaBucleForResult";
   const [selectedAnswers, setSelectedAnswers] = useState({
@@ -205,7 +208,10 @@ export default function CompruebaBucleFor() {
   const grade = 1 + (4 * correctCount) / preguntas.length;
 
   return (
-    <div className="page-comprueba-bucle-for page-container page-container--with-padding">
+    <div
+      className="page-comprueba-bucle-for page-container page-container--with-padding"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-comprueba-bucle-for__title page-title">
         Comprueba tu aprendizaje y revisa tu progreso
       </h2>
@@ -261,13 +267,6 @@ export default function CompruebaBucleFor() {
           </div>
         ))}
 
-        <button
-          onClick={handleShowFeedback}
-          className="page-comprueba-bucle-for__feedback-btn btn-standard"
-        >
-          {showFeedback || isLocked ? "Ver nota" : "Ver resultados"}
-        </button>
-
         <div className="page-comprueba-bucle-for__enunciados card-list">
           {enunciados.map((enunciado, index) => (
             <div
@@ -283,6 +282,13 @@ export default function CompruebaBucleFor() {
             </div>
           ))}
         </div>
+
+        <button
+          onClick={handleShowFeedback}
+          className="page-comprueba-bucle-for__feedback-btn btn-standard"
+        >
+          {showFeedback || isLocked ? "Ver nota" : "Ver resultados"}
+        </button>
 
         <Popup
           open={isResultOpen}

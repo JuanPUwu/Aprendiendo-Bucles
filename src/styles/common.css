@@ -16,6 +16,58 @@
   padding-top: 2.4rem;
 }
 
+.page-que-es-un-bucle,
+.page-comprueba-conceptualizacion,
+.page-practicar-conceptualizacion,
+.page-inicio,
+.page-actividad-recreativa,
+.page-que-es-un-bucle-for,
+.page-practicar-bucle-for,
+.page-comprueba-bucle-for,
+.page-que-es-un-bucle-while,
+.page-practicar-bucle-while,
+.page-comprueba-bucle-while {
+  position: relative;
+  width: 100%;
+}
+
+.page-que-es-un-bucle::before,
+.page-comprueba-conceptualizacion::before,
+.page-practicar-conceptualizacion::before,
+.page-inicio::before,
+.page-actividad-recreativa::before,
+.page-que-es-un-bucle-for::before,
+.page-practicar-bucle-for::before,
+.page-comprueba-bucle-for::before,
+.page-que-es-un-bucle-while::before,
+.page-practicar-bucle-while::before,
+.page-comprueba-bucle-while::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--page-bg);
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-que-es-un-bucle > *,
+.page-comprueba-conceptualizacion > *,
+.page-practicar-conceptualizacion > *,
+.page-inicio > *,
+.page-actividad-recreativa > *,
+.page-que-es-un-bucle-for > *,
+.page-practicar-bucle-for > *,
+.page-comprueba-bucle-for > *,
+.page-que-es-un-bucle-while > *,
+.page-practicar-bucle-while > *,
+.page-comprueba-bucle-while > * {
+  position: relative;
+  z-index: 1;
+}
 /* ==================== TÍTULOS Y TEXTOS ==================== */
 
 /* Título principal de página (h2) */
@@ -112,6 +164,106 @@
   background-color: transparent;
 }
 
+/* Override ::after for the Comprueba Bucle While submit button */
+.page-comprueba-bucle-while__submit {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-comprueba-bucle-while__submit-btn::after {
+  content: none;
+}
+
+.page-comprueba-bucle-while__submit-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.page-comprueba-bucle-while__submit .btn-standard__bg {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 0;
+  z-index: 0;
+  border-radius: 10px;
+  background-color: rgb(200, 200, 200);
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.page-comprueba-bucle-while__submit:hover:not(.selected) .btn-standard__bg {
+  width: calc(100% + 4px);
+}
+
+.page-comprueba-bucle-while__submit-btn:active + .btn-standard__bg {
+  background-color: rgb(73, 73, 73);
+}
+
+.page-comprueba-bucle-while__submit-btn.selected + .btn-standard__bg {
+  width: calc(100% + 4px);
+  background-color: rgb(73, 73, 73);
+}
+
+.page-comprueba-bucle-while__submit-btn:disabled + .btn-standard__bg {
+  width: 0;
+  background-color: transparent;
+}
+
+/* Override ::after for the Actividad Recreativa submit button */
+.page-actividad-recreativa__submit {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 60rem;
+}
+
+.page-actividad-recreativa__submit-btn::after {
+  content: none;
+}
+
+.page-actividad-recreativa__submit-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.page-actividad-recreativa__submit .btn-standard__bg {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 0;
+  z-index: 0;
+  border-radius: 10px;
+  background-color: rgb(200, 200, 200);
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.page-actividad-recreativa__submit:hover:not(.selected) .btn-standard__bg {
+  width: calc(100% + 4px);
+}
+
+.page-actividad-recreativa__submit-btn:active + .btn-standard__bg {
+  background-color: rgb(73, 73, 73);
+}
+
+.page-actividad-recreativa__submit-btn.selected + .btn-standard__bg {
+  width: calc(100% + 4px);
+  background-color: rgb(73, 73, 73);
+}
+
+.page-actividad-recreativa__submit-btn:disabled + .btn-standard__bg {
+  width: 0;
+  background-color: transparent;
+}
+
 /* ==================== GRIDS DE BOTONES ==================== */
 
 /* Grid de opciones/pestañas */
@@ -144,6 +296,7 @@
   padding: 2rem;
   border-radius: 8px;
   border: 2px solid rgb(73, 73, 73);
+  background-color: #fff;
   box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.12),
     0 4px 12px rgba(0, 0, 0, 0.08);
@@ -455,6 +608,7 @@
   max-width: 55rem;
   text-align: center;
   border: 2px solid rgb(133, 133, 133);
+  background-color: #fff;
   border-radius: 8px;
   box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.12),
@@ -511,9 +665,13 @@
 
 .drag-game__items--images {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
+}
+
+.drag-game__items--pool.drag-game__items--images {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .drag-game__items--pool {

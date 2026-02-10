@@ -12,6 +12,9 @@ import Footer from "../../components/Footer.jsx";
 import "../../styles/common.css";
 import "../../styles/settingsModal.css";
 
+// Fondo
+import fondo from "../../assets/img/fondo-conceptualizacion.png";
+
 export default function CompruebaConceptualizacion() {
   const storageKey = "compruebaConceptualizacionResult";
   const [selectedAnswers, setSelectedAnswers] = useState({
@@ -182,7 +185,10 @@ export default function CompruebaConceptualizacion() {
   const grade = gradeByCorrect[correctCount] ?? 1.0;
 
   return (
-    <div className="page-comprueba-conceptualizacion page-container page-container--with-padding">
+    <div
+      className="page-comprueba-conceptualizacion page-container page-container--with-padding"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-comprueba-conceptualizacion__title page-title">
         Comprueba tu aprendizaje y revisa tu progreso
       </h2>

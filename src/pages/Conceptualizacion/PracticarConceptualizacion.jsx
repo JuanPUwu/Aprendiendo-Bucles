@@ -10,6 +10,9 @@ import { motion, AnimatePresence } from "framer-motion";
 // Styles
 import "../../styles/common.css";
 
+// Fondo
+import fondo from "../../assets/img/fondo-conceptualizacion.png";
+
 export default function PracticarConceptualizacion() {
   const [feedbackVisible, setFeedbackVisible] = useState({
     nivel1: false,
@@ -120,7 +123,10 @@ export default function PracticarConceptualizacion() {
   ];
 
   return (
-    <div className="page-practicar-conceptualizacion page-container page-container--with-padding">
+    <div
+      className="page-practicar-conceptualizacion page-container page-container--with-padding"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-practicar-conceptualizacion__title page-title">
         Llegó la hora de practicar
       </h2>

@@ -12,6 +12,9 @@ import Footer from "../../components/Footer.jsx";
 import "../../styles/common.css";
 import "../../styles/settingsModal.css";
 
+// Fondo
+import fondo from "../../assets/img/fondo-bucleWhile.png";
+
 export default function CompruebaBucleWhile() {
   const storageKey = "compruebaBucleWhileResult";
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -310,7 +313,10 @@ export default function CompruebaBucleWhile() {
   };
 
   return (
-    <div className="page-comprueba-bucle-while page-container page-container--with-padding">
+    <div
+      className="page-comprueba-bucle-while page-container page-container--with-padding"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-comprueba-bucle-while__title page-title">
         Comprueba tu aprendizaje y revisa tu progreso
       </h2>
@@ -475,13 +481,6 @@ export default function CompruebaBucleWhile() {
         ))}
       </div>
 
-      <button
-        onClick={handleShowFeedback}
-        className="page-comprueba-bucle-while__submit-btn btn-standard"
-      >
-        {showFeedback || isLocked ? "Ver nota" : "Ver resultados"}
-      </button>
-
       <Popup
         open={isResultOpen}
         onClose={handleCloseResult}
@@ -539,6 +538,16 @@ export default function CompruebaBucleWhile() {
             </p>
           </div>
         ))}
+      </div>
+
+      <div className="page-comprueba-bucle-while__submit">
+        <button
+          onClick={handleShowFeedback}
+          className="page-comprueba-bucle-while__submit-btn btn-standard"
+        >
+          {showFeedback || isLocked ? "Ver nota" : "Ver resultados"}
+        </button>
+        <span className="btn-standard__bg" aria-hidden="true" />
       </div>
 
       <Footer />

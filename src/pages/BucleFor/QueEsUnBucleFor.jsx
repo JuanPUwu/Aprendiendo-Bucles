@@ -13,6 +13,9 @@ import "../../styles/common.css";
 // Img
 import img1 from "../../assets/img/bucleFor-img1.jpeg";
 
+// Fondo
+import fondo from "../../assets/img/fondo-bucleFor.png";
+
 export default function QueEsUnBucleFor() {
   const [selectedCuadro, setSelectedCuadro] = useState(null);
 
@@ -36,7 +39,10 @@ export default function QueEsUnBucleFor() {
   };
 
   return (
-    <div className="page-que-es-un-bucle-for page-container page-container--with-padding">
+    <div
+      className="page-que-es-un-bucle-for page-container page-container--with-padding"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-que-es-un-bucle-for__title page-title">
         ¿Qué es el bucle for?
       </h2>

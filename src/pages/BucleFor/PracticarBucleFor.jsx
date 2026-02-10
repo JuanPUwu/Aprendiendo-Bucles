@@ -10,6 +10,9 @@ import { motion, AnimatePresence } from "framer-motion";
 // Styles
 import "../../styles/common.css";
 
+// Fondo
+import fondo from "../../assets/img/fondo-bucleFor.png";
+
 export default function PracticarBucleFor() {
   const [feedbackVisible, setFeedbackVisible] = useState({
     nivel1: false,
@@ -122,7 +125,10 @@ export default function PracticarBucleFor() {
   ];
 
   return (
-    <div className="page-practicar-bucle-for page-container page-container--with-padding">
+    <div
+      className="page-practicar-bucle-for page-container page-container--with-padding"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-practicar-bucle-for__title page-title">
         Llegó la hora de practicar
       </h2>

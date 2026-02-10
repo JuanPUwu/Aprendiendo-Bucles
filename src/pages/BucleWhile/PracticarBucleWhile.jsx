@@ -10,6 +10,9 @@ import { motion, AnimatePresence } from "framer-motion";
 // Styles
 import "../../styles/common.css";
 
+// Fondo
+import fondo from "../../assets/img/fondo-bucleWhile.png";
+
 export default function PracticarBucleWhile() {
   const [feedbackVisible, setFeedbackVisible] = useState({});
 
@@ -114,7 +117,10 @@ export default function PracticarBucleWhile() {
   };
 
   return (
-    <div className="page-practicar-bucle-while page-container">
+    <div
+      className="page-practicar-bucle-while page-container"
+      style={{ "--page-bg": `url(${fondo})` }}
+    >
       <h2 className="page-practicar-bucle-while__title page-title">
         Llegó la hora de practicar
       </h2>
