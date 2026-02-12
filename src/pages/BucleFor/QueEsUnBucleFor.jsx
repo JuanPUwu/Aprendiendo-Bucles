@@ -125,7 +125,14 @@ export default function QueEsUnBucleFor() {
 
       <div className="page-que-es-un-bucle-for__actividad media-container">
         <div className="page-que-es-un-bucle-for__actividad-placeholder placeholder placeholder--large">
-          Acá va el crucigrama
+          <iframe
+            className="media-embed"
+            src="https://es.educaplay.com/juego/27763363-atrevete_a_resolver_el_crucigrama.html"
+            title="Crucigrama: Atrevete a resolver el crucigrama"
+            frameBorder="0"
+            allow="fullscreen; autoplay; allow-top-navigation-by-user-activation"
+            allowFullScreen
+          />
         </div>
       </div>
 

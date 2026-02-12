@@ -121,7 +121,14 @@ export default function QueEsUnBucleWhile() {
 
       <div className="page-que-es-un-bucle-while__actividad media-container">
         <div className="page-que-es-un-bucle-while__actividad-placeholder placeholder placeholder--large">
-          Acá va la actividad de memoria
+          <iframe
+            className="media-embed"
+            src="https://es.educaplay.com/juego/27764205-relaciona_cada_bucle.html"
+            title="Juego: Relaciona cada bucle"
+            frameBorder="0"
+            allow="fullscreen; autoplay; allow-top-navigation-by-user-activation"
+            allowFullScreen
+          />
         </div>
       </div>
 
