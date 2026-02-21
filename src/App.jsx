@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 
@@ -18,11 +18,8 @@ import PracticarBucleWhile from "./pages/BucleWhile/PracticarBucleWhile";
 import CompruebaBucleWhile from "./pages/BucleWhile/CompruebaBucleWhile";
 
 import ActividadRecreativa from "./pages/ActividadRecreativa";
-import ARDemo from "./pages/ARDemo";
 
 function App() {
-  const location = useLocation();
-
   const getUnlockState = () => ({
     bucleFor: Boolean(localStorage.getItem("compruebaConceptualizacionResult")),
     bucleWhile: Boolean(localStorage.getItem("compruebaBucleForResult")),
@@ -48,14 +45,6 @@ function App() {
   const isBucleForUnlocked = unlockState.bucleFor;
   const isBucleWhileUnlocked = unlockState.bucleWhile;
   const isActividadUnlocked = unlockState.actividad;
-
-  if (location.pathname === "/ar-cam") {
-    return (
-      <Routes>
-        <Route path="/ar-cam" element={<ARDemo />} />
-      </Routes>
-    );
-  }
 
   return (
     <>
@@ -160,7 +149,6 @@ function App() {
               )
             }
           />
-          <Route path="/ar-cam" element={<ARDemo />} />
         </Routes>
       </main>
     </>
