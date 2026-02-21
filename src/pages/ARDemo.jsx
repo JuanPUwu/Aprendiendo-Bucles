@@ -11,6 +11,31 @@ export default function ARDemo() {
     };
   }, []);
 
+  useEffect(() => {
+    const applyVideoAttributes = () => {
+      const videoElement = document.querySelector("#arjs-video");
+
+      if (!videoElement) return;
+
+      videoElement.setAttribute("autoplay", "true");
+      videoElement.setAttribute("muted", "true");
+      videoElement.setAttribute("playsinline", "true");
+      videoElement.setAttribute("webkit-playsinline", "true");
+      videoElement.muted = true;
+      videoElement.playsInline = true;
+    };
+
+    const intervalId = window.setInterval(applyVideoAttributes, 300);
+    const timeoutId = window.setTimeout(() => {
+      window.clearInterval(intervalId);
+    }, 6000);
+
+    return () => {
+      window.clearInterval(intervalId);
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <div className="ar-demo">
       <a-scene
