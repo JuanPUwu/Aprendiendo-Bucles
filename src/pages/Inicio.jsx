@@ -3,6 +3,7 @@ import { useState } from "react";
 
 // Components
 import Footer from "../components/Footer.jsx";
+import ARScene from "../components/ARScene.jsx";
 
 // Libraries
 import { motion, AnimatePresence } from "framer-motion";
@@ -266,7 +267,12 @@ export default function Inicio() {
         </a>
       </p>
 
-      {/*Aca va el AR*/}
+      <p className="page-inicio__video-description page-description">
+        Apunta la cámara al marcador para visualizar el modelo 3D en realidad
+        aumentada.
+      </p>
+
+      <ARScene />
 
       <Footer />
     </div>
