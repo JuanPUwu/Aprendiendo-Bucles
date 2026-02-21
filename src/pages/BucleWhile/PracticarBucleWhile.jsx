@@ -13,90 +13,101 @@ import "../../styles/common.css";
 // Fondo
 import fondo from "../../assets/img/fondo-bucleWhile.png";
 
+// Img
+import imgWhile1 from "../../assets/img/while-1.jpeg";
+import imgWhile2 from "../../assets/img/while-2.jpeg";
+import imgWhile3 from "../../assets/img/while-3.jpeg";
+import imgWhile4 from "../../assets/img/while-4.jpeg";
+import imgWhile5 from "../../assets/img/while-5.jpeg";
+import imgWhile6 from "../../assets/img/while-6.jpeg";
+import imgWhile7 from "../../assets/img/while-7.jpeg";
+import imgWhile8 from "../../assets/img/while-8.jpeg";
+import imgWhile9 from "../../assets/img/while-9.jpeg";
+
 export default function PracticarBucleWhile() {
   const [feedbackVisible, setFeedbackVisible] = useState({});
 
   const niveles = [
     {
       id: 1,
-      titulo: "Nivel 1: Caminar hasta tocar el borde",
+      titulo: "Nivel 1: Hasta el límite del escenario",
       enunciado:
-        "Haz que el personaje avance 10 pasos mientras no toque el borde del escenario.",
+        "Haz que tu personaje avance hasta tocar el borde del escenario.",
       retroalimentacion:
-        "Aquí comprendiste que el bucle while permite repetir acciones hasta que se cumpla una condición. ¡Muy bien! Estás aprendiendo a controlar el movimiento con lógica condicional.",
-      tipoActividad: "juego",
+        "Aquí exploraste el uso de condiciones para controlar el movimiento. Comprendiste que el personaje puede avanzar y detenerse según lo que ocurre en el escenario. ¡Excelente trabajo! Estás aprendiendo a usar límites en tus programas.",
+      img: imgWhile1,
     },
     {
       id: 2,
-      titulo: "Nivel 2: Girar hasta encontrar el puntero",
+      titulo: "Nivel 2: Siguiendo al puntero",
       enunciado:
-        "Haz que el personaje gire 15 grados mientras no esté apuntando hacia el puntero del ratón.",
+        "Haz que tu personaje gire 20 grados siguiendo el puntero del ratón.",
       retroalimentacion:
-        "Aquí exploraste cómo el bucle while mantiene la acción hasta que se cumple una condición externa. ¡Excelente! Estás descubriendo cómo interactuar con el usuario.",
-      tipoActividad: "juego",
+        "En esta actividad aprendiste a interactuar con el ratón. Comprendiste que los movimientos del puntero pueden influir directamente en el comportamiento del personaje. ¡Muy bien! Estás integrando interacción en tiempo real.",
+      img: imgWhile2,
     },
     {
       id: 3,
-      titulo: "Nivel 3: Saludar hasta que se presione una tecla",
+      titulo: "Nivel 3: Un saludo condicionado",
       enunciado:
-        'Haz que el personaje diga "¡Hola!" mientras no se presione la tecla espacio.',
+        'Haz que tu personaje salude mientras no se presione la tecla espacio.',
       retroalimentacion:
-        "Aquí lograste que el personaje repita un mensaje hasta que el usuario intervenga. ¡Muy bien! Estás creando programas interactivos.",
-      tipoActividad: "imagen",
+        "Aquí trabajaste con condiciones lógicas. Comprendiste que una acción puede ejecutarse solo cuando se cumple una condición específica. ¡Excelente! Estás dando un gran paso en el control del flujo del programa.",
+      img: imgWhile3,
     },
     {
       id: 4,
-      titulo: "Nivel 4: Cambiar disfraz hasta llegar al borde",
+      titulo: "Nivel 4: Transformación con límite",
       enunciado:
-        "Haz que el personaje cambie de disfraz mientras no toque el borde del escenario.",
+        "Haz que tu personaje cambie de disfraz hasta que toque el borde del escenario.",
       retroalimentacion:
-        "Aquí comprendiste que el bucle while puede dar continuidad visual hasta que se cumpla una condición. ¡Fantástico! Estás animando con lógica condicional.",
-      tipoActividad: "imagen",
+        "En esta actividad combinaste cambios visuales con condiciones. Comprendiste que una acción puede repetirse hasta que ocurra un evento. ¡Muy bien! Tus animaciones ahora responden al entorno.",
+      img: imgWhile4,
     },
     {
       id: 5,
-      titulo: "Nivel 5: Moverse hasta alcanzar al puntero",
+      titulo: "Nivel 5: Acercándose al objetivo",
       enunciado:
-        "Haz que el personaje avance 5 pasos mientras no toque el puntero del ratón.",
+        "Haz que tu personaje avance 5 pasos hasta tocar el puntero del ratón.",
       retroalimentacion:
-        "Aquí aplicaste el bucle while para crear una persecución. ¡Excelente! Estás programando con creatividad y control de condiciones.",
-      tipoActividad: "imagen",
+        "Aquí exploraste la interacción entre el personaje y el puntero. Comprendiste que el movimiento puede detenerse cuando se alcanza un objetivo. ¡Excelente trabajo! Estás creando comportamientos más precisos.",
+      img: imgWhile5,
     },
     {
       id: 6,
-      titulo: "Nivel 6: Caminar y saludar hasta tocar el borde",
+      titulo: "Nivel 6: Decisiones con números",
       enunciado:
-        'Haz que el personaje avance 10 pasos y diga "¡Voy!" mientras no toque el borde.',
+        'Haz que tu personaje gire según si un número es mayor o menor.',
       retroalimentacion:
-        "Aquí combinaste movimiento y comunicación dentro de un bucle. ¡Muy bien! Estás creando secuencias más completas con condiciones.",
-      tipoActividad: "imagen",
+        "En esta actividad aprendiste a tomar decisiones usando comparaciones. Comprendiste que las condiciones permiten que el programa elija diferentes acciones. ¡Muy bien! Estás desarrollando el pensamiento lógico.",
+      img: imgWhile6,
     },
     {
       id: 7,
-      titulo: "Nivel 7: Girar y cambiar disfraz hasta apuntar al puntero",
+      titulo: "Nivel 7: Contando paso a paso",
       enunciado:
-        "Haz que el personaje gire 10 grados y cambie de disfraz mientras no esté apuntando al puntero.",
+        "Haz que el programa sume valores a un contador.",
       retroalimentacion:
-        "Aquí lograste que el personaje combine rotación y apariencia hasta cumplir una condición. ¡Excelente! Estás aplicando lógica condicional en animaciones.",
-      tipoActividad: "imagen",
+        "Aquí descubriste cómo usar variables para llevar un registro. Comprendiste que los contadores permiten almacenar y actualizar información. ¡Excelente trabajo! Estás introduciéndote al uso de datos en programación.",
+      img: imgWhile7,
     },
     {
       id: 8,
-      titulo: "Nivel 8: Repetir saludo y sonido hasta presionar tecla",
+      titulo: "Nivel 8: Movimiento y cambio con control",
       enunciado:
-        'Haz que el personaje diga "¡Hola!" y toque un sonido mientras no se presione la tecla espacio.',
+        'Haz que tu personaje gire 10 grados y cambie de disfraz hasta que se presione una tecla.',
       retroalimentacion:
-        "Aquí integraste comunicación y sonido en un bucle condicional. ¡Fantástico! Estás creando programas más expresivos e interactivos.",
-      tipoActividad: "imagen",
+        "En esta actividad combinaste movimiento, apariencia y eventos. Comprendiste que una acción puede repetirse hasta que el usuario interactúe. ¡Muy bien! Tus programas ahora son más interactivos.",
+      img: imgWhile8,
     },
     {
       id: 9,
-      titulo: "Nivel 9: Avanzar y retroceder hasta encontrar al puntero",
+      titulo: "Nivel 9: Entre el orden y el azar",
       enunciado:
-        "Haz que el personaje avance 20 pasos y luego retroceda 20 pasos mientras no toque el puntero.",
+        "Haz que tu personaje vaya al centro del escenario y luego se mueva a una posición aleatoria.",
       retroalimentacion:
-        "Aquí simulaste un movimiento de ida y vuelta con condición. ¡Muy bien! Estás explorando cómo los bucles while generan patrones dinámicos.",
-      tipoActividad: "imagen",
+        "Aquí exploraste posiciones fijas y aleatorias. Comprendiste que el personaje puede moverse de forma controlada o impredecible. ¡Excelente trabajo! Estás enriqueciendo la dinámica de tus programas.",
+      img: imgWhile9,
     },
     {
       id: 10,
@@ -105,7 +116,6 @@ export default function PracticarBucleWhile() {
         'Haz que el personaje cambie de disfraz, avance 10 pasos y toque un sonido mientras no alcance al puntero del ratón. Cuando finalmente lo toque, debe decir "¡Te encontré!"',
       retroalimentacion:
         "Aquí diseñaste una animación interactiva que combina movimiento, apariencia y sonido dentro de un bucle while. Comprendiste que la condición controla cuándo detener la secuencia y ejecutar una acción final. ¡Excelente! Estás aplicando lógica avanzada y creatividad para construir programas dinámicos e inteligentes.",
-      tipoActividad: "imagen",
     },
   ];
 
@@ -145,13 +155,13 @@ export default function PracticarBucleWhile() {
               {nivel.enunciado}
             </p>
 
-            {nivel.tipoActividad === "juego" ? (
-              <div className="page-practicar-bucle-while__juego-placeholder placeholder">
-                Este es el juego {nivel.id}
-              </div>
-            ) : (
+            {nivel.id !== 10 && (
               <div className="page-practicar-bucle-while__imagen-placeholder placeholder">
-                Acá va la imagen
+                <img
+                  src={nivel.img}
+                  alt={`Actividad ${nivel.id}`}
+                  className="page-practicar-bucle-while__actividad-img"
+                />
               </div>
             )}
 
