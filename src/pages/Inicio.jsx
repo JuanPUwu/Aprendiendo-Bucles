@@ -266,8 +266,6 @@ export default function Inicio() {
         </a>
       </p>
 
-      {/*Aca va el AR*/}
-
       <Footer />
     </div>
   );
