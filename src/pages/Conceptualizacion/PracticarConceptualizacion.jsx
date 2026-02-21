@@ -13,6 +13,17 @@ import "../../styles/common.css";
 // Fondo
 import fondo from "../../assets/img/fondo-conceptualizacion.png";
 
+// Img
+import imgConcep1 from "../../assets/img/concept-1.jpeg";
+import imgConcep2 from "../../assets/img/concept-2.jpeg";
+import imgConcep3 from "../../assets/img/concept-3.jpeg";
+import imgConcep4 from "../../assets/img/concept-4.jpeg";
+import imgConcep5 from "../../assets/img/concept-5.jpeg";
+import imgConcep6 from "../../assets/img/concept-6.jpeg";
+import imgConcep7 from "../../assets/img/concept-7.jpeg";
+import imgConcep8 from "../../assets/img/concept-8.jpeg";
+import imgConcep9 from "../../assets/img/concept-9.jpeg";
+
 export default function PracticarConceptualizacion() {
   const [feedbackVisible, setFeedbackVisible] = useState({
     nivel1: false,
@@ -41,84 +52,82 @@ export default function PracticarConceptualizacion() {
       enunciado: "Haz que tu personaje avance 10 pasos al iniciar el programa.",
       retroalimentacion:
         "Aquí ejecutaste un movimiento sencillo, comprendiendo cómo los bloques permiten que el personaje avance en el escenario. Reconociste la importancia de iniciar con un evento y dar acción al código. ¡Muy bien! Estás aprendiendo a controlar el movimiento con precisión.",
-      tipoActividad: "juego",
+      img: imgConcep1,
     },
     {
       id: "nivel2",
-      titulo: "Nivel 2: Un giro divertido",
+      titulo: "Nivel 2: El saludo que se repite",
       enunciado:
-        "Explora cómo cambia la orientación del personaje al girar 15 grados.",
+        "Haz que tu personaje repita un saludo varias veces.",
       retroalimentacion:
-        "Aquí exploraste cómo el personaje cambia de orientación al girar. Comprendiste que los bloques de rotación modifican la dirección y enriquecen la animación. ¡Excelente trabajo! Estás descubriendo cómo dar dinamismo a tus programas.",
-      tipoActividad: "juego",
+        "Aquí exploraste cómo usar la repetición para que el personaje diga un mensaje varias veces. Comprendiste que repetir acciones permite automatizar comportamientos y ahorrar bloques en tu programa. ¡Muy bien! Estás dando tus primeros pasos en el uso de ciclos.",
+      img: imgConcep2,
     },
     {
       id: "nivel3",
-      titulo: "Nivel 3: ¡Hola, Scratch!",
-      enunciado: "Muestra un mensaje en pantalla para que tu personaje salude.",
+      titulo: "Nivel 3: Aprendiendo a contar con código",
+      enunciado: "Haz que tu personaje cuente del 1 al 10.",
       retroalimentacion:
-        "Aquí lograste que el personaje se comunique mostrando un mensaje. Reconociste que los bloques de apariencia permiten interacción visual con el usuario. ¡Muy bien hecho! Estás creando programas expresivos y cercanos.",
-      tipoActividad: "imagen",
+        "Aquí aprendiste a organizar acciones en un orden lógico. Entendiste cómo una secuencia permite que el personaje muestre números de forma progresiva. ¡Excelente trabajo! Estás desarrollando el pensamiento lógico en programación.",
+      img: imgConcep3,
     },
     {
       id: "nivel4",
-      titulo: "Nivel 4: Cambio de disfraz mágico",
-      enunciado: "Transforma visualmente al personaje cambiando su disfraz.",
+      titulo: "Nivel 4: Un pequeño giro, un gran paso",
+      enunciado: "Haz que tu personaje gire 10 grados.",
       retroalimentacion:
-        "Aquí transformaste al personaje cambiando su disfraz. Comprendiste que los bloques de apariencia generan variedad y creatividad en las animaciones. ¡Fantástico! Estás aprendiendo a dar vida y personalidad a tus proyectos.",
-      tipoActividad: "imagen",
+        "Aquí exploraste cómo el personaje cambia de orientación al girar. Comprendiste que los bloques de rotación modifican la dirección y enriquecen la animación. ¡Excelente trabajo! Estás descubriendo cómo dar dinamismo a tus programas.",
+      img: imgConcep4,
     },
     {
       id: "nivel5",
-      titulo: "Nivel 5: Vuelve al centro",
-      enunciado:
-        "Ubica al personaje en la posición inicial del escenario (x:0, y:0).",
+      titulo: "Nivel 5: Cambio de estilo en acción",
+      enunciado: "Haz que tu personaje cambie de disfraz.",
       retroalimentacion:
-        "Aquí ubicaste al personaje en una posición específica del escenario. Reconociste cómo los bloques de movimiento permiten controlar coordenadas y ubicaciones. ¡Excelente! Estás desarrollando lógica espacial en programación.",
-      tipoActividad: "imagen",
+        "En esta actividad descubriste cómo un personaje puede transformarse visualmente. Comprendiste que cambiar de disfraz ayuda a simular movimiento y expresar acciones. ¡Muy bien hecho! Tus programas ahora son más expresivos.",
+      img: imgConcep5,
     },
     {
       id: "nivel6",
-      titulo: "Nivel 6: Caminar sin parar",
+      titulo: "Nivel 6: Explorando el escenario",
       enunciado:
-        "Haz que el personaje avance varias veces de forma automática.",
+        "Haz que tu personaje se ubique en coordenadas específicas del escenario.",
       retroalimentacion:
-        "Aquí repetiste un movimiento varias veces, comprendiendo cómo los bucles automatizan acciones. Visualizaste que el código puede ejecutar secuencias sin necesidad de repetir bloques manualmente. ¡Muy bien! Estás programando con eficiencia.",
-      tipoActividad: "imagen",
+        "Aquí aprendiste cómo funcionan las coordenadas en el escenario. Comprendiste que la posición del personaje depende de los valores de X y Y. ¡Excelente trabajo! Ahora tienes mayor control sobre el movimiento y la ubicación.",
+      img: imgConcep6,
     },
     {
       id: "nivel7",
-      titulo: "Nivel 7: Giro completo",
+      titulo: "Nivel 7: Girando sin parar",
       enunciado:
-        "Logra que el personaje dé una vuelta completa repitiendo giros.",
+        "Haz que tu personaje realice giros.",
       retroalimentacion:
-        "Aquí lograste que el personaje diera una vuelta completa. Comprendiste que los bucles permiten acumular pequeños giros hasta formar un círculo. ¡Excelente! Estás aplicando la lógica de repetición para crear efectos continuos.",
-      tipoActividad: "imagen",
+        "En esta actividad exploraste movimientos continuos y circulares. Entendiste que los giros repetidos crean animaciones más llamativas. ¡Buen trabajo! Estás combinando movimientos para lograr mejores efectos visuales.",
+      img: imgConcep7,
     },
     {
       id: "nivel8",
-      titulo: "Nivel 8: Saludos repetidos",
-      enunciado: "Haz que el personaje repita un saludo varias veces.",
+      titulo: "Nivel 8: Colores en movimiento",
+      enunciado: "Haz que tu personaje cambie de color.",
       retroalimentacion:
-        "Aquí hiciste que el personaje saludara varias veces. Reconociste que los bucles permiten repetir mensajes y dar ritmo a la interacción. ¡Muy bien hecho! Estás creando programas más dinámicos y comunicativos.",
-      tipoActividad: "imagen",
+        "Aquí descubriste cómo modificar la apariencia del personaje usando colores. Comprendiste que estos cambios hacen más atractiva la animación y ayudan a comunicar acciones. ¡Excelente! Tus proyectos ahora tienen más vida.",
+      img: imgConcep8,
     },
     {
       id: "nivel9",
-      titulo: "Nivel 9: Ida y vuelta",
-      enunciado: "Simula un movimiento de avanzar y retroceder con un bucle.",
+      titulo: "Nivel 9: Preparados, listos… ¡ya!",
+      enunciado: "Haz que tu personaje realice una cuenta regresiva.",
       retroalimentacion:
-        "Aquí simulaste un movimiento de avanzar y retroceder. Comprendiste que los bucles pueden combinar acciones opuestas para generar patrones. ¡Fantástico! Estás explorando cómo la repetición construye secuencias más complejas.",
-      tipoActividad: "imagen",
+        "En esta actividad aprendiste a organizar números en orden descendente. Comprendiste cómo una cuenta regresiva puede usarse para iniciar acciones o juegos. ¡Muy bien! Estás aplicando la lógica de control del tiempo en programación.",
+      img: imgConcep9,
     },
     {
       id: "nivel10",
       titulo: "Nivel 10: Mini animación",
       enunciado:
-        "Crea una animación sencilla cambiando disfraces en secuencia.",
+        "Crea una animación en Scratch donde un personaje primero gire varias veces, luego cambie de colores y finalmente muestre en pantalla la cuenta del 1 al 10.",
       retroalimentacion:
         "Aquí creaste una animación sencilla cambiando disfraces en secuencia. Reconociste que los bucles permiten dar continuidad y fluidez a las imágenes. ¡Excelente trabajo! Estás programando con creatividad y ritmo visual.",
-      tipoActividad: "imagen",
     },
   ];
 
@@ -150,17 +159,15 @@ export default function PracticarConceptualizacion() {
               {nivel.enunciado}
             </p>
 
-            <div className="page-practicar-conceptualizacion__actividad placeholder">
-              {nivel.tipoActividad === "juego" ? (
-                <div className="page-practicar-conceptualizacion__placeholder">
-                  Este es el juego {nivel.id.replace("nivel", "")}
-                </div>
-              ) : (
-                <div className="page-practicar-conceptualizacion__placeholder">
-                  Acá va la imagen
-                </div>
-              )}
-            </div>
+            {nivel.id !== "nivel10" && (
+              <div className="page-practicar-conceptualizacion__actividad placeholder">
+                <img
+                  src={nivel.img}
+                  alt={`Actividad ${nivel.id.replace("nivel", "")}`}
+                  className="page-practicar-conceptualizacion__actividad-img"
+                />
+              </div>
+            )}
 
             <button
               onClick={() => toggleFeedback(nivel.id)}
