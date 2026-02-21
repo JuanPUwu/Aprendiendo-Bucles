@@ -13,6 +13,17 @@ import "../../styles/common.css";
 // Fondo
 import fondo from "../../assets/img/fondo-bucleFor.png";
 
+// Img
+import imgWhile1 from "../../assets/img/while-1.jpeg";
+import imgWhile2 from "../../assets/img/while-2.jpeg";
+import imgWhile3 from "../../assets/img/while-3.jpeg";
+import imgWhile4 from "../../assets/img/while-4.jpeg";
+import imgWhile5 from "../../assets/img/while-5.jpeg";
+import imgWhile6 from "../../assets/img/while-6.jpeg";
+import imgWhile7 from "../../assets/img/while-7.jpeg";
+import imgWhile8 from "../../assets/img/while-8.jpeg";
+import imgWhile9 from "../../assets/img/while-9.jpeg";
+
 export default function PracticarBucleFor() {
   const [feedbackVisible, setFeedbackVisible] = useState({
     nivel1: false,
@@ -37,90 +48,89 @@ export default function PracticarBucleFor() {
   const niveles = [
     {
       id: "nivel1",
-      titulo: "Nivel 1: Pasos contados",
-      enunciado: "Haz que el personaje avance 10 pasos repetidos 5 veces.",
+      titulo: "Nivel 1: Avanzando con repetición",
+      enunciado: "Haz que tu personaje avance 10 pasos y repita esta acción 5 veces.",
       retroalimentacion:
-        'Aquí aplicaste un bucle sencillo para repetir un movimiento. Comprendiste que el bloque "Repetir" evita escribir la misma acción varias veces. ¡Excelente! Estás aprendiendo a programar con orden y eficiencia.',
-      tipoActividad: "juego",
+        'Aquí aprendiste a combinar movimiento con repetición. Comprendiste que usar ciclos permite que el personaje avance varias veces sin repetir bloques. ¡Excelente trabajo! Estás fortaleciendo tu comprensión de los bucles.',
+      img: imgWhile1,
     },
     {
       id: "nivel2",
-      titulo: "Nivel 2: Giro programado",
+      titulo: "Nivel 2: Girando con precisión",
       enunciado:
-        "Haz que el personaje gire 15 grados, repitiendo la acción 12 veces.",
+        "Haz que tu personaje realice 3 giros de 20 grados.",
       retroalimentacion:
-        "Aquí lograste que el personaje completara un giro usando repetición. Reconociste cómo los bucles acumulan pequeñas acciones hasta formar un resultado mayor. ¡Muy bien! Estás descubriendo la lógica detrás de los movimientos circulares.",
-      tipoActividad: "juego",
+        "En esta actividad exploraste cómo controlar giros específicos usando repetición. Comprendiste que ajustar los grados y la cantidad de repeticiones cambia el resultado del movimiento. ¡Muy bien! Estás afinando el control del movimiento.",
+      img: imgWhile2,
     },
     {
       id: "nivel3",
-      titulo: "Nivel 3: Saludos múltiples",
-      enunciado: 'Haz que el personaje diga "¡Hola!" tres veces seguidas.',
+      titulo: "Nivel 3: Saludos que se repiten",
+      enunciado: 'Haz que tu personaje diga un saludo 4 veces.',
       retroalimentacion:
-        "Aquí repetiste un mensaje varias veces, comprendiendo que los bucles también sirven para la comunicación. ¡Excelente! Estás creando programas más expresivos y dinámicos.",
-      tipoActividad: "imagen",
+        "Aquí descubriste cómo repetir mensajes usando ciclos. Comprendiste que la repetición es útil para reforzar acciones sin duplicar código. ¡Buen trabajo! Tus programas ahora son más ordenados.",
+      img: imgWhile3,
     },
     {
       id: "nivel4",
-      titulo: "Nivel 4: Cambio de disfraz repetido",
-      enunciado: "Haz que el personaje cambie de disfraz 4 veces seguidas.",
+      titulo: "Nivel 4: Transformaciones repetidas",
+      enunciado: "Haz que tu personaje cambie de disfraz dos veces.",
       retroalimentacion:
-        "Aquí exploraste cómo los bucles permiten variar la apariencia del personaje sin repetir bloques manualmente. ¡Fantástico! Estás aprendiendo a dar ritmo y creatividad a tus animaciones.",
-      tipoActividad: "imagen",
+        "En esta actividad reforzaste el uso de cambios visuales mediante repetición. Comprendiste que alternar disfraces ayuda a simular movimiento. ¡Excelente! Estás dando más dinamismo a tus animaciones.",
+      img: imgWhile4,
     },
     {
       id: "nivel5",
-      titulo: "Nivel 5: Saltos al centro",
+      titulo: "Nivel 5: Regresando al punto inicial",
       enunciado:
-        "Haz que el personaje vaya al centro del escenario 3 veces seguidas.",
+        "Haz que tu personaje vaya al centro del escenario 4 veces.",
       retroalimentacion:
-        "Aquí usaste el bucle para repetir una ubicación específica. Comprendiste que la repetición también puede aplicarse a posiciones. ¡Muy bien! Estás desarrollando lógica espacial con programación.",
-      tipoActividad: "imagen",
+        "Aquí aprendiste a usar posiciones específicas para controlar el movimiento. Comprendiste que volver al centro ayuda a reiniciar acciones o animaciones. ¡Muy bien! Estás organizando mejor el comportamiento del personaje.",
+      img: imgWhile5,
     },
     {
       id: "nivel6",
-      titulo: "Nivel 6: Caminar con ritmo",
+      titulo: "Nivel 6: Jugando con el azar",
       enunciado:
-        "Haz que el personaje avance 20 pasos y luego espere 1 segundo, repitiendo la secuencia 5 veces.",
+        "Haz que tu personaje diga un número aleatorio.",
       retroalimentacion:
-        "Aquí combinaste movimiento y espera dentro de un bucle. Reconociste que la repetición puede incluir varias acciones en secuencia. ¡Excelente! Estás creando programas con ritmo y cadencia.",
-      tipoActividad: "imagen",
+        "En esta actividad exploraste el uso del azar en programación. Comprendiste que los números aleatorios hacen que cada ejecución sea diferente. ¡Excelente trabajo! Estás creando programas más interesantes y variados.",
+      img: imgWhile6,
     },
     {
       id: "nivel7",
-      titulo: "Nivel 7: Círculo perfecto",
+      titulo: "Nivel 7: Contando con diversión",
       enunciado:
-        "Haz que el personaje gire 10 grados y avance 5 pasos, repitiendo la acción 18 veces.",
+        "Haz que tu personaje cuente frutas.",
       retroalimentacion:
-        "Aquí lograste que el personaje trazara un círculo en el escenario. Comprendiste cómo los bucles permiten construir figuras geométricas. ¡Muy bien! Estás aplicando lógica matemática en programación.",
-      tipoActividad: "imagen",
+        "Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.",
+      img: imgWhile7,
     },
     {
       id: "nivel8",
-      titulo: "Nivel 8: Saludos animados",
+      titulo: "Nivel 8: Contando en el cielo",
       enunciado:
-        'Haz que el personaje diga "¡Hola!" y cambie de disfraz, repitiendo la secuencia 5 veces.',
+        'Haz que tu personaje cuente estrellas.',
       retroalimentacion:
-        "Aquí combinaste apariencia y comunicación dentro de un bucle. Reconociste que la repetición puede dar vida a interacciones más creativas. ¡Fantástico! Estás programando con expresividad y dinamismo.",
-      tipoActividad: "imagen",
+        "En esta actividad reforzaste el conteo mediante programación. Comprendiste que repetir acciones permite contar de manera clara y estructurada. ¡Excelente! Sigues fortaleciendo tu pensamiento lógico.",
+      img: imgWhile8,
     },
     {
       id: "nivel9",
-      titulo: "Nivel 9: Camino de ida y vuelta",
+      titulo: "Nivel 9: Del uno al diez con código",
       enunciado:
-        "Haz que el personaje avance 30 pasos y luego retroceda 30 pasos, repitiendo la secuencia 4 veces.",
+        "Haz que tu personaje cuente del 1 al 10.",
       retroalimentacion:
-        "Aquí simulaste un movimiento de ida y vuelta con bucles. Comprendiste cómo la repetición puede generar patrones más complejos. ¡Excelente! Estás explorando la lógica de secuencias opuestas.",
-      tipoActividad: "imagen",
+        "Aquí integraste secuencia y conteo numérico. Comprendiste cómo organizar números en orden ascendente usando programación. ¡Gran trabajo! Estás consolidando habilidades fundamentales para retos más avanzados.",
+      img: imgWhile9,
     },
     {
       id: "nivel10",
       titulo: "Nivel 10: Animación continua",
       enunciado:
-        "Haz que el personaje cambie de disfraz y avance 10 pasos, repitiendo la acción 20 veces.",
+        "Crea una animación en Scratch donde un personaje se desplace, gire, cambie de disfraz y de colores, mientras lleva a cabo una recolección de objetos. Durante la animación, el personaje debe contar elementos (frutas, estrellas, números).",
       retroalimentacion:
         "Aquí creaste una animación fluida combinando movimiento y disfraces dentro de un bucle. Reconociste que la repetición da continuidad y ritmo visual. ¡Muy bien! Estás programando con creatividad y lógica avanzada.",
-      tipoActividad: "imagen",
     },
   ];
 
@@ -153,17 +163,15 @@ export default function PracticarBucleFor() {
               {nivel.enunciado}
             </p>
 
-            <div className="page-practicar-bucle-for__actividad placeholder">
-              {nivel.tipoActividad === "juego" ? (
-                <div className="page-practicar-bucle-for__placeholder">
-                  Este es el juego {nivel.id.replace("nivel", "")}
-                </div>
-              ) : (
-                <div className="page-practicar-bucle-for__placeholder">
-                  Acá va la imagen
-                </div>
-              )}
-            </div>
+            {nivel.id !== "nivel10" && (
+              <div className="page-practicar-bucle-for__actividad placeholder">
+                <img
+                  src={nivel.img}
+                  alt={`Actividad ${nivel.id.replace("nivel", "")}`}
+                  className="page-practicar-bucle-for__actividad-img"
+                />
+              </div>
+            )}
 
             <button
               onClick={() => toggleFeedback(nivel.id)}
