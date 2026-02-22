@@ -117,6 +117,7 @@ export default function ArCam() {
             object-fit: contain !important;
             width: 100vw !important;
             height: 100vh !important;
+            right: 0 !important;
           }
         `}
       </style>
