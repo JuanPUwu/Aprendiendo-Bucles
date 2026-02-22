@@ -15,11 +15,10 @@ export default function ArCam() {
         <a-light type="directional" position="0 2 2" intensity="4"></a-light>
 
         <a-marker type="pattern" url="/markers/pattern-marker-a.patt">
-          {/* <a-entity
+          <a-entity
             gltf-model="/models/scratch-a.glb"
             scale="4 0.5 2"
-          ></a-entity> */}
-          <a-box color="red" scale="0.5 0.5 0.5"></a-box>
+          ></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
