@@ -1,5 +1,6 @@
 // React
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Components
 import Footer from "../../components/Footer.jsx";
@@ -23,6 +24,8 @@ import imgWhile6 from "../../assets/img/while-6.jpeg";
 import imgWhile7 from "../../assets/img/while-7.jpeg";
 import imgWhile8 from "../../assets/img/while-8.jpeg";
 import imgWhile9 from "../../assets/img/while-9.jpeg";
+import imgCamara from "../../assets/img/camara.png";
+import imgScanner from "../../assets/img/escanear.png";
 
 export default function PracticarBucleFor() {
   const [feedbackVisible, setFeedbackVisible] = useState({
@@ -37,6 +40,7 @@ export default function PracticarBucleFor() {
     nivel9: false,
     nivel10: false,
   });
+  const [markerModalNivel, setMarkerModalNivel] = useState(null);
 
   const toggleFeedback = (nivel) => {
     setFeedbackVisible((prev) => ({
@@ -45,31 +49,37 @@ export default function PracticarBucleFor() {
     }));
   };
 
+  const openMarkerModal = (nivel) => setMarkerModalNivel(nivel);
+  const closeMarkerModal = () => setMarkerModalNivel(null);
+
   const niveles = [
     {
       id: "nivel1",
       titulo: "Nivel 1: Avanzando con repetición",
-      enunciado: "Haz que tu personaje avance 10 pasos y repita esta acción 5 veces.",
+      enunciado:
+        "Haz que tu personaje avance 10 pasos y repita esta acción 5 veces.",
       retroalimentacion:
-        'Aquí aprendiste a combinar movimiento con repetición. Comprendiste que usar ciclos permite que el personaje avance varias veces sin repetir bloques. ¡Excelente trabajo! Estás fortaleciendo tu comprensión de los bucles.',
+        "Aquí aprendiste a combinar movimiento con repetición. Comprendiste que usar ciclos permite que el personaje avance varias veces sin repetir bloques. ¡Excelente trabajo! Estás fortaleciendo tu comprensión de los bucles.",
       img: imgWhile1,
+      imgMarker: "/markers-img/marker-a.png",
     },
     {
       id: "nivel2",
       titulo: "Nivel 2: Girando con precisión",
-      enunciado:
-        "Haz que tu personaje realice 3 giros de 20 grados.",
+      enunciado: "Haz que tu personaje realice 3 giros de 20 grados.",
       retroalimentacion:
         "En esta actividad exploraste cómo controlar giros específicos usando repetición. Comprendiste que ajustar los grados y la cantidad de repeticiones cambia el resultado del movimiento. ¡Muy bien! Estás afinando el control del movimiento.",
       img: imgWhile2,
+      imgMarker: "/markers-img/marker-c.png",
     },
     {
       id: "nivel3",
       titulo: "Nivel 3: Saludos que se repiten",
-      enunciado: 'Haz que tu personaje diga un saludo 4 veces.',
+      enunciado: "Haz que tu personaje diga un saludo 4 veces.",
       retroalimentacion:
         "Aquí descubriste cómo repetir mensajes usando ciclos. Comprendiste que la repetición es útil para reforzar acciones sin duplicar código. ¡Buen trabajo! Tus programas ahora son más ordenados.",
       img: imgWhile3,
+      imgMarker: "/markers-img/marker-a.png",
     },
     {
       id: "nivel4",
@@ -78,51 +88,52 @@ export default function PracticarBucleFor() {
       retroalimentacion:
         "En esta actividad reforzaste el uso de cambios visuales mediante repetición. Comprendiste que alternar disfraces ayuda a simular movimiento. ¡Excelente! Estás dando más dinamismo a tus animaciones.",
       img: imgWhile4,
+      imgMarker: "/markers-img/marker-b.png",
     },
     {
       id: "nivel5",
       titulo: "Nivel 5: Regresando al punto inicial",
-      enunciado:
-        "Haz que tu personaje vaya al centro del escenario 4 veces.",
+      enunciado: "Haz que tu personaje vaya al centro del escenario 4 veces.",
       retroalimentacion:
         "Aquí aprendiste a usar posiciones específicas para controlar el movimiento. Comprendiste que volver al centro ayuda a reiniciar acciones o animaciones. ¡Muy bien! Estás organizando mejor el comportamiento del personaje.",
       img: imgWhile5,
+      imgMarker: "/markers-img/marker-c.png",
     },
     {
       id: "nivel6",
       titulo: "Nivel 6: Jugando con el azar",
-      enunciado:
-        "Haz que tu personaje diga un número aleatorio.",
+      enunciado: "Haz que tu personaje diga un número aleatorio.",
       retroalimentacion:
         "En esta actividad exploraste el uso del azar en programación. Comprendiste que los números aleatorios hacen que cada ejecución sea diferente. ¡Excelente trabajo! Estás creando programas más interesantes y variados.",
       img: imgWhile6,
+      imgMarker: "/markers-img/marker-a.png",
     },
     {
       id: "nivel7",
       titulo: "Nivel 7: Contando con diversión",
-      enunciado:
-        "Haz que tu personaje cuente frutas.",
+      enunciado: "Haz que tu personaje cuente frutas.",
       retroalimentacion:
         "Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.",
       img: imgWhile7,
+      imgMarker: "/markers-img/marker-d.png",
     },
     {
       id: "nivel8",
       titulo: "Nivel 8: Contando en el cielo",
-      enunciado:
-        'Haz que tu personaje cuente estrellas.',
+      enunciado: "Haz que tu personaje cuente estrellas.",
       retroalimentacion:
         "En esta actividad reforzaste el conteo mediante programación. Comprendiste que repetir acciones permite contar de manera clara y estructurada. ¡Excelente! Sigues fortaleciendo tu pensamiento lógico.",
       img: imgWhile8,
+      imgMarker: "/markers-img/marker-e.png",
     },
     {
       id: "nivel9",
       titulo: "Nivel 9: Del uno al diez con código",
-      enunciado:
-        "Haz que tu personaje cuente del 1 al 10.",
+      enunciado: "Haz que tu personaje cuente del 1 al 10.",
       retroalimentacion:
         "Aquí integraste secuencia y conteo numérico. Comprendiste cómo organizar números en orden ascendente usando programación. ¡Gran trabajo! Estás consolidando habilidades fundamentales para retos más avanzados.",
       img: imgWhile9,
+      imgMarker: "/markers-img/marker-e.png",
     },
     {
       id: "nivel10",
@@ -131,6 +142,7 @@ export default function PracticarBucleFor() {
         "Crea una animación en Scratch donde un personaje se desplace, gire, cambie de disfraz y de colores, mientras lleva a cabo una recolección de objetos. Durante la animación, el personaje debe contar elementos (frutas, estrellas, números).",
       retroalimentacion:
         "Aquí creaste una animación fluida combinando movimiento y disfraces dentro de un bucle. Reconociste que la repetición da continuidad y ritmo visual. ¡Muy bien! Estás programando con creatividad y lógica avanzada.",
+      imgMarker: "/markers-img/marker-f.png",
     },
   ];
 
@@ -155,9 +167,21 @@ export default function PracticarBucleFor() {
             key={nivel.id}
             className="page-practicar-bucle-for__nivel-card card"
           >
-            <h3 className="page-practicar-bucle-for__nivel-title card__title">
-              {nivel.titulo}
-            </h3>
+            <div className="page-practicar-conceptualizacion__nivel-header">
+              <h3 className="page-practicar-bucle-for__nivel-title card__title">
+                {nivel.titulo}
+              </h3>
+
+              <div className="page-practicar-conceptualizacion__nivel-actions">
+                <button
+                  type="button"
+                  className="btn-scanner-card"
+                  onClick={() => openMarkerModal(nivel)}
+                >
+                  <img src={imgScanner} alt="Escáner" />
+                </button>
+              </div>
+            </div>
 
             <p className="page-practicar-bucle-for__nivel-enunciado card__text">
               {nivel.enunciado}
@@ -200,6 +224,58 @@ export default function PracticarBucleFor() {
           </div>
         ))}
       </div>
+
+      <Link
+        to="/ar-cam"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-cam-fixed"
+      >
+        <img src={imgCamara} alt="Cámara" />
+      </Link>
+
+      <AnimatePresence>
+        {markerModalNivel && (
+          <motion.div
+            className="marker-popup"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeMarkerModal}
+          >
+            <motion.div
+              className="marker-popup__content"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={(event) => event.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Marcador ${markerModalNivel.id}`}
+            >
+              <h3 className="marker-popup__title">
+                Abre la cámara de escaneo que está en la parte inferior
+                izquierda y apunta a esta imagen para ver el modelo 3D.
+              </h3>
+
+              <div className="marker-popup__media">
+                {markerModalNivel.imgMarker ? (
+                  <img
+                    src={markerModalNivel.imgMarker}
+                    alt={`Imagen del marcador para ${markerModalNivel.id}`}
+                    className="marker-popup__img"
+                  />
+                ) : (
+                  <div className="marker-popup__placeholder">
+                    Espacio reservado para el marcador de este nivel.
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </div>
