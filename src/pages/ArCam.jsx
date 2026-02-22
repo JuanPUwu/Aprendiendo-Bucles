@@ -118,6 +118,7 @@ export default function ArCam() {
             width: 100vw !important;
             height: 100vh !important;
             right: 0 !important;
+            left: unset !important;
           }
         `}
       </style>
