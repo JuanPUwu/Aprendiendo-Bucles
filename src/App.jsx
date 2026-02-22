@@ -58,7 +58,7 @@ function App() {
   }
 
   return (
-    <>
+    <div id="cont-pages">
       <Nav />
       <main>
         <Routes>
@@ -163,7 +163,7 @@ function App() {
           <Route path="/ar-cam" element={<ArCam />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
 
