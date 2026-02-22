@@ -111,11 +111,10 @@ export default function ArCam() {
           canvas {
             width: 100vw !important;
             height: 100vh !important;
-            object-fit: cover;
           }
 
           video {
-            object-fit: cover !important;
+            object-fit: contain !important;
             width: 100vw !important;
             height: 100vh !important;
           }
