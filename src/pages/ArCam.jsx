@@ -15,7 +15,7 @@ export default function ArCam() {
         <a-light type="directional" position="0 2 2" intensity="3"></a-light>
 
         <a-marker preset="hiro">
-          <a-entity gltf-model="/models/scratch2.glb" scale="3 1 2"></a-entity>
+          <a-entity gltf-model="/models/scratch2.glb" scale="4 0.5 2"></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
