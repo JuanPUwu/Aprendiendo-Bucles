@@ -21,6 +21,13 @@ export default function ArCam() {
           ></a-entity>
         </a-marker>
 
+        <a-marker type="pattern" url="/markers/pattern-marker-b.patt">
+          <a-entity
+            gltf-model="/models/scratch-b.glb"
+            scale="4 0.5 2"
+          ></a-entity>
+        </a-marker>
+
         <a-entity camera></a-entity>
       </a-scene>
     </div>
