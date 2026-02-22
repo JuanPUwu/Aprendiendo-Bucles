@@ -6,9 +6,9 @@ export default function ArCam() {
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: true;">
-        {/* 🔴 TU MARCADOR PERSONALIZADO */}
-        <a-marker type="pattern" url="/markers/concept1.patt">
-          {/* 🧱 TU MODELO 3D */}
+        {/* 🟥 MARCADOR POR DEFECTO (HIRO) */}
+        <a-marker preset="hiro">
+          {/* 🧱 TU MODELO 3D PERSONALIZADO */}
           <a-entity
             gltf-model="/models/scratch1.glb"
             scale="0.4 0.4 0.4"
