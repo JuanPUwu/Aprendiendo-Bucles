@@ -5,20 +5,17 @@ export default function ArCam() {
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
-      <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-        <a-entity light="type: ambient; intensity: 3"></a-entity>
+      <a-scene
+        embedded
+        arjs="sourceType: webcam; debugUIEnabled: true;"
+        light="defaultLightsEnabled: false"
+      >
+        <a-light type="ambient" intensity="1.3"></a-light>
 
-        <a-entity
-          light="type: directional; intensity: 3"
-          position="1 2 1"
-        ></a-entity>
+        <a-light type="directional" position="0 2 2" intensity="1"></a-light>
 
         <a-marker preset="hiro">
-          <a-entity
-            gltf-model="/models/scratch-1.glb"
-            scale="2 2 2"
-            position="0 0 0"
-          ></a-entity>
+          <a-entity gltf-model="/models/scratch2.glb" scale="2 2 2"></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
