@@ -7,7 +7,7 @@ export default function ArCam() {
     <div style={{ width: "100vw", height: "100vh" }}>
       <a-scene
         embedded
-        arjs="sourceType: webcam; debugUIEnabled: false;"
+        arjs="sourceType: webcam; debugUIEnabled: false; sourceWidth: 640; sourceHeight: 480; displayWidth: 640; displayHeight: 480;"
         light="defaultLightsEnabled: false"
       >
         <a-light type="ambient" intensity="4"></a-light>
