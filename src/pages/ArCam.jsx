@@ -1,36 +1,131 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ArCam() {
   const [ready, setReady] = useState(false);
+  const [cameraDeviceId, setCameraDeviceId] = useState("");
 
   useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({
-        video: {
-          facingMode: { exact: "environment" },
-          width: { ideal: 1280 },
-          height: { ideal: 720 },
-          zoom: 1.0,
-        },
-      })
-      .then((stream) => {
+    let mounted = true;
+
+    const pickBestRearCamera = async () => {
+      try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoInputs = devices.filter((d) => d.kind === "videoinput");
+        console.log("[AR] videoinput devices:", videoInputs);
+
+        // Heurística: prioriza cámaras traseras / gran angular
+        const ranked = [...videoInputs].sort((a, b) => {
+          const score = (label = "") => {
+            const l = label.toLowerCase();
+            let s = 0;
+            if (
+              l.includes("back") ||
+              l.includes("rear") ||
+              l.includes("trasera")
+            )
+              s += 5;
+            if (l.includes("wide") || l.includes("ultra") || l.includes("main"))
+              s += 3;
+            if (l.includes("tele")) s -= 3;
+            return s;
+          };
+          return score(b.label) - score(a.label);
+        });
+
+        return ranked[0]?.deviceId || "";
+      } catch (e) {
+        console.warn("[AR] enumerateDevices failed:", e);
+        return "";
+      }
+    };
+
+    const init = async () => {
+      try {
+        const preferredDeviceId = await pickBestRearCamera();
+        if (!mounted) return;
+
+        if (preferredDeviceId) setCameraDeviceId(preferredDeviceId);
+
+        const primaryConstraints = preferredDeviceId
+          ? {
+              video: {
+                deviceId: { exact: preferredDeviceId },
+                width: { ideal: 1280 },
+                height: { ideal: 720 },
+              },
+            }
+          : {
+              video: {
+                facingMode: { ideal: "environment" },
+                width: { ideal: 1280 },
+                height: { ideal: 720 },
+              },
+            };
+
+        const stream =
+          await navigator.mediaDevices.getUserMedia(primaryConstraints);
         stream.getTracks().forEach((track) => track.stop());
-        setReady(true); // Ahora sí renderiza AR.js
-      })
-      .catch((err) => {
-        console.warn("Camera constraint failed, trying fallback...", err);
-        // Fallback sin constraints estrictas
-        setReady(true);
-      });
+
+        if (mounted) setReady(true);
+      } catch (err) {
+        console.warn("[AR] Camera constraint failed, trying fallback...", err);
+        try {
+          const fallback = await navigator.mediaDevices.getUserMedia({
+            video: true,
+          });
+          fallback.getTracks().forEach((track) => track.stop());
+        } catch (fallbackErr) {
+          console.warn("[AR] Fallback camera access failed:", fallbackErr);
+        } finally {
+          if (mounted) setReady(true);
+        }
+      }
+    };
+
+    init();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  if (!ready) return null; // Espera antes de montar la escena
+  const arjsConfig = useMemo(() => {
+    const base = "sourceType: webcam; debugUIEnabled: false;";
+    return cameraDeviceId ? `${base} deviceId: ${cameraDeviceId};` : base;
+  }, [cameraDeviceId]);
+
+  if (!ready) return null;
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+      }}
+    >
+      <style>
+        {`
+          canvas {
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover;
+          }
+
+          video {
+            object-fit: cover !important;
+            width: 100vw !important;
+            height: 100vh !important;
+          }
+        `}
+      </style>
+
       <a-scene
-        embedded
-        arjs="sourceType: webcam; debugUIEnabled: false; sourceWidth: 640; sourceHeight: 480; displayWidth: 640; displayHeight: 480;"
+        arjs={arjsConfig}
+        vr-mode-ui="enabled: false"
+        renderer="logarithmicDepthBuffer: true; precision: medium;"
         light="defaultLightsEnabled: false"
       >
         <a-light type="ambient" intensity="4"></a-light>
