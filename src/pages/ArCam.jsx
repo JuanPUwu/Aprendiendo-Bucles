@@ -9,12 +9,7 @@ export default function ArCam() {
         {/* 🟥 MARCADOR POR DEFECTO (HIRO) */}
         <a-marker preset="hiro">
           {/* 🧱 TU MODELO 3D PERSONALIZADO */}
-          <a-entity
-            gltf-model="/models/scratch1.glb"
-            scale="0.4 0.4 0.4"
-            position="0 0 0"
-            rotation="0 180 0"
-          ></a-entity>
+          <a-entity gltf-model="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/three.js/examples/marker-training/examples/pattern-files/dinosaur.glb"></a-entity>
         </a-marker>
 
         {/* 📷 Cámara */}
