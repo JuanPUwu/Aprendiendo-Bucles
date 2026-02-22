@@ -14,7 +14,7 @@ export default function ArCam() {
 
         <a-light type="directional" position="0 2 2" intensity="4"></a-light>
 
-        <a-marker type="pattern" url="/markers/pattern-marker-prueba.patt">
+        <a-marker type="pattern" url="/markers/pattern-marker-a.patt">
           {/* <a-entity
             gltf-model="/models/scratch-a.glb"
             scale="4 0.5 2"
