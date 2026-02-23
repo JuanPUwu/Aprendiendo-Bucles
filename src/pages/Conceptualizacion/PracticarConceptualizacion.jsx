@@ -133,7 +133,7 @@ export default function PracticarConceptualizacion() {
       retroalimentacion:
         "En esta actividad aprendiste a organizar números en orden descendente. Comprendiste cómo una cuenta regresiva puede usarse para iniciar acciones o juegos. ¡Muy bien! Estás aplicando la lógica de control del tiempo en programación.",
       img: imgConcep9,
-      imgMarker: "/markers-img/marker-a.png",
+      imgMarker: "/markers-img/marker-b.png",
     },
     {
       id: "nivel10",
