@@ -15,15 +15,15 @@ import "../../styles/common.css";
 import fondo from "../../assets/img/fondo-bucleFor.png";
 
 // Img
-import imgWhile1 from "../../assets/img/while-1.jpeg";
-import imgWhile2 from "../../assets/img/while-2.jpeg";
-import imgWhile3 from "../../assets/img/while-3.jpeg";
-import imgWhile4 from "../../assets/img/while-4.jpeg";
-import imgWhile5 from "../../assets/img/while-5.jpeg";
-import imgWhile6 from "../../assets/img/while-6.jpeg";
-import imgWhile7 from "../../assets/img/while-7.jpeg";
-import imgWhile8 from "../../assets/img/while-8.jpeg";
-import imgWhile9 from "../../assets/img/while-9.jpeg";
+import imgFor1 from "../../assets/img/for-1.jpeg";
+import imgFor2 from "../../assets/img/for-2.jpeg";
+import imgFor3 from "../../assets/img/for-3.jpeg";
+import imgFor4 from "../../assets/img/for-4.jpeg";
+import imgFor5 from "../../assets/img/for-5.jpeg";
+import imgFor6 from "../../assets/img/for-6.jpeg";
+import imgFor7 from "../../assets/img/for-7.jpeg";
+import imgFor8 from "../../assets/img/for-8.jpeg";
+import imgFor9 from "../../assets/img/for-9.jpeg";
 import imgCamara from "../../assets/img/camara.png";
 import imgScanner from "../../assets/img/escanear.png";
 
@@ -60,7 +60,7 @@ export default function PracticarBucleFor() {
         "Haz que tu personaje avance 10 pasos y repita esta acción 5 veces.",
       retroalimentacion:
         "Aquí aprendiste a combinar movimiento con repetición. Comprendiste que usar ciclos permite que el personaje avance varias veces sin repetir bloques. ¡Excelente trabajo! Estás fortaleciendo tu comprensión de los bucles.",
-      img: imgWhile1,
+      img: imgFor1,
       imgMarker: "/markers-img/marker-a.png",
     },
     {
@@ -69,7 +69,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje realice 3 giros de 20 grados.",
       retroalimentacion:
         "En esta actividad exploraste cómo controlar giros específicos usando repetición. Comprendiste que ajustar los grados y la cantidad de repeticiones cambia el resultado del movimiento. ¡Muy bien! Estás afinando el control del movimiento.",
-      img: imgWhile2,
+      img: imgFor2,
       imgMarker: "/markers-img/marker-c.png",
     },
     {
@@ -78,7 +78,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje diga un saludo 4 veces.",
       retroalimentacion:
         "Aquí descubriste cómo repetir mensajes usando ciclos. Comprendiste que la repetición es útil para reforzar acciones sin duplicar código. ¡Buen trabajo! Tus programas ahora son más ordenados.",
-      img: imgWhile3,
+      img: imgFor3,
       imgMarker: "/markers-img/marker-a.png",
     },
     {
@@ -87,7 +87,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje cambie de disfraz dos veces.",
       retroalimentacion:
         "En esta actividad reforzaste el uso de cambios visuales mediante repetición. Comprendiste que alternar disfraces ayuda a simular movimiento. ¡Excelente! Estás dando más dinamismo a tus animaciones.",
-      img: imgWhile4,
+      img: imgFor4,
       imgMarker: "/markers-img/marker-b.png",
     },
     {
@@ -96,7 +96,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje vaya al centro del escenario 4 veces.",
       retroalimentacion:
         "Aquí aprendiste a usar posiciones específicas para controlar el movimiento. Comprendiste que volver al centro ayuda a reiniciar acciones o animaciones. ¡Muy bien! Estás organizando mejor el comportamiento del personaje.",
-      img: imgWhile5,
+      img: imgFor5,
       imgMarker: "/markers-img/marker-c.png",
     },
     {
@@ -105,7 +105,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje diga un número aleatorio.",
       retroalimentacion:
         "En esta actividad exploraste el uso del azar en programación. Comprendiste que los números aleatorios hacen que cada ejecución sea diferente. ¡Excelente trabajo! Estás creando programas más interesantes y variados.",
-      img: imgWhile6,
+      img: imgFor6,
       imgMarker: "/markers-img/marker-a.png",
     },
     {
@@ -114,7 +114,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje cuente frutas.",
       retroalimentacion:
         "Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.",
-      img: imgWhile7,
+      img: imgFor7,
       imgMarker: "/markers-img/marker-d.png",
     },
     {
@@ -123,7 +123,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje cuente estrellas.",
       retroalimentacion:
         "En esta actividad reforzaste el conteo mediante programación. Comprendiste que repetir acciones permite contar de manera clara y estructurada. ¡Excelente! Sigues fortaleciendo tu pensamiento lógico.",
-      img: imgWhile8,
+      img: imgFor8,
       imgMarker: "/markers-img/marker-e.png",
     },
     {
@@ -132,7 +132,7 @@ export default function PracticarBucleFor() {
       enunciado: "Haz que tu personaje cuente del 1 al 10.",
       retroalimentacion:
         "Aquí integraste secuencia y conteo numérico. Comprendiste cómo organizar números en orden ascendente usando programación. ¡Gran trabajo! Estás consolidando habilidades fundamentales para retos más avanzados.",
-      img: imgWhile9,
+      img: imgFor9,
       imgMarker: "/markers-img/marker-e.png",
     },
     {
