@@ -177,13 +177,25 @@ export default function ArCam() {
         </a-marker>
 
         {/* Imagenes */}
-        <a-marker type="pattern" url="/markers/pattern-marker-1.patt">
+{/*         <a-marker type="pattern" url="/markers/pattern-marker-1.patt">
           <a-image
             src="/multimedia/marker-1.jpeg"
             width="2"
             height="1"
             rotation="0 0 0"
+            position="0 0.01 0"
           ></a-image>
+        </a-marker> */}
+
+        {/* Cuadrado rojo de prueba */}
+        <a-marker type="pattern" url="/markers/pattern-marker-1.patt">
+          <a-plane
+            color="red"
+            width="1"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-plane>
         </a-marker>
 
         <a-entity camera></a-entity>
