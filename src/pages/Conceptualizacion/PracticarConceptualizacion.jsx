@@ -27,6 +27,7 @@ import imgConcep9 from "../../assets/img/concept-9.jpeg";
 import imgCamara from "../../assets/img/camara.png";
 import imgScanner from "../../assets/img/escanear.png";
 import imgAyuda from "../../assets/img/ayuda.png";
+import imgSolucion from "../../assets/img/solucion.png";
 
 export default function PracticarConceptualizacion() {
   const [feedbackVisible, setFeedbackVisible] = useState({
@@ -41,7 +42,8 @@ export default function PracticarConceptualizacion() {
     nivel9: false,
     nivel10: false,
   });
-  const [markerModalNivel, setMarkerModalNivel] = useState(null);
+  // markerModal keeps track of which level is open and which type (1 or 2)
+  const [markerModal, setMarkerModal] = useState({ nivel: null, tipo: 1 });
   const [showAdvanceModal, setShowAdvanceModal] = useState(false);
 
   const toggleFeedback = (nivel) => {
@@ -51,8 +53,8 @@ export default function PracticarConceptualizacion() {
     }));
   };
 
-  const openMarkerModal = (nivel) => setMarkerModalNivel(nivel);
-  const closeMarkerModal = () => setMarkerModalNivel(null);
+  const openMarkerModal = (nivel, tipo = 1) => setMarkerModal({ nivel, tipo });
+  const closeMarkerModal = () => setMarkerModal({ nivel: null, tipo: 1 });
 
   const openAdvanceModal = () => setShowAdvanceModal(true);
   const closeAdvanceModal = () => setShowAdvanceModal(false);
@@ -66,6 +68,7 @@ export default function PracticarConceptualizacion() {
         "Aquí ejecutaste un movimiento sencillo, comprendiendo cómo los bloques permiten que el personaje avance en el escenario. Reconociste la importancia de iniciar con un evento y dar acción al código. ¡Muy bien! Estás aprendiendo a controlar el movimiento con precisión.",
       img: imgConcep1,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: "/markers-img/marker-1.png",
     },
     {
       id: "nivel2",
@@ -75,6 +78,7 @@ export default function PracticarConceptualizacion() {
         "Aquí exploraste cómo usar la repetición para que el personaje diga un mensaje varias veces. Comprendiste que repetir acciones permite automatizar comportamientos y ahorrar bloques en tu programa. ¡Muy bien! Estás dando tus primeros pasos en el uso de ciclos.",
       img: imgConcep2,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel3",
@@ -84,6 +88,7 @@ export default function PracticarConceptualizacion() {
         "Aquí aprendiste a organizar acciones en un orden lógico. Entendiste cómo una secuencia permite que el personaje muestre números de forma progresiva. ¡Excelente trabajo! Estás desarrollando el pensamiento lógico en programación.",
       img: imgConcep3,
       imgMarker: "/markers-img/marker-e.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel4",
@@ -93,6 +98,7 @@ export default function PracticarConceptualizacion() {
         "Aquí exploraste cómo el personaje cambia de orientación al girar. Comprendiste que los bloques de rotación modifican la dirección y enriquecen la animación. ¡Excelente trabajo! Estás descubriendo cómo dar dinamismo a tus programas.",
       img: imgConcep4,
       imgMarker: "/markers-img/marker-c.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel5",
@@ -102,6 +108,7 @@ export default function PracticarConceptualizacion() {
         "En esta actividad descubriste cómo un personaje puede transformarse visualmente. Comprendiste que cambiar de disfraz ayuda a simular movimiento y expresar acciones. ¡Muy bien hecho! Tus programas ahora son más expresivos.",
       img: imgConcep5,
       imgMarker: "/markers-img/marker-b.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel6",
@@ -112,6 +119,7 @@ export default function PracticarConceptualizacion() {
         "Aquí aprendiste cómo funcionan las coordenadas en el escenario. Comprendiste que la posición del personaje depende de los valores de X y Y. ¡Excelente trabajo! Ahora tienes mayor control sobre el movimiento y la ubicación.",
       img: imgConcep6,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel7",
@@ -121,6 +129,7 @@ export default function PracticarConceptualizacion() {
         "En esta actividad exploraste movimientos continuos y circulares. Entendiste que los giros repetidos crean animaciones más llamativas. ¡Buen trabajo! Estás combinando movimientos para lograr mejores efectos visuales.",
       img: imgConcep7,
       imgMarker: "/markers-img/marker-c.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel8",
@@ -130,6 +139,7 @@ export default function PracticarConceptualizacion() {
         "Aquí descubriste cómo modificar la apariencia del personaje usando colores. Comprendiste que estos cambios hacen más atractiva la animación y ayudan a comunicar acciones. ¡Excelente! Tus proyectos ahora tienen más vida.",
       img: imgConcep8,
       imgMarker: "/markers-img/marker-b.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel9",
@@ -139,6 +149,7 @@ export default function PracticarConceptualizacion() {
         "En esta actividad aprendiste a organizar números en orden descendente. Comprendiste cómo una cuenta regresiva puede usarse para iniciar acciones o juegos. ¡Muy bien! Estás aplicando la lógica de control del tiempo en programación.",
       img: imgConcep9,
       imgMarker: "/markers-img/marker-b.png",
+      imgMarkerSolution: null,
     },
     {
       id: "nivel10",
@@ -148,6 +159,7 @@ export default function PracticarConceptualizacion() {
       retroalimentacion:
         "Aquí creaste una animación sencilla cambiando disfraces en secuencia. Reconociste que los bucles permiten dar continuidad y fluidez a las imágenes. ¡Excelente trabajo! Estás programando con creatividad y ritmo visual.",
       imgMarker: "/markers-img/marker-f.png",
+      imgMarkerSolution: null,
     },
   ];
 
@@ -172,6 +184,16 @@ export default function PracticarConceptualizacion() {
             className="page-practicar-conceptualizacion__nivel-card card"
           >
             <div className="page-practicar-conceptualizacion__nivel-header">
+              {/* button for the secondary marker (left side) */}
+              <button
+                type="button"
+                className="btn-scanner-card btn-scanner-card--left"
+                onClick={() => openMarkerModal(nivel, 2)}
+                disabled={!nivel.imgMarkerSolution}
+              >
+                <img src={imgSolucion} alt="Escáner 2" />
+              </button>
+
               <h3 className="page-practicar-conceptualizacion__nivel-title card__title">
                 {nivel.titulo}
               </h3>
@@ -180,7 +202,7 @@ export default function PracticarConceptualizacion() {
                 <button
                   type="button"
                   className="btn-scanner-card"
-                  onClick={() => openMarkerModal(nivel)}
+                  onClick={() => openMarkerModal(nivel, 1)}
                 >
                   <img src={imgScanner} alt="Escáner" />
                 </button>
@@ -247,7 +269,7 @@ export default function PracticarConceptualizacion() {
       </button>
 
       <AnimatePresence>
-        {markerModalNivel && (
+        {markerModal.nivel && (
           <motion.div
             className="marker-popup"
             initial={{ opacity: 0 }}
@@ -264,25 +286,40 @@ export default function PracticarConceptualizacion() {
               onClick={(event) => event.stopPropagation()}
               role="dialog"
               aria-modal="true"
-              aria-label={`Marcador ${markerModalNivel.id}`}
+              aria-label={`Marcador ${markerModal.nivel.id}`}
             >
               <h3 className="marker-popup__title">
-                Abre la cámara de escaneo en la esquina inferior izquierda y
-                apunta a esta imagen para ver el modelo 3D.
+                {markerModal.tipo === 2
+                  ? "Abre la cámara de escaneo en la esquina inferior izquierda y apunta a esta imagen para ver la solución del ejercicio"
+                  : "Abre la cámara de escaneo en la esquina inferior izquierda y apunta a esta imagen para ver el modelo 3D."}
               </h3>
 
               <div className="marker-popup__media">
-                {markerModalNivel.imgMarker ? (
-                  <img
-                    src={markerModalNivel.imgMarker}
-                    alt={`Imagen del marcador para ${markerModalNivel.id}`}
-                    className="marker-popup__img"
-                  />
-                ) : (
-                  <div className="marker-popup__placeholder">
-                    Espacio reservado para el marcador de este nivel.
-                  </div>
-                )}
+                {markerModal.tipo === 1 ? (
+                  markerModal.nivel.imgMarker ? (
+                    <img
+                      src={markerModal.nivel.imgMarker}
+                      alt={`Imagen del marcador para ${markerModal.nivel.id}`}
+                      className="marker-popup__img"
+                    />
+                  ) : (
+                    <div className="marker-popup__placeholder">
+                      Espacio reservado para el marcador de este nivel.
+                    </div>
+                  )
+                ) : markerModal.tipo === 2 ? (
+                  markerModal.nivel.imgMarkerSolution ? (
+                    <img
+                      src={markerModal.nivel.imgMarkerSolution}
+                      alt={`Segundo marcador para ${markerModal.nivel.id}`}
+                      className="marker-popup__img"
+                    />
+                  ) : (
+                    <div className="marker-popup__placeholder">
+                      Espacio reservado para el marcador secundario.
+                    </div>
+                  )
+                ) : null}
               </div>
             </motion.div>
           </motion.div>
@@ -318,11 +355,11 @@ export default function PracticarConceptualizacion() {
                   En cada nivel realizarás una actividad siguiendo la
                   descripción indicada, como se muestra en la imagen de ejemplo.
                   Para ayudarte, hay códigos QR que permiten ver el gato en 3D y
-                  las soluciones de cada reto en programación
-                  desconectada, para que compares y revises tu
-                  avance. En el nivel 10 tendrás mayor libertad creativa, ya que
-                  deberás crear una escena con los personajes y escenarios que
-                  elijas, aplicando lo aprendido en los niveles anteriores.
+                  las soluciones de cada reto en programación desconectada, para
+                  que compares y revises tu avance. En el nivel 10 tendrás mayor
+                  libertad creativa, ya que deberás crear una escena con los
+                  personajes y escenarios que elijas, aplicando lo aprendido en
+                  los niveles anteriores.
                 </p>
               </div>
             </motion.div>

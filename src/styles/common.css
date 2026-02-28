@@ -411,6 +411,17 @@
   background-position: 100% 50%;
 }
 
+/* left-side scanner matches advance-info button colors */
+.btn-scanner-card--left {
+  background: linear-gradient(140deg, #ff6b35, #ff9a5c, #ff6b35);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+}
+
+.btn-scanner-card--left:hover {
+  background-position: 100% 50%;
+}
+
 .btn-scanner-card img {
   width: 2.4rem;
   height: 2.4rem;

@@ -136,44 +136,54 @@ export default function ArCam() {
         <a-marker type="pattern" url="/markers/pattern-marker-a.patt">
           <a-entity
             gltf-model="/models/scratch-a.glb"
-            scale="2.5 0.5 2"
+            scale="2.5 0.3 2"
           ></a-entity>
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-b.patt">
           <a-entity
             gltf-model="/models/scratch-b.glb"
-            scale="2.5 0.5 2"
+            scale="2.5 0.3 2"
           ></a-entity>
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-c.patt">
           <a-entity
             gltf-model="/models/scratch-c.glb"
-            scale="2.5 0.5 2"
+            scale="2.5 0.3 2"
           ></a-entity>
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-d.patt">
           <a-entity
             gltf-model="/models/scratch-d.glb"
-            scale="2.5 0.5 2"
+            scale="2.5 0.3 2"
           ></a-entity>
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-e.patt">
           <a-entity
             gltf-model="/models/scratch-e.glb"
-            scale="2.5 0.5 2"
+            scale="2.5 0.3 2"
           ></a-entity>
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-f.patt">
           <a-entity
             gltf-model="/models/scratch-f.glb"
-            scale="2.5 0.5 2"
+            scale="2.5 0.3 2"
           ></a-entity>
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-g.patt">
           <a-entity
             gltf-model="/models/scratch-g.glb"
-            scale="2.5 0.5 2"
+            scale="2.5 0.3 2"
           ></a-entity>
+        </a-marker>
+
+        {/* Imagenes */}
+        <a-marker type="pattern" url="/markers/pattern-marker-1.patt">
+          <a-image
+            src="multimedia/marker-1.png"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+          ></a-image>
         </a-marker>
 
         <a-entity camera></a-entity>
