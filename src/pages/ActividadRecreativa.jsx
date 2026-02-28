@@ -1,5 +1,5 @@
 // React
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Libraries
 import Popup from "reactjs-popup";
@@ -24,25 +24,6 @@ import img5 from "../assets/img/actividadFinal-img5.png"; // Correcta
 import img6 from "../assets/img/actividadFinal-img6.png"; // Incorrecta
 
 export default function ActividadRecreativa() {
-  const storageKey = "actividadRecreativaResult";
-  const [selectedAnswers, setSelectedAnswers] = useState({
-    pregunta1: null,
-    pregunta2: null,
-    pregunta3: null,
-    pregunta4: null,
-    pregunta5: null,
-    pregunta6: null,
-    pregunta7: null,
-    pregunta8: null,
-    pregunta9: null,
-    pregunta10: null,
-  });
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [showDragFeedback, setShowDragFeedback] = useState(false);
-  const [isResultOpen, setIsResultOpen] = useState(false);
-  const [modalType, setModalType] = useState("result");
-  const [isLocked, setIsLocked] = useState(false);
-
   const dragStatements = [
     {
       id: "i1",
@@ -95,256 +76,14 @@ export default function ActividadRecreativa() {
   };
 
   const [dragState, setDragState] = useState(createInitialDragState);
-
-  const preguntas = [
-    {
-      id: "pregunta1",
-      pregunta: "¿Qué es un bucle en programación?",
-      opciones: [
-        {
-          id: "a",
-          texto: "Una instrucción que se ejecuta una sola vez",
-          correcto: false,
-        },
-        { id: "b", texto: "Un error en el código", correcto: false },
-        {
-          id: "c",
-          texto: "Una estructura que repite acciones",
-          correcto: true,
-        },
-        { id: "d", texto: "Un tipo de variable", correcto: false },
-      ],
-    },
-    {
-      id: "pregunta2",
-      pregunta: "¿Cuál es la característica principal del bucle for?",
-      opciones: [
-        {
-          id: "a",
-          texto: "Repite acciones un número determinado de veces",
-          correcto: true,
-        },
-        {
-          id: "b",
-          texto: "Ejecuta acciones solo si ocurre un evento",
-          correcto: false,
-        },
-        {
-          id: "c",
-          texto: "Detiene el programa inmediatamente",
-          correcto: false,
-        },
-        {
-          id: "d",
-          texto: "Repite acciones mientras una condición sea verdadera",
-          correcto: false,
-        },
-      ],
-    },
-    {
-      id: "pregunta3",
-      pregunta: "¿Cuál es la característica principal de un bucle while?",
-      opciones: [
-        {
-          id: "a",
-          texto: "Repite acciones un número de veces",
-          correcto: false,
-        },
-        { id: "b", texto: "Ejecuta acciones solo una vez", correcto: false },
-        {
-          id: "c",
-          texto: "Repite acciones mientras una condición sea verdadera",
-          correcto: true,
-        },
-        { id: "d", texto: "Sirve para recorrer listas", correcto: false },
-      ],
-    },
-    {
-      id: "pregunta4",
-      pregunta:
-        "¿Qué ocurre cuando la condición del bucle while deja de cumplirse?",
-      opciones: [
-        { id: "a", texto: "El bucle se detiene", correcto: true },
-        { id: "b", texto: "El programa se reinicia", correcto: false },
-        { id: "c", texto: "El personaje desaparece", correcto: false },
-        { id: "d", texto: "El bucle sigue infinitamente", correcto: false },
-      ],
-    },
-    {
-      id: "pregunta5",
-      pregunta: "¿Cuál de estas opciones describe mejor al bucle for?",
-      opciones: [
-        {
-          id: "a",
-          texto: "Repite acciones mientras una condición sea verdadera",
-          correcto: false,
-        },
-        {
-          id: "b",
-          texto: "Repite acciones hasta que ocurra un evento",
-          correcto: false,
-        },
-        {
-          id: "c",
-          texto: "Repite acciones un número exacto de veces",
-          correcto: true,
-        },
-        { id: "d", texto: "Detiene el programa", correcto: false },
-      ],
-    },
-    {
-      id: "pregunta6",
-      pregunta: "¿Qué ventaja tiene usar bloques en programación?",
-      opciones: [
-        { id: "a", texto: "Sirven solo para juegos", correcto: false },
-        { id: "b", texto: "Evitan que el programa funcione", correcto: false },
-        { id: "c", texto: "Permiten escribir menos código", correcto: true },
-        { id: "d", texto: "Hacen el programa más lento", correcto: false },
-      ],
-    },
-    {
-      id: "pregunta7",
-      pregunta: "¿Cuál es un ejemplo de condición en un bucle while?",
-      opciones: [
-        {
-          id: "a",
-          texto: "Mientras la tecla espacio esté presionada",
-          correcto: true,
-        },
-        { id: "b", texto: "Repetir 10 veces", correcto: false },
-        { id: "c", texto: "Al hacer clic en el personaje", correcto: false },
-        { id: "d", texto: "Al presionar la bandera verde", correcto: false },
-      ],
-    },
-    {
-      id: "pregunta8",
-      pregunta:
-        "¿Qué ocurre si la condición de un bucle while siempre es verdadera?",
-      opciones: [
-        { id: "a", texto: "El bucle nunca se ejecuta", correcto: false },
-        { id: "b", texto: "El bucle se ejecuta infinitamente", correcto: true },
-        { id: "c", texto: "El programa se reinicia", correcto: false },
-        {
-          id: "d",
-          texto: "El bucle se detiene automáticamente",
-          correcto: false,
-        },
-      ],
-    },
-    {
-      id: "pregunta9",
-      pregunta: "¿Cuál es la diferencia entre el bucle for y el bucle while?",
-      opciones: [
-        {
-          id: "a",
-          texto:
-            "El for repite un número fijo de veces, el while depende de una condición",
-          correcto: true,
-        },
-        {
-          id: "b",
-          texto: "El for depende de una condición y el while no",
-          correcto: false,
-        },
-        {
-          id: "c",
-          texto: "El while recorre listas y el for no",
-          correcto: false,
-        },
-        { id: "d", texto: "No existe diferencia", correcto: false },
-      ],
-    },
-    {
-      id: "pregunta10",
-      pregunta: "¿Qué representan los bucles en el pensamiento computacional?",
-      opciones: [
-        { id: "a", texto: "Evitar condiciones", correcto: false },
-        { id: "b", texto: "Detener programas", correcto: false },
-        { id: "c", texto: "Crear errores", correcto: false },
-        {
-          id: "d",
-          texto: "Repetir procesos de forma eficiente",
-          correcto: true,
-        },
-      ],
-    },
-  ];
+  const [showDragFeedback, setShowDragFeedback] = useState(false);
+  const [isResultOpen, setIsResultOpen] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
 
   const enunciados = [
     'Representa en láminas la secuencia de acciones de un grupo de animales en el zoológico: el primer animal cambia de color, el segundo salta cada vez que su amigo cambia de color, y el último come 10 manzanas, contando en voz alta cada una con la frase "Me comí # manzana". Organiza las láminas en orden para mostrar cómo se repiten las acciones y cómo interactúan los animales.',
     'Programa en Scratch la interacción de tres animales en el zoológico: el primero cambia de color, el segundo salta cada vez que detecta el cambio de color de su amigo, y el último come 10 manzanas, mostrando un mensaje que diga "Me comí # manzana" en cada repetición. Utiliza bucles y condiciones para que las acciones se ejecuten de manera automática y coordinada.',
   ];
-
-  useEffect(() => {
-    const savedResult = localStorage.getItem(storageKey);
-    if (!savedResult) return;
-
-    try {
-      const parsed = JSON.parse(savedResult);
-      if (parsed?.selectedAnswers && parsed?.dragState) {
-        setSelectedAnswers(parsed.selectedAnswers);
-        setDragState(parsed.dragState);
-        setShowFeedback(true);
-        setShowDragFeedback(true);
-        setIsLocked(true);
-      }
-    } catch (error) {
-      console.error("Error al leer el resultado guardado:", error);
-    }
-  }, []);
-
-  const handleAnswerSelect = (preguntaId, opcionId) => {
-    if (showFeedback || isLocked) return;
-    setSelectedAnswers((prev) => ({
-      ...prev,
-      [preguntaId]: opcionId,
-    }));
-  };
-
-  const handleShowFeedback = () => {
-    if (isLocked) {
-      setModalType("result");
-      setIsResultOpen(true);
-      return;
-    }
-
-    const allAnswered = preguntas.every(
-      (pregunta) => selectedAnswers[pregunta.id],
-    );
-
-    const allImagesPlaced = dragState.pool.length === 0;
-
-    if (!allAnswered || !allImagesPlaced) {
-      setModalType("incomplete");
-      setIsResultOpen(true);
-      return;
-    }
-
-    setModalType("result");
-    setShowFeedback(true);
-    setShowDragFeedback(true);
-    setIsResultOpen(true);
-    setIsLocked(true);
-
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify({
-        selectedAnswers,
-        dragState,
-        totalCorrect,
-        totalItems,
-        grade: Number(grade.toFixed(1)),
-      }),
-    );
-  };
-
-  const handleCloseResult = () => {
-    setIsResultOpen(false);
-    if (!isLocked) {
-      setShowFeedback(false);
-      setShowDragFeedback(false);
-    }
-  };
 
   const handleDragStart = (event, itemId) => {
     if (showDragFeedback || isLocked) return;
@@ -388,23 +127,32 @@ export default function ActividadRecreativa() {
     return isCorrectContainer ? "drag-item--correct" : "drag-item--incorrect";
   };
 
+  const handleShowFeedback = () => {
+    if (isLocked) {
+      setIsResultOpen(true);
+      return;
+    }
+
+    const allImagesPlaced = dragState.pool.length === 0;
+
+    if (!allImagesPlaced) {
+      setIsResultOpen(true);
+      return;
+    }
+
+    setShowDragFeedback(true);
+    setIsResultOpen(true);
+    setIsLocked(true);
+  };
+
+  const handleCloseResult = () => {
+    setIsResultOpen(false);
+  };
+
   const dragCorrectCount = dragStatements.filter((statement) => {
     const target = statement.correcta ? "correcto" : "incorrecto";
     return dragState[target].includes(statement.id);
   }).length;
-
-  const correctCount = preguntas.reduce((count, pregunta) => {
-    const selectedOptionId = selectedAnswers[pregunta.id];
-    const selectedOption = pregunta.opciones.find(
-      (opcion) => opcion.id === selectedOptionId,
-    );
-
-    return selectedOption?.correcto ? count + 1 : count;
-  }, 0);
-
-  const totalCorrect = correctCount + dragCorrectCount;
-  const totalItems = preguntas.length + dragStatements.length;
-  const grade = 1 + (4 * totalCorrect) / totalItems;
 
   return (
     <div
@@ -417,8 +165,8 @@ export default function ActividadRecreativa() {
 
       <p className="page-actividad-recreativa__enunciado page-description">
         A continuación, realiza la actividad de arrastrar la imagen al recuadro
-        correspondiente. Luego, responde las preguntas de opción múltiple y
-        concluye creando un zoológico con láminas y en Scratch.
+        correspondiente. Luego, completa el formulario y concluye creando tu
+        zoológico con láminas y en Scratch.
       </p>
 
       <blockquote className="page-actividad-recreativa__quote quote">
@@ -545,80 +293,12 @@ export default function ActividadRecreativa() {
         </div>
       </div>
 
-      <h3 className="page-actividad-recreativa__subtitle page-subtitle">
-        Cuestionario
-      </h3>
-
-      <div className="page-actividad-recreativa__preguntas card-list">
-        {preguntas.map((pregunta, index) => (
-          <div
-            key={pregunta.id}
-            className="page-actividad-recreativa__pregunta card"
-          >
-            <h3 className="page-actividad-recreativa__pregunta-texto">
-              {index + 1}. {pregunta.pregunta}
-            </h3>
-
-            <div className="page-actividad-recreativa__opciones options">
-              {pregunta.opciones.map((opcion) => (
-                <label
-                  key={opcion.id}
-                  className={`page-actividad-recreativa__opcion option ${
-                    selectedAnswers[pregunta.id] === opcion.id ? "selected" : ""
-                  } ${
-                    showFeedback
-                      ? opcion.correcto
-                        ? "correct"
-                        : selectedAnswers[pregunta.id] === opcion.id
-                          ? "incorrect"
-                          : ""
-                      : ""
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name={pregunta.id}
-                    value={opcion.id}
-                    checked={selectedAnswers[pregunta.id] === opcion.id}
-                    onChange={() => handleAnswerSelect(pregunta.id, opcion.id)}
-                    disabled={showFeedback || isLocked}
-                  />
-                  <span className="page-actividad-recreativa__opcion-texto option__text">
-                    {opcion.texto}
-                  </span>
-                </label>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <h3 className="page-actividad-recreativa__subtitle page-subtitle">
-        Practica creando tu zoológico
-      </h3>
-
-      <div className="page-comprueba-bucle-while__enunciados card-list">
-        {enunciados.map((enunciado, index) => (
-          <div
-            key={index}
-            className="page-comprueba-bucle-while__enunciado card"
-          >
-            <h3 className="page-comprueba-bucle-while__enunciado-titulo">
-              Enunciado {index + 1}:
-            </h3>
-            <p className="page-comprueba-bucle-while__enunciado-texto">
-              {enunciado}
-            </p>
-          </div>
-        ))}
-      </div>
-
       <div className="page-actividad-recreativa__submit">
         <button
           onClick={handleShowFeedback}
           className="page-actividad-recreativa__submit-btn btn-standard"
         >
-          {showFeedback || isLocked ? "Ver nota" : "Ver resultados"}
+          {showDragFeedback || isLocked ? "Validado" : "Validar respuestas"}
         </button>
         <span className="btn-standard__bg" aria-hidden="true" />
       </div>
@@ -642,25 +322,52 @@ export default function ActividadRecreativa() {
           </button>
         </div>
         <div className="modal-body">
-          {modalType === "incomplete" ? (
-            <p>
-              Debes completar el cuestionario y ubicar todas las imágenes antes
-              de ver el resultado.
-            </p>
+          {dragState.pool.length > 0 && !showDragFeedback ? (
+            <p>Debes ubicar todas las imágenes antes de validar.</p>
           ) : (
             <>
               <p>
-                Has obtenido {totalCorrect}{" "}
-                {totalCorrect === 1
-                  ? "respuesta correcta"
-                  : "respuestas correctas"}{" "}
-                de {totalItems}.
+                Has obtenido {dragCorrectCount} de {dragStatements.length}{" "}
+                imágenes correctas.
               </p>
-              <p>Nota: {grade.toFixed(1)}/5.0</p>
             </>
           )}
         </div>
       </Popup>
+
+      <div className="page-actividad-recreativa__iframe-container">
+        <iframe
+          title="Formulario Actividad Recreativa"
+          src="https://forms.office.com/r/9NuTxLLwyF?embed=true"
+          width="100%"
+          height="600"
+          frameBorder="0"
+          marginHeight="0"
+          marginWidth="0"
+        >
+          Cargando…
+        </iframe>
+      </div>
+
+      <h3 className="page-actividad-recreativa__subtitle page-subtitle">
+        Practica creando tu zoológico
+      </h3>
+
+      <div className="page-actividad-recreativa__enunciados card-list">
+        {enunciados.map((enunciado, index) => (
+          <div
+            key={index}
+            className="page-actividad-recreativa__enunciado card"
+          >
+            <h3 className="page-actividad-recreativa__enunciado-titulo">
+              Enunciado {index + 1}:
+            </h3>
+            <p className="page-actividad-recreativa__enunciado-texto">
+              {enunciado}
+            </p>
+          </div>
+        ))}
+      </div>
 
       <Footer />
     </div>

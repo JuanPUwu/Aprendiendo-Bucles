@@ -94,7 +94,7 @@ export default function QueEsUnBucle() {
         </AnimatePresence>
       </div>
       <p className="page-que-es-un-bucle__subtitle page-subtitle">
-        Tipos de bucles en programación con ejemplos en pseudocódigo de Scratch.
+        <b>Tipos de bucles en programación con ejemplos en pseudocódigo de Scratch.</b>
       </p>
 
       <div className="page-que-es-un-bucle__examples card-list">

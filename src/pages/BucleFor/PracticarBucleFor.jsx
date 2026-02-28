@@ -26,6 +26,7 @@ import imgFor8 from "../../assets/img/for-8.jpeg";
 import imgFor9 from "../../assets/img/for-9.jpeg";
 import imgCamara from "../../assets/img/camara.png";
 import imgScanner from "../../assets/img/escanear.png";
+import imgAyuda from "../../assets/img/ayuda.png";
 
 export default function PracticarBucleFor() {
   const [feedbackVisible, setFeedbackVisible] = useState({
@@ -41,6 +42,7 @@ export default function PracticarBucleFor() {
     nivel10: false,
   });
   const [markerModalNivel, setMarkerModalNivel] = useState(null);
+  const [showAdvanceModal, setShowAdvanceModal] = useState(false);
 
   const toggleFeedback = (nivel) => {
     setFeedbackVisible((prev) => ({
@@ -51,6 +53,9 @@ export default function PracticarBucleFor() {
 
   const openMarkerModal = (nivel) => setMarkerModalNivel(nivel);
   const closeMarkerModal = () => setMarkerModalNivel(null);
+
+  const openAdvanceModal = () => setShowAdvanceModal(true);
+  const closeAdvanceModal = () => setShowAdvanceModal(false);
 
   const niveles = [
     {
@@ -234,6 +239,14 @@ export default function PracticarBucleFor() {
         <img src={imgCamara} alt="Cámara" />
       </Link>
 
+      <button
+        onClick={openAdvanceModal}
+        className="btn-advance-info-fixed"
+        title="Cómo avanzar en cada nivel"
+      >
+        <img src={imgAyuda} alt="Ayuda" />
+      </button>
+
       <AnimatePresence>
         {markerModalNivel && (
           <motion.div
@@ -271,6 +284,47 @@ export default function PracticarBucleFor() {
                     Espacio reservado para el marcador de este nivel.
                   </div>
                 )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showAdvanceModal && (
+          <motion.div
+            className="marker-popup"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeAdvanceModal}
+          >
+            <motion.div
+              className="marker-popup__content advance-info-modal"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={(event) => event.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Cómo avanzar en cada nivel"
+            >
+              <h3 className="marker-popup__title advance-info-modal__title">
+                ¿Cómo avanzar en cada nivel?
+              </h3>
+
+              <div className="advance-info-modal__text">
+                <p>
+                  En cada nivel realizarás una actividad siguiendo la
+                  descripción indicada, como se muestra en la imagen de ejemplo.
+                  Para ayudarte, hay códigos QR que permiten ver el gato en 3D y
+                  las soluciones de cada reto en programación
+                  desconectada, para que compares y revises tu
+                  avance. En el nivel 10 tendrás mayor libertad creativa, ya que
+                  deberás crear una escena con los personajes y escenarios que
+                  elijas, aplicando lo aprendido en los niveles anteriores.
+                </p>
               </div>
             </motion.div>
           </motion.div>
