@@ -179,10 +179,10 @@ export default function ArCam() {
         {/* Imagenes */}
         <a-marker type="pattern" url="/markers/pattern-marker-1.patt">
           <a-image
-            src="multimedia/marker-1.png"
+            src="/multimedia/marker-1.jpeg"
             width="2"
             height="1"
-            rotation="-90 0 0"
+            rotation="0 0 0"
           ></a-image>
         </a-marker>
 
