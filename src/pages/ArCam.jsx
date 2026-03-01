@@ -179,7 +179,7 @@ export default function ArCam() {
         {/* Imagenes */}
         <a-marker type="pattern" url="/markers/pattern-marker-1.patt">
           <a-image
-            src="/multimedia/marker-1.jpeg"
+            src="/multimedia/marker-1.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -189,7 +189,7 @@ export default function ArCam() {
 
         <a-marker type="pattern" url="/markers/pattern-marker-2.patt">
           <a-image
-            src="/multimedia/marker-2.jpeg"
+            src="/multimedia/marker-2.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -200,7 +200,7 @@ export default function ArCam() {
         {/* markers 3 through 27 */}
         <a-marker type="pattern" url="/markers/pattern-marker-3.patt">
           <a-image
-            src="/multimedia/marker-3.jpeg"
+            src="/multimedia/marker-3.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -209,7 +209,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-4.patt">
           <a-image
-            src="/multimedia/marker-4.jpeg"
+            src="/multimedia/marker-4.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -218,7 +218,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-5.patt">
           <a-image
-            src="/multimedia/marker-5.jpeg"
+            src="/multimedia/marker-5.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -227,7 +227,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-6.patt">
           <a-image
-            src="/multimedia/marker-6.jpeg"
+            src="/multimedia/marker-6.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -236,7 +236,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-7.patt">
           <a-image
-            src="/multimedia/marker-7.jpeg"
+            src="/multimedia/marker-7.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -245,7 +245,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-8.patt">
           <a-image
-            src="/multimedia/marker-8.jpeg"
+            src="/multimedia/marker-8.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -254,7 +254,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-9.patt">
           <a-image
-            src="/multimedia/marker-9.jpeg"
+            src="/multimedia/marker-9.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -263,7 +263,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-10.patt">
           <a-image
-            src="/multimedia/marker-10.jpeg"
+            src="/multimedia/marker-10.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -272,7 +272,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-11.patt">
           <a-image
-            src="/multimedia/marker-11.jpeg"
+            src="/multimedia/marker-11.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -281,7 +281,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-12.patt">
           <a-image
-            src="/multimedia/marker-12.jpeg"
+            src="/multimedia/marker-12.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -290,7 +290,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-13.patt">
           <a-image
-            src="/multimedia/marker-13.jpeg"
+            src="/multimedia/marker-13.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -299,7 +299,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-14.patt">
           <a-image
-            src="/multimedia/marker-14.jpeg"
+            src="/multimedia/marker-14.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -308,7 +308,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-15.patt">
           <a-image
-            src="/multimedia/marker-15.jpeg"
+            src="/multimedia/marker-15.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -317,7 +317,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-16.patt">
           <a-image
-            src="/multimedia/marker-16.jpeg"
+            src="/multimedia/marker-16.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -326,7 +326,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-17.patt">
           <a-image
-            src="/multimedia/marker-17.jpeg"
+            src="/multimedia/marker-17.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -335,7 +335,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-18.patt">
           <a-image
-            src="/multimedia/marker-18.jpeg"
+            src="/multimedia/marker-18.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -344,7 +344,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-19.patt">
           <a-image
-            src="/multimedia/marker-19.jpeg"
+            src="/multimedia/marker-19.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -353,7 +353,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-20.patt">
           <a-image
-            src="/multimedia/marker-20.jpeg"
+            src="/multimedia/marker-20.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -362,7 +362,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-21.patt">
           <a-image
-            src="/multimedia/marker-21.jpeg"
+            src="/multimedia/marker-21.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -371,7 +371,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-22.patt">
           <a-image
-            src="/multimedia/marker-22.jpeg"
+            src="/multimedia/marker-22.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -380,7 +380,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-23.patt">
           <a-image
-            src="/multimedia/marker-23.jpeg"
+            src="/multimedia/marker-23.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -389,7 +389,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-24.patt">
           <a-image
-            src="/multimedia/marker-24.jpeg"
+            src="/multimedia/marker-24.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -398,7 +398,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-25.patt">
           <a-image
-            src="/multimedia/marker-25.jpeg"
+            src="/multimedia/marker-25.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -407,7 +407,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-26.patt">
           <a-image
-            src="/multimedia/marker-26.jpeg"
+            src="/multimedia/marker-26.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
@@ -416,7 +416,7 @@ export default function ArCam() {
         </a-marker>
         <a-marker type="pattern" url="/markers/pattern-marker-27.patt">
           <a-image
-            src="/multimedia/marker-27.jpeg"
+            src="/multimedia/marker-27.jpg"
             width="2"
             height="1"
             rotation="-90 0 0"
