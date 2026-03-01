@@ -330,7 +330,6 @@
 
 /* Título de card */
 .card__title {
-  padding-left: 57.88px;
   width: 100%;
   font-size: 1.8rem;
   margin: 0;
@@ -435,11 +434,7 @@
   justify-content: space-between;
 }
 
-.page-practicar-conceptualizacion__nivel-actions {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
+/* removed .page-practicar-conceptualizacion__nivel-actions - container removed from JSX */
 
 .btn-cam-fixed {
   position: fixed;

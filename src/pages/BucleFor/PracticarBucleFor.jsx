@@ -27,6 +27,7 @@ import imgFor9 from "../../assets/img/for-9.jpeg";
 import imgCamara from "../../assets/img/camara.png";
 import imgScanner from "../../assets/img/escanear.png";
 import imgAyuda from "../../assets/img/ayuda.png";
+import imgSolucion from "../../assets/img/solucion.png";
 
 export default function PracticarBucleFor() {
   const [feedbackVisible, setFeedbackVisible] = useState({
@@ -41,7 +42,8 @@ export default function PracticarBucleFor() {
     nivel9: false,
     nivel10: false,
   });
-  const [markerModalNivel, setMarkerModalNivel] = useState(null);
+  // markerModal keeps track of which level is open and which type (1 or 2)
+  const [markerModal, setMarkerModal] = useState({ nivel: null, tipo: 1 });
   const [showAdvanceModal, setShowAdvanceModal] = useState(false);
 
   const toggleFeedback = (nivel) => {
@@ -51,8 +53,8 @@ export default function PracticarBucleFor() {
     }));
   };
 
-  const openMarkerModal = (nivel) => setMarkerModalNivel(nivel);
-  const closeMarkerModal = () => setMarkerModalNivel(null);
+  const openMarkerModal = (nivel, tipo = 1) => setMarkerModal({ nivel, tipo });
+  const closeMarkerModal = () => setMarkerModal({ nivel: null, tipo: 1 });
 
   const openAdvanceModal = () => setShowAdvanceModal(true);
   const closeAdvanceModal = () => setShowAdvanceModal(false);
@@ -67,6 +69,7 @@ export default function PracticarBucleFor() {
         "Aquí aprendiste a combinar movimiento con repetición. Comprendiste que usar ciclos permite que el personaje avance varias veces sin repetir bloques. ¡Excelente trabajo! Estás fortaleciendo tu comprensión de los bucles.",
       img: imgFor1,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: "/markers-img/marker-10.png",
     },
     {
       id: "nivel2",
@@ -76,6 +79,7 @@ export default function PracticarBucleFor() {
         "En esta actividad exploraste cómo controlar giros específicos usando repetición. Comprendiste que ajustar los grados y la cantidad de repeticiones cambia el resultado del movimiento. ¡Muy bien! Estás afinando el control del movimiento.",
       img: imgFor2,
       imgMarker: "/markers-img/marker-c.png",
+      imgMarkerSolution: "/markers-img/marker-11.png",
     },
     {
       id: "nivel3",
@@ -85,6 +89,7 @@ export default function PracticarBucleFor() {
         "Aquí descubriste cómo repetir mensajes usando ciclos. Comprendiste que la repetición es útil para reforzar acciones sin duplicar código. ¡Buen trabajo! Tus programas ahora son más ordenados.",
       img: imgFor3,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: "/markers-img/marker-12.png",
     },
     {
       id: "nivel4",
@@ -94,6 +99,7 @@ export default function PracticarBucleFor() {
         "En esta actividad reforzaste el uso de cambios visuales mediante repetición. Comprendiste que alternar disfraces ayuda a simular movimiento. ¡Excelente! Estás dando más dinamismo a tus animaciones.",
       img: imgFor4,
       imgMarker: "/markers-img/marker-b.png",
+      imgMarkerSolution: "/markers-img/marker-13.png",
     },
     {
       id: "nivel5",
@@ -103,6 +109,7 @@ export default function PracticarBucleFor() {
         "Aquí aprendiste a usar posiciones específicas para controlar el movimiento. Comprendiste que volver al centro ayuda a reiniciar acciones o animaciones. ¡Muy bien! Estás organizando mejor el comportamiento del personaje.",
       img: imgFor5,
       imgMarker: "/markers-img/marker-c.png",
+      imgMarkerSolution: "/markers-img/marker-14.png",
     },
     {
       id: "nivel6",
@@ -112,6 +119,7 @@ export default function PracticarBucleFor() {
         "En esta actividad exploraste el uso del azar en programación. Comprendiste que los números aleatorios hacen que cada ejecución sea diferente. ¡Excelente trabajo! Estás creando programas más interesantes y variados.",
       img: imgFor6,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: "/markers-img/marker-15.png",
     },
     {
       id: "nivel7",
@@ -121,6 +129,7 @@ export default function PracticarBucleFor() {
         "Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.Aquí practicaste el conteo usando secuencias o repeticiones. Comprendiste que contar elementos ayuda a representar información de forma ordenada. ¡Muy bien! Estás aplicando la lógica de conteo en tus programas.",
       img: imgFor7,
       imgMarker: "/markers-img/marker-d.png",
+      imgMarkerSolution: "/markers-img/marker-16.png",
     },
     {
       id: "nivel8",
@@ -130,6 +139,7 @@ export default function PracticarBucleFor() {
         "En esta actividad reforzaste el conteo mediante programación. Comprendiste que repetir acciones permite contar de manera clara y estructurada. ¡Excelente! Sigues fortaleciendo tu pensamiento lógico.",
       img: imgFor8,
       imgMarker: "/markers-img/marker-e.png",
+      imgMarkerSolution: "/markers-img/marker-17.png",
     },
     {
       id: "nivel9",
@@ -139,6 +149,7 @@ export default function PracticarBucleFor() {
         "Aquí integraste secuencia y conteo numérico. Comprendiste cómo organizar números en orden ascendente usando programación. ¡Gran trabajo! Estás consolidando habilidades fundamentales para retos más avanzados.",
       img: imgFor9,
       imgMarker: "/markers-img/marker-e.png",
+      imgMarkerSolution: "/markers-img/marker-18.png",
     },
     {
       id: "nivel10",
@@ -148,6 +159,7 @@ export default function PracticarBucleFor() {
       retroalimentacion:
         "Aquí creaste una animación fluida combinando movimiento y disfraces dentro de un bucle. Reconociste que la repetición da continuidad y ritmo visual. ¡Muy bien! Estás programando con creatividad y lógica avanzada.",
       imgMarker: "/markers-img/marker-f.png",
+      imgMarkerSolution: null,
     },
   ];
 
@@ -173,19 +185,31 @@ export default function PracticarBucleFor() {
             className="page-practicar-bucle-for__nivel-card card"
           >
             <div className="page-practicar-conceptualizacion__nivel-header">
-              <h3 className="page-practicar-bucle-for__nivel-title card__title">
-                {nivel.titulo}
-              </h3>
+              {nivel.id !== "nivel10" && (
+                <>
+                  {/* secondary marker button */}
+                  <button
+                    type="button"
+                    className="btn-scanner-card btn-scanner-card--left"
+                    onClick={() => openMarkerModal(nivel, 2)}
+                    disabled={!nivel.imgMarkerSolution}
+                  >
+                    <img src={imgSolucion} alt="Escáner 2" />
+                  </button>
 
-              <div className="page-practicar-conceptualizacion__nivel-actions">
-                <button
-                  type="button"
-                  className="btn-scanner-card"
-                  onClick={() => openMarkerModal(nivel)}
-                >
-                  <img src={imgScanner} alt="Escáner" />
-                </button>
-              </div>
+                  <h3 className="page-practicar-bucle-for__nivel-title card__title">
+                    {nivel.titulo}
+                  </h3>
+
+                  <button
+                    type="button"
+                    className="btn-scanner-card"
+                    onClick={() => openMarkerModal(nivel, 1)}
+                  >
+                    <img src={imgScanner} alt="Escáner" />
+                  </button>
+                </>
+              )}
             </div>
 
             <p className="page-practicar-bucle-for__nivel-enunciado card__text">
@@ -248,7 +272,7 @@ export default function PracticarBucleFor() {
       </button>
 
       <AnimatePresence>
-        {markerModalNivel && (
+        {markerModal.nivel && (
           <motion.div
             className="marker-popup"
             initial={{ opacity: 0 }}
@@ -265,25 +289,40 @@ export default function PracticarBucleFor() {
               onClick={(event) => event.stopPropagation()}
               role="dialog"
               aria-modal="true"
-              aria-label={`Marcador ${markerModalNivel.id}`}
+              aria-label={`Marcador ${markerModal.nivel.id}`}
             >
               <h3 className="marker-popup__title">
-                Abre la cámara de escaneo que está en la parte inferior
-                izquierda y apunta a esta imagen para ver el modelo 3D.
+                {markerModal.tipo === 2
+                  ? "Abre la cámara de escaneo en la esquina inferior izquierda y apunta a esta imagen para ver la solución del ejercicio"
+                  : "Abre la cámara de escaneo que está en la parte inferior izquierda y apunta a esta imagen para ver el modelo 3D."}
               </h3>
 
               <div className="marker-popup__media">
-                {markerModalNivel.imgMarker ? (
-                  <img
-                    src={markerModalNivel.imgMarker}
-                    alt={`Imagen del marcador para ${markerModalNivel.id}`}
-                    className="marker-popup__img"
-                  />
-                ) : (
-                  <div className="marker-popup__placeholder">
-                    Espacio reservado para el marcador de este nivel.
-                  </div>
-                )}
+                {markerModal.tipo === 1 ? (
+                  markerModal.nivel.imgMarker ? (
+                    <img
+                      src={markerModal.nivel.imgMarker}
+                      alt={`Imagen del marcador para ${markerModal.nivel.id}`}
+                      className="marker-popup__img"
+                    />
+                  ) : (
+                    <div className="marker-popup__placeholder">
+                      Espacio reservado para el marcador de este nivel.
+                    </div>
+                  )
+                ) : markerModal.tipo === 2 ? (
+                  markerModal.nivel.imgMarkerSolution ? (
+                    <img
+                      src={markerModal.nivel.imgMarkerSolution}
+                      alt={`Segundo marcador para ${markerModal.nivel.id}`}
+                      className="marker-popup__img"
+                    />
+                  ) : (
+                    <div className="marker-popup__placeholder">
+                      Espacio reservado para el marcador secundario.
+                    </div>
+                  )
+                ) : null}
               </div>
             </motion.div>
           </motion.div>
@@ -319,11 +358,11 @@ export default function PracticarBucleFor() {
                   En cada nivel realizarás una actividad siguiendo la
                   descripción indicada, como se muestra en la imagen de ejemplo.
                   Para ayudarte, hay códigos QR que permiten ver el gato en 3D y
-                  las soluciones de cada reto en programación
-                  desconectada, para que compares y revises tu
-                  avance. En el nivel 10 tendrás mayor libertad creativa, ya que
-                  deberás crear una escena con los personajes y escenarios que
-                  elijas, aplicando lo aprendido en los niveles anteriores.
+                  las soluciones de cada reto en programación desconectada, para
+                  que compares y revises tu avance. En el nivel 10 tendrás mayor
+                  libertad creativa, ya que deberás crear una escena con los
+                  personajes y escenarios que elijas, aplicando lo aprendido en
+                  los niveles anteriores.
                 </p>
               </div>
             </motion.div>

@@ -27,14 +27,16 @@ import imgWhile9 from "../../assets/img/while-9.jpeg";
 import imgCamara from "../../assets/img/camara.png";
 import imgScanner from "../../assets/img/escanear.png";
 import imgAyuda from "../../assets/img/ayuda.png";
+import imgSolucion from "../../assets/img/solucion.png";
 
 export default function PracticarBucleWhile() {
   const [feedbackVisible, setFeedbackVisible] = useState({});
-  const [markerModalNivel, setMarkerModalNivel] = useState(null);
+  // markerModal keeps track of which level open and type
+  const [markerModal, setMarkerModal] = useState({ nivel: null, tipo: 1 });
   const [showAdvanceModal, setShowAdvanceModal] = useState(false);
 
-  const openMarkerModal = (nivel) => setMarkerModalNivel(nivel);
-  const closeMarkerModal = () => setMarkerModalNivel(null);
+  const openMarkerModal = (nivel, tipo = 1) => setMarkerModal({ nivel, tipo });
+  const closeMarkerModal = () => setMarkerModal({ nivel: null, tipo: 1 });
 
   const openAdvanceModal = () => setShowAdvanceModal(true);
   const closeAdvanceModal = () => setShowAdvanceModal(false);
@@ -49,6 +51,7 @@ export default function PracticarBucleWhile() {
         "Aquí exploraste el uso de condiciones para controlar el movimiento. Comprendiste que el personaje puede avanzar y detenerse según lo que ocurre en el escenario. ¡Excelente trabajo! Estás aprendiendo a usar límites en tus programas.",
       img: imgWhile1,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: "/markers-img/marker-19.png",
     },
     {
       id: 2,
@@ -59,6 +62,7 @@ export default function PracticarBucleWhile() {
         "En esta actividad aprendiste a interactuar con el ratón. Comprendiste que los movimientos del puntero pueden influir directamente en el comportamiento del personaje. ¡Muy bien! Estás integrando interacción en tiempo real.",
       img: imgWhile2,
       imgMarker: "/markers-img/marker-c.png",
+      imgMarkerSolution: "/markers-img/marker-20.png",
     },
     {
       id: 3,
@@ -69,6 +73,7 @@ export default function PracticarBucleWhile() {
         "Aquí trabajaste con condiciones lógicas. Comprendiste que una acción puede ejecutarse solo cuando se cumple una condición específica. ¡Excelente! Estás dando un gran paso en el control del flujo del programa.",
       img: imgWhile3,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: "/markers-img/marker-21.png",
     },
     {
       id: 4,
@@ -79,6 +84,7 @@ export default function PracticarBucleWhile() {
         "En esta actividad combinaste cambios visuales con condiciones. Comprendiste que una acción puede repetirse hasta que ocurra un evento. ¡Muy bien! Tus animaciones ahora responden al entorno.",
       img: imgWhile4,
       imgMarker: "/markers-img/marker-b.png",
+      imgMarkerSolution: "/markers-img/marker-22.png",
     },
     {
       id: 5,
@@ -89,6 +95,7 @@ export default function PracticarBucleWhile() {
         "Aquí exploraste la interacción entre el personaje y el puntero. Comprendiste que el movimiento puede detenerse cuando se alcanza un objetivo. ¡Excelente trabajo! Estás creando comportamientos más precisos.",
       img: imgWhile5,
       imgMarker: "/markers-img/marker-a.png",
+      imgMarkerSolution: "/markers-img/marker-23.png",
     },
     {
       id: 6,
@@ -99,6 +106,7 @@ export default function PracticarBucleWhile() {
         "En esta actividad aprendiste a tomar decisiones usando comparaciones. Comprendiste que las condiciones permiten que el programa elija diferentes acciones. ¡Muy bien! Estás desarrollando el pensamiento lógico.",
       img: imgWhile6,
       imgMarker: "/markers-img/marker-c.png",
+      imgMarkerSolution: "/markers-img/marker-24.png",
     },
     {
       id: 7,
@@ -108,6 +116,7 @@ export default function PracticarBucleWhile() {
         "Aquí descubriste cómo usar variables para llevar un registro. Comprendiste que los contadores permiten almacenar y actualizar información. ¡Excelente trabajo! Estás introduciéndote al uso de datos en programación.",
       img: imgWhile7,
       imgMarker: "/markers-img/marker-e.png",
+      imgMarkerSolution: "/markers-img/marker-25.png",
     },
     {
       id: 8,
@@ -118,6 +127,7 @@ export default function PracticarBucleWhile() {
         "En esta actividad combinaste movimiento, apariencia y eventos. Comprendiste que una acción puede repetirse hasta que el usuario interactúe. ¡Muy bien! Tus programas ahora son más interactivos.",
       img: imgWhile8,
       imgMarker: "/markers-img/marker-b.png",
+      imgMarkerSolution: "/markers-img/marker-26.png",
     },
     {
       id: 9,
@@ -128,6 +138,7 @@ export default function PracticarBucleWhile() {
         "Aquí exploraste posiciones fijas y aleatorias. Comprendiste que el personaje puede moverse de forma controlada o impredecible. ¡Excelente trabajo! Estás enriqueciendo la dinámica de tus programas.",
       img: imgWhile9,
       imgMarker: "/markers-img/marker-g.png",
+      imgMarkerSolution: "/markers-img/marker-27.png",
     },
     {
       id: 10,
@@ -137,6 +148,7 @@ export default function PracticarBucleWhile() {
       retroalimentacion:
         "Aquí diseñaste una animación interactiva que combina movimiento, apariencia y sonido dentro de un bucle while. Comprendiste que la condición controla cuándo detener la secuencia y ejecutar una acción final. ¡Excelente! Estás aplicando lógica avanzada y creatividad para construir programas dinámicos e inteligentes.",
       imgMarker: "/markers-img/marker-f.png",
+      imgMarkerSolution: null,
     },
   ];
 
@@ -169,19 +181,30 @@ export default function PracticarBucleWhile() {
             className="page-practicar-bucle-while__nivel card"
           >
             <div className="page-practicar-conceptualizacion__nivel-header">
-              <h3 className="page-practicar-bucle-while__nivel-titulo card__title">
-                {nivel.titulo}
-              </h3>
+              {nivel.id !== 10 && (
+                <>
+                  <button
+                    type="button"
+                    className="btn-scanner-card btn-scanner-card--left"
+                    onClick={() => openMarkerModal(nivel, 2)}
+                    disabled={!nivel.imgMarkerSolution}
+                  >
+                    <img src={imgSolucion} alt="Escáner 2" />
+                  </button>
 
-              <div className="page-practicar-conceptualizacion__nivel-actions">
-                <button
-                  type="button"
-                  className="btn-scanner-card"
-                  onClick={() => openMarkerModal(nivel)}
-                >
-                  <img src={imgScanner} alt="Escáner" />
-                </button>
-              </div>
+                  <h3 className="page-practicar-bucle-while__nivel-titulo card__title">
+                    {nivel.titulo}
+                  </h3>
+
+                  <button
+                    type="button"
+                    className="btn-scanner-card"
+                    onClick={() => openMarkerModal(nivel, 1)}
+                  >
+                    <img src={imgScanner} alt="Escáner" />
+                  </button>
+                </>
+              )}
             </div>
 
             <p className="page-practicar-bucle-while__nivel-enunciado card__text">
@@ -243,7 +266,7 @@ export default function PracticarBucleWhile() {
       </button>
 
       <AnimatePresence>
-        {markerModalNivel && (
+        {markerModal.nivel && (
           <motion.div
             className="marker-popup"
             initial={{ opacity: 0 }}
@@ -260,25 +283,40 @@ export default function PracticarBucleWhile() {
               onClick={(event) => event.stopPropagation()}
               role="dialog"
               aria-modal="true"
-              aria-label={`Marcador nivel ${markerModalNivel.id}`}
+              aria-label={`Marcador nivel ${markerModal.nivel.id}`}
             >
               <h3 className="marker-popup__title">
-                Abre la cámara de escaneo que está en la parte inferior
-                izquierda y apunta a esta imagen para ver el modelo 3D.
+                {markerModal.tipo === 2
+                  ? "Abre la cámara de escaneo en la esquina inferior izquierda y apunta a esta imagen para ver la solución del ejercicio"
+                  : "Abre la cámara de escaneo que está en la parte inferior izquierda y apunta a esta imagen para ver el modelo 3D."}
               </h3>
 
               <div className="marker-popup__media">
-                {markerModalNivel.imgMarker ? (
-                  <img
-                    src={markerModalNivel.imgMarker}
-                    alt={`Imagen del marcador para el nivel ${markerModalNivel.id}`}
-                    className="marker-popup__img"
-                  />
-                ) : (
-                  <div className="marker-popup__placeholder">
-                    Espacio reservado para el marcador de este nivel.
-                  </div>
-                )}
+                {markerModal.tipo === 1 ? (
+                  markerModal.nivel.imgMarker ? (
+                    <img
+                      src={markerModal.nivel.imgMarker}
+                      alt={`Imagen del marcador para el nivel ${markerModal.nivel.id}`}
+                      className="marker-popup__img"
+                    />
+                  ) : (
+                    <div className="marker-popup__placeholder">
+                      Espacio reservado para el marcador de este nivel.
+                    </div>
+                  )
+                ) : markerModal.tipo === 2 ? (
+                  markerModal.nivel.imgMarkerSolution ? (
+                    <img
+                      src={markerModal.nivel.imgMarkerSolution}
+                      alt={`Segundo marcador para el nivel ${markerModal.nivel.id}`}
+                      className="marker-popup__img"
+                    />
+                  ) : (
+                    <div className="marker-popup__placeholder">
+                      Espacio reservado para el marcador secundario.
+                    </div>
+                  )
+                ) : null}
               </div>
             </motion.div>
           </motion.div>
@@ -314,11 +352,11 @@ export default function PracticarBucleWhile() {
                   En cada nivel realizarás una actividad siguiendo la
                   descripción indicada, como se muestra en la imagen de ejemplo.
                   Para ayudarte, hay códigos QR que permiten ver el gato en 3D y
-                  las soluciones de cada reto en programación
-                  desconectada, para que compares y revises tu
-                  avance. En el nivel 10 tendrás mayor libertad creativa, ya que
-                  deberás crear una escena con los personajes y escenarios que
-                  elijas, aplicando lo aprendido en los niveles anteriores.
+                  las soluciones de cada reto en programación desconectada, para
+                  que compares y revises tu avance. En el nivel 10 tendrás mayor
+                  libertad creativa, ya que deberás crear una escena con los
+                  personajes y escenarios que elijas, aplicando lo aprendido en
+                  los niveles anteriores.
                 </p>
               </div>
             </motion.div>

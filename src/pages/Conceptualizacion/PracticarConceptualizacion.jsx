@@ -78,7 +78,7 @@ export default function PracticarConceptualizacion() {
         "Aquí exploraste cómo usar la repetición para que el personaje diga un mensaje varias veces. Comprendiste que repetir acciones permite automatizar comportamientos y ahorrar bloques en tu programa. ¡Muy bien! Estás dando tus primeros pasos en el uso de ciclos.",
       img: imgConcep2,
       imgMarker: "/markers-img/marker-a.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-2.png",
     },
     {
       id: "nivel3",
@@ -88,7 +88,7 @@ export default function PracticarConceptualizacion() {
         "Aquí aprendiste a organizar acciones en un orden lógico. Entendiste cómo una secuencia permite que el personaje muestre números de forma progresiva. ¡Excelente trabajo! Estás desarrollando el pensamiento lógico en programación.",
       img: imgConcep3,
       imgMarker: "/markers-img/marker-e.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-3.png",
     },
     {
       id: "nivel4",
@@ -98,7 +98,7 @@ export default function PracticarConceptualizacion() {
         "Aquí exploraste cómo el personaje cambia de orientación al girar. Comprendiste que los bloques de rotación modifican la dirección y enriquecen la animación. ¡Excelente trabajo! Estás descubriendo cómo dar dinamismo a tus programas.",
       img: imgConcep4,
       imgMarker: "/markers-img/marker-c.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-4.png",
     },
     {
       id: "nivel5",
@@ -108,7 +108,7 @@ export default function PracticarConceptualizacion() {
         "En esta actividad descubriste cómo un personaje puede transformarse visualmente. Comprendiste que cambiar de disfraz ayuda a simular movimiento y expresar acciones. ¡Muy bien hecho! Tus programas ahora son más expresivos.",
       img: imgConcep5,
       imgMarker: "/markers-img/marker-b.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-5.png",
     },
     {
       id: "nivel6",
@@ -119,7 +119,7 @@ export default function PracticarConceptualizacion() {
         "Aquí aprendiste cómo funcionan las coordenadas en el escenario. Comprendiste que la posición del personaje depende de los valores de X y Y. ¡Excelente trabajo! Ahora tienes mayor control sobre el movimiento y la ubicación.",
       img: imgConcep6,
       imgMarker: "/markers-img/marker-a.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-6.png",
     },
     {
       id: "nivel7",
@@ -129,7 +129,7 @@ export default function PracticarConceptualizacion() {
         "En esta actividad exploraste movimientos continuos y circulares. Entendiste que los giros repetidos crean animaciones más llamativas. ¡Buen trabajo! Estás combinando movimientos para lograr mejores efectos visuales.",
       img: imgConcep7,
       imgMarker: "/markers-img/marker-c.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-7.png",
     },
     {
       id: "nivel8",
@@ -139,7 +139,7 @@ export default function PracticarConceptualizacion() {
         "Aquí descubriste cómo modificar la apariencia del personaje usando colores. Comprendiste que estos cambios hacen más atractiva la animación y ayudan a comunicar acciones. ¡Excelente! Tus proyectos ahora tienen más vida.",
       img: imgConcep8,
       imgMarker: "/markers-img/marker-b.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-8.png",
     },
     {
       id: "nivel9",
@@ -149,7 +149,7 @@ export default function PracticarConceptualizacion() {
         "En esta actividad aprendiste a organizar números en orden descendente. Comprendiste cómo una cuenta regresiva puede usarse para iniciar acciones o juegos. ¡Muy bien! Estás aplicando la lógica de control del tiempo en programación.",
       img: imgConcep9,
       imgMarker: "/markers-img/marker-b.png",
-      imgMarkerSolution: null,
+      imgMarkerSolution: "/markers-img/marker-9.png",
     },
     {
       id: "nivel10",
@@ -184,29 +184,31 @@ export default function PracticarConceptualizacion() {
             className="page-practicar-conceptualizacion__nivel-card card"
           >
             <div className="page-practicar-conceptualizacion__nivel-header">
-              {/* button for the secondary marker (left side) */}
-              <button
-                type="button"
-                className="btn-scanner-card btn-scanner-card--left"
-                onClick={() => openMarkerModal(nivel, 2)}
-                disabled={!nivel.imgMarkerSolution}
-              >
-                <img src={imgSolucion} alt="Escáner 2" />
-              </button>
+              {nivel.id !== "nivel10" && (
+                <>
+                  {/* button for the secondary marker (left side) */}
+                  <button
+                    type="button"
+                    className="btn-scanner-card btn-scanner-card--left"
+                    onClick={() => openMarkerModal(nivel, 2)}
+                    disabled={!nivel.imgMarkerSolution}
+                  >
+                    <img src={imgSolucion} alt="Escáner 2" />
+                  </button>
 
-              <h3 className="page-practicar-conceptualizacion__nivel-title card__title">
-                {nivel.titulo}
-              </h3>
+                  <h3 className="page-practicar-conceptualizacion__nivel-title card__title">
+                    {nivel.titulo}
+                  </h3>
 
-              <div className="page-practicar-conceptualizacion__nivel-actions">
-                <button
-                  type="button"
-                  className="btn-scanner-card"
-                  onClick={() => openMarkerModal(nivel, 1)}
-                >
-                  <img src={imgScanner} alt="Escáner" />
-                </button>
-              </div>
+                  <button
+                    type="button"
+                    className="btn-scanner-card"
+                    onClick={() => openMarkerModal(nivel, 1)}
+                  >
+                    <img src={imgScanner} alt="Escáner" />
+                  </button>
+                </>
+              )}
             </div>
 
             <p className="page-practicar-conceptualizacion__nivel-enunciado card__text">

@@ -187,6 +187,243 @@ export default function ArCam() {
           ></a-image>
         </a-marker>
 
+        <a-marker type="pattern" url="/markers/pattern-marker-2.patt">
+          <a-image
+            src="/multimedia/marker-2.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+
+        {/* markers 3 through 27 */}
+        <a-marker type="pattern" url="/markers/pattern-marker-3.patt">
+          <a-image
+            src="/multimedia/marker-3.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-4.patt">
+          <a-image
+            src="/multimedia/marker-4.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-5.patt">
+          <a-image
+            src="/multimedia/marker-5.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-6.patt">
+          <a-image
+            src="/multimedia/marker-6.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-7.patt">
+          <a-image
+            src="/multimedia/marker-7.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-8.patt">
+          <a-image
+            src="/multimedia/marker-8.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-9.patt">
+          <a-image
+            src="/multimedia/marker-9.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-10.patt">
+          <a-image
+            src="/multimedia/marker-10.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-11.patt">
+          <a-image
+            src="/multimedia/marker-11.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-12.patt">
+          <a-image
+            src="/multimedia/marker-12.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-13.patt">
+          <a-image
+            src="/multimedia/marker-13.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-14.patt">
+          <a-image
+            src="/multimedia/marker-14.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-15.patt">
+          <a-image
+            src="/multimedia/marker-15.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-16.patt">
+          <a-image
+            src="/multimedia/marker-16.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-17.patt">
+          <a-image
+            src="/multimedia/marker-17.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-18.patt">
+          <a-image
+            src="/multimedia/marker-18.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-19.patt">
+          <a-image
+            src="/multimedia/marker-19.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-20.patt">
+          <a-image
+            src="/multimedia/marker-20.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-21.patt">
+          <a-image
+            src="/multimedia/marker-21.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-22.patt">
+          <a-image
+            src="/multimedia/marker-22.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-23.patt">
+          <a-image
+            src="/multimedia/marker-23.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-24.patt">
+          <a-image
+            src="/multimedia/marker-24.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-25.patt">
+          <a-image
+            src="/multimedia/marker-25.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-26.patt">
+          <a-image
+            src="/multimedia/marker-26.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+        <a-marker type="pattern" url="/markers/pattern-marker-27.patt">
+          <a-image
+            src="/multimedia/marker-27.jpeg"
+            width="2"
+            height="1"
+            rotation="-90 0 0"
+            position="0 0.01 0"
+          ></a-image>
+        </a-marker>
+
         <a-entity camera></a-entity>
       </a-scene>
     </div>
