@@ -422,7 +422,7 @@ export default function CompruebaConceptualizacion() {
       <div className="page-comprueba-conceptualizacion__iframe-container">
         <iframe
           title="Formulario de Conceptualización"
-          src="https://forms.office.com/r/gqNHt0RnbJ?embed=true"
+          src="https://forms.cloud.microsoft/r/gqNHt0RnbJ?embed=true"
           width="100%"
           height="600"
           frameBorder="0"
