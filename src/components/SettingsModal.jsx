@@ -79,7 +79,7 @@ export default function SettingsModal({ isOpen, modalType, onClose }) {
                   <strong>Iyui Shaio Sanchez Melo</strong>
                 </p>
                 <p>Universidad Pedagógica y Tecnológica de Colombia</p>
-                <p>Trabajo Pedagógica Investigativa de Profundización</p>
+                <p>Trabajo de Grado</p>
                 <p>Colegio de Boyacá - Sección Rafael Londoño Barajas</p>
                 <p>
                   <strong>Semestre:</strong> Décimo
@@ -90,7 +90,7 @@ export default function SettingsModal({ isOpen, modalType, onClose }) {
                 <p>
                   <strong>Celular:</strong> 3205681926
                 </p>
-                <p>2025</p>
+                <p>2026</p>
               </div>
             </div>
           ),
