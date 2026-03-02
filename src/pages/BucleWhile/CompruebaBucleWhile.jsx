@@ -1,5 +1,5 @@
 // React
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Libraries
 import Popup from "reactjs-popup";
@@ -58,10 +58,39 @@ export default function CompruebaBucleWhile() {
     pool: dragStatements.map((item) => item.id),
   };
 
-  const [dragState, setDragState] = useState(initialDragState);
-  const [showDragFeedback, setShowDragFeedback] = useState(false);
+  const getInitialState = () => {
+    const savedAnswers = localStorage.getItem("compruebaBucleWhileAnswers");
+    if (savedAnswers) {
+      try {
+        const data = JSON.parse(savedAnswers);
+        return {
+          dragState: data.dragState,
+          showDragFeedback: true,
+          isLocked: true,
+        };
+      } catch (e) {
+        return {
+          dragState: initialDragState,
+          showDragFeedback: false,
+          isLocked: false,
+        };
+      }
+    }
+    return {
+      dragState: initialDragState,
+      showDragFeedback: false,
+      isLocked: false,
+    };
+  };
+
+  const initialState = getInitialState();
+
+  const [dragState, setDragState] = useState(initialState.dragState);
+  const [showDragFeedback, setShowDragFeedback] = useState(
+    initialState.showDragFeedback,
+  );
   const [isResultOpen, setIsResultOpen] = useState(false);
-  const [isLocked, setIsLocked] = useState(false);
+  const [isLocked, setIsLocked] = useState(initialState.isLocked);
 
   const enunciados = [
     'Haz que el personaje avance 15 pasos, gire 10 grados y toque un sonido mientras no toque el borde del escenario. Cuando finalmente lo toque, debe decir "¡Llegué al límite!" y cambiar de disfraz.',
@@ -129,6 +158,7 @@ export default function CompruebaBucleWhile() {
   };
 
   const handleCloseResult = () => {
+    saveProgress();
     setIsResultOpen(false);
   };
 
@@ -136,6 +166,40 @@ export default function CompruebaBucleWhile() {
     const target = statement.correcta ? "correcto" : "incorrecto";
     return dragState[target].includes(statement.id);
   }).length;
+
+  const isActivityComplete = showDragFeedback && dragState.pool.length === 0;
+  const porcentajeCorrect = (dragCorrectCount / dragStatements.length) * 100;
+  const nota = Math.max(
+    1.0,
+    (dragCorrectCount / dragStatements.length) * 5.0,
+  ).toFixed(1);
+
+  const saveProgress = () => {
+    if (showDragFeedback && dragState.pool.length === 0) {
+      const answersData = {
+        seccion: "BucleWhile",
+        dragState: dragState,
+        correctCount: dragCorrectCount,
+        totalCount: dragStatements.length,
+        porcentaje: parseFloat(porcentajeCorrect.toFixed(2)),
+        nota: parseFloat(nota),
+        timestamp: new Date().toISOString(),
+      };
+      localStorage.setItem("compruebaBucleWhileResult", "true");
+      localStorage.setItem(
+        "compruebaBucleWhileAnswers",
+        JSON.stringify(answersData),
+      );
+      window.dispatchEvent(new Event("progress-updated"));
+    }
+  };
+
+  useEffect(() => {
+    const savedAnswers = localStorage.getItem("compruebaBucleWhileAnswers");
+    if (savedAnswers && showDragFeedback && isLocked) {
+      setIsResultOpen(false);
+    }
+  }, []);
 
   return (
     <div
@@ -293,9 +357,38 @@ export default function CompruebaBucleWhile() {
             <p>Debes ubicar todos los enunciados antes de validar.</p>
           ) : (
             <>
+              <p
+                style={{
+                  fontSize: "1.2em",
+                  fontWeight: "bold",
+                  color: "green",
+                  marginBottom: "1em",
+                }}
+              >
+                ¡Actividad completada! 🎉
+              </p>
+              <p
+                style={{
+                  fontSize: "1.5em",
+                  fontWeight: "bold",
+                  color: "#0066cc",
+                  marginBottom: "1em",
+                }}
+              >
+                Nota: {nota}/5.0
+              </p>
               <p>
-                Has obtenido {dragCorrectCount} de {dragStatements.length}{" "}
-                respuestas correctas.
+                Respuestas correctas: {dragCorrectCount} de{" "}
+                {dragStatements.length} ({porcentajeCorrect.toFixed(0)}%)
+              </p>
+              <p
+                style={{
+                  marginTop: "1em",
+                  fontWeight: "bold",
+                  color: "#0066cc",
+                }}
+              >
+                ¡Has desbloqueado la sección de Actividad Recreativa!
               </p>
             </>
           )}

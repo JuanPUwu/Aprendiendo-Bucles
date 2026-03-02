@@ -181,30 +181,30 @@ export default function PracticarBucleWhile() {
             className="page-practicar-bucle-while__nivel card"
           >
             <div className="page-practicar-conceptualizacion__nivel-header">
+              {/* secondary scanner button only if solution is provided and not level 10 */}
               {nivel.id !== 10 && (
-                <>
-                  <button
-                    type="button"
-                    className="btn-scanner-card btn-scanner-card--left"
-                    onClick={() => openMarkerModal(nivel, 2)}
-                    disabled={!nivel.imgMarkerSolution}
-                  >
-                    <img src={imgSolucion} alt="Escáner 2" />
-                  </button>
-
-                  <h3 className="page-practicar-bucle-while__nivel-titulo card__title">
-                    {nivel.titulo}
-                  </h3>
-
-                  <button
-                    type="button"
-                    className="btn-scanner-card"
-                    onClick={() => openMarkerModal(nivel, 1)}
-                  >
-                    <img src={imgScanner} alt="Escáner" />
-                  </button>
-                </>
+                <button
+                  type="button"
+                  className="btn-scanner-card btn-scanner-card--left"
+                  onClick={() => openMarkerModal(nivel, 2)}
+                  disabled={!nivel.imgMarkerSolution}
+                >
+                  <img src={imgSolucion} alt="Escáner 2" />
+                </button>
               )}
+
+              <h3 className="page-practicar-bucle-while__nivel-titulo card__title">
+                {nivel.titulo}
+              </h3>
+
+              {/* primary scanner button */}
+              <button
+                type="button"
+                className="btn-scanner-card"
+                onClick={() => openMarkerModal(nivel, 1)}
+              >
+                <img src={imgScanner} alt="Escáner" />
+              </button>
             </div>
 
             <p className="page-practicar-bucle-while__nivel-enunciado card__text">

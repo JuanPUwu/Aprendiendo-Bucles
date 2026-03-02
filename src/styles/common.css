@@ -124,44 +124,12 @@
   color: black;
 }
 
-.btn-standard::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -2px;
-  height: calc(100% + 4px);
-  width: 0;
-  z-index: -1;
-  border-radius: 10px;
-  background-color: rgb(200, 200, 200);
-  transition: 0.3s ease;
-}
-
-.btn-standard:hover:not(.selected)::after {
-  width: calc(100% + 4px);
-}
-
-.btn-standard:active::after {
-  background-color: rgb(73, 73, 73);
-}
-
-.btn-standard.selected::after {
-  width: calc(100% + 4px);
-  background-color: rgb(73, 73, 73);
-}
-
 .btn-standard:disabled {
   cursor: not-allowed;
   opacity: 0.65;
   background-color: rgb(230, 230, 230);
   color: rgb(100, 100, 100);
   box-shadow: none;
-}
-
-.btn-standard:disabled::after {
-  width: 0;
-  background-color: transparent;
 }
 
 /* Override ::after for the Comprueba Bucle While submit button */
@@ -214,6 +182,11 @@
   background-color: transparent;
 }
 
+/* Override ::after for the Comprueba Conceptualizacion submit button */
+.page-comprueba-conceptualizacion__submit-btn::after {
+  content: none;
+}
+
 /* Override ::after for the Actividad Recreativa submit button */
 .page-actividad-recreativa__submit {
   position: relative;
@@ -262,6 +235,10 @@
 .page-actividad-recreativa__submit-btn:disabled + .btn-standard__bg {
   width: 0;
   background-color: transparent;
+}
+
+.page-comprueba-bucle-for__submit-btn {
+  min-width: 60rem;
 }
 
 /* ==================== GRIDS DE BOTONES ==================== */

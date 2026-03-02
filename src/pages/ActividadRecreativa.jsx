@@ -1,5 +1,5 @@
 // React
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Libraries
 import Popup from "reactjs-popup";
@@ -75,10 +75,39 @@ export default function ActividadRecreativa() {
     };
   };
 
-  const [dragState, setDragState] = useState(createInitialDragState);
-  const [showDragFeedback, setShowDragFeedback] = useState(false);
+  const getInitialState = () => {
+    const savedAnswers = localStorage.getItem("actividadRecreativaAnswers");
+    if (savedAnswers) {
+      try {
+        const data = JSON.parse(savedAnswers);
+        return {
+          dragState: data.dragState,
+          showDragFeedback: true,
+          isLocked: true,
+        };
+      } catch (e) {
+        return {
+          dragState: createInitialDragState(),
+          showDragFeedback: false,
+          isLocked: false,
+        };
+      }
+    }
+    return {
+      dragState: createInitialDragState(),
+      showDragFeedback: false,
+      isLocked: false,
+    };
+  };
+
+  const initialState = getInitialState();
+
+  const [dragState, setDragState] = useState(initialState.dragState);
+  const [showDragFeedback, setShowDragFeedback] = useState(
+    initialState.showDragFeedback,
+  );
   const [isResultOpen, setIsResultOpen] = useState(false);
-  const [isLocked, setIsLocked] = useState(false);
+  const [isLocked, setIsLocked] = useState(initialState.isLocked);
 
   const enunciados = [
     'Representa en láminas la secuencia de acciones de un grupo de animales en el zoológico: el primer animal cambia de color, el segundo salta cada vez que su amigo cambia de color, y el último come 10 manzanas, contando en voz alta cada una con la frase "Me comí # manzana". Organiza las láminas en orden para mostrar cómo se repiten las acciones y cómo interactúan los animales.',
@@ -146,6 +175,7 @@ export default function ActividadRecreativa() {
   };
 
   const handleCloseResult = () => {
+    saveProgress();
     setIsResultOpen(false);
   };
 
@@ -153,6 +183,39 @@ export default function ActividadRecreativa() {
     const target = statement.correcta ? "correcto" : "incorrecto";
     return dragState[target].includes(statement.id);
   }).length;
+
+  const isActivityComplete = showDragFeedback && dragState.pool.length === 0;
+  const porcentajeCorrect = (dragCorrectCount / dragStatements.length) * 100;
+  const nota = Math.max(
+    1.0,
+    (dragCorrectCount / dragStatements.length) * 5.0,
+  ).toFixed(1);
+
+  const saveProgress = () => {
+    if (showDragFeedback && dragState.pool.length === 0) {
+      const answersData = {
+        seccion: "ActividadRecreativa",
+        dragState: dragState,
+        correctCount: dragCorrectCount,
+        totalCount: dragStatements.length,
+        porcentaje: parseFloat(porcentajeCorrect.toFixed(2)),
+        nota: parseFloat(nota),
+        timestamp: new Date().toISOString(),
+      };
+      localStorage.setItem(
+        "actividadRecreativaAnswers",
+        JSON.stringify(answersData),
+      );
+      window.dispatchEvent(new Event("progress-updated"));
+    }
+  };
+
+  useEffect(() => {
+    const savedAnswers = localStorage.getItem("actividadRecreativaAnswers");
+    if (savedAnswers && showDragFeedback && isLocked) {
+      setIsResultOpen(false);
+    }
+  }, []);
 
   return (
     <div
@@ -300,7 +363,6 @@ export default function ActividadRecreativa() {
         >
           {showDragFeedback || isLocked ? "Validado" : "Validar respuestas"}
         </button>
-        <span className="btn-standard__bg" aria-hidden="true" />
       </div>
 
       <Popup
@@ -326,9 +388,29 @@ export default function ActividadRecreativa() {
             <p>Debes ubicar todas las imágenes antes de validar.</p>
           ) : (
             <>
+              <p
+                style={{
+                  fontSize: "1.2em",
+                  fontWeight: "bold",
+                  color: "green",
+                  marginBottom: "1em",
+                }}
+              >
+                ¡Actividad completada! 🎉
+              </p>
+              <p
+                style={{
+                  fontSize: "1.5em",
+                  fontWeight: "bold",
+                  color: "#0066cc",
+                  marginBottom: "1em",
+                }}
+              >
+                Nota: {nota}/5.0
+              </p>
               <p>
-                Has obtenido {dragCorrectCount} de {dragStatements.length}{" "}
-                imágenes correctas.
+                Respuestas correctas: {dragCorrectCount} de{" "}
+                {dragStatements.length} ({porcentajeCorrect.toFixed(0)}%)
               </p>
             </>
           )}

@@ -185,31 +185,30 @@ export default function PracticarBucleFor() {
             className="page-practicar-bucle-for__nivel-card card"
           >
             <div className="page-practicar-conceptualizacion__nivel-header">
+              {/* show secondary scanner when a solution marker exists and not level10 */}
               {nivel.id !== "nivel10" && (
-                <>
-                  {/* secondary marker button */}
-                  <button
-                    type="button"
-                    className="btn-scanner-card btn-scanner-card--left"
-                    onClick={() => openMarkerModal(nivel, 2)}
-                    disabled={!nivel.imgMarkerSolution}
-                  >
-                    <img src={imgSolucion} alt="Escáner 2" />
-                  </button>
-
-                  <h3 className="page-practicar-bucle-for__nivel-title card__title">
-                    {nivel.titulo}
-                  </h3>
-
-                  <button
-                    type="button"
-                    className="btn-scanner-card"
-                    onClick={() => openMarkerModal(nivel, 1)}
-                  >
-                    <img src={imgScanner} alt="Escáner" />
-                  </button>
-                </>
+                <button
+                  type="button"
+                  className="btn-scanner-card btn-scanner-card--left"
+                  onClick={() => openMarkerModal(nivel, 2)}
+                  disabled={!nivel.imgMarkerSolution}
+                >
+                  <img src={imgSolucion} alt="Escáner 2" />
+                </button>
               )}
+
+              <h3 className="page-practicar-bucle-for__nivel-title card__title">
+                {nivel.titulo}
+              </h3>
+
+              {/* primary scanner button */}
+              <button
+                type="button"
+                className="btn-scanner-card"
+                onClick={() => openMarkerModal(nivel, 1)}
+              >
+                <img src={imgScanner} alt="Escáner" />
+              </button>
             </div>
 
             <p className="page-practicar-bucle-for__nivel-enunciado card__text">
