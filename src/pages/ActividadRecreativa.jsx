@@ -431,6 +431,34 @@ export default function ActividadRecreativa() {
         </iframe>
       </div>
 
+      <div className="page-actividad-recreativa__iframe-container">
+        <iframe
+          title="Formulario Extra 1"
+          src="https://forms.cloud.microsoft/r/8e3f9HEHNF?embed=true"
+          width="100%"
+          height="600"
+          frameBorder="0"
+          marginHeight="0"
+          marginWidth="0"
+        >
+          Cargando…
+        </iframe>
+      </div>
+
+      <div className="page-actividad-recreativa__iframe-container">
+        <iframe
+          title="Formulario Extra 2"
+          src="https://forms.cloud.microsoft/r/3uu8w1cAKZ?embed=true"
+          width="100%"
+          height="600"
+          frameBorder="0"
+          marginHeight="0"
+          marginWidth="0"
+        >
+          Cargando…
+        </iframe>
+      </div>
+
       <h3 className="page-actividad-recreativa__subtitle page-subtitle">
         Practica creando tu zoológico
       </h3>
