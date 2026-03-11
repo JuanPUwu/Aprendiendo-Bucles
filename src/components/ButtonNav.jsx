@@ -17,6 +17,7 @@ export default function ButtonNav({
   onMouseLeave,
   disabled = false,
   lockIconSrc,
+  isActive = false,
 }) {
   const isControlledDropdown = withArrow && dropdownId != null;
   const open = isControlledDropdown ? isOpen : false;
@@ -62,7 +63,7 @@ export default function ButtonNav({
 
   const triggerClasses = `btn-nav ${open ? "dropdown-open" : ""} ${
     disabled ? "btn-nav--locked" : ""
-  }`;
+  } ${isActive && !disabled ? "btn-nav--active" : ""}`;
 
   return (
     <div
@@ -132,4 +133,5 @@ ButtonNav.propTypes = {
   onMouseLeave: PropTypes.func,
   disabled: PropTypes.bool,
   lockIconSrc: PropTypes.string,
+  isActive: PropTypes.bool,
 };

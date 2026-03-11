@@ -183,14 +183,19 @@ export default function PracticarBucleWhile() {
             <div className="page-practicar-conceptualizacion__nivel-header">
               {/* secondary scanner button only if solution is provided and not level 10 */}
               {nivel.id !== 10 && (
-                <button
-                  type="button"
-                  className="btn-scanner-card btn-scanner-card--left"
-                  onClick={() => openMarkerModal(nivel, 2)}
-                  disabled={!nivel.imgMarkerSolution}
-                >
-                  <img src={imgSolucion} alt="Escáner 2" />
-                </button>
+                <div className="btn-scanner-solution-wrapper">
+                  <button
+                    type="button"
+                    className="btn-scanner-card btn-scanner-card--left"
+                    onClick={() => openMarkerModal(nivel, 2)}
+                    disabled={!nivel.imgMarkerSolution}
+                  >
+                    <img src={imgSolucion} alt="Escáner 2" />
+                  </button>
+                  <span className="btn-scanner-solution-label">
+                    Haz click cuando hayas completado el ejercicio
+                  </span>
+                </div>
               )}
 
               <h3 className="page-practicar-bucle-while__nivel-titulo card__title">

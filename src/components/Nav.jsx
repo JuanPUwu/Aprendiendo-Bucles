@@ -215,18 +215,21 @@ export default function Nav() {
             to="/bienvenida"
             withArrow={false}
             onClick={closeDropdown}
+            isActive={location.pathname === "/bienvenida"}
           />
           <ButtonNav
             text="Inicio"
             to="/inicio"
             withArrow={false}
             onClick={closeDropdown}
+            isActive={location.pathname === "/inicio"}
           />
           <ButtonNav
             text="Conceptualización"
             dropdownId={DROPDOWN_IDS.CONCEPTUALIZACION}
             withArrow={true}
             isOpen={isDropdownOpen(DROPDOWN_IDS.CONCEPTUALIZACION)}
+            isActive={location.pathname.startsWith("/conceptualizacion")}
             onTriggerClick={() =>
               handleDropdownTriggerClick(DROPDOWN_IDS.CONCEPTUALIZACION)
             }
@@ -287,6 +290,7 @@ export default function Nav() {
             dropdownId={DROPDOWN_IDS.BUCLE_FOR}
             withArrow={true}
             isOpen={isDropdownOpen(DROPDOWN_IDS.BUCLE_FOR)}
+            isActive={location.pathname.startsWith("/bucleFor")}
             onTriggerClick={() =>
               handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_FOR)
             }
@@ -353,6 +357,7 @@ export default function Nav() {
             dropdownId={DROPDOWN_IDS.BUCLE_WHILE}
             withArrow={true}
             isOpen={isDropdownOpen(DROPDOWN_IDS.BUCLE_WHILE)}
+            isActive={location.pathname.startsWith("/bucleWhile")}
             onTriggerClick={() =>
               handleDropdownTriggerClick(DROPDOWN_IDS.BUCLE_WHILE)
             }
@@ -421,6 +426,7 @@ export default function Nav() {
             onClick={closeDropdown}
             disabled={isActividadLocked}
             lockIconSrc={bloqueadoImg}
+            isActive={location.pathname === "/actividadRecreativa"}
           />
         </div>
         <button

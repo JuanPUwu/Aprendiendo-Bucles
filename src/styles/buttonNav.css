@@ -77,7 +77,8 @@
 }
 
 .btn-nav:hover::after,
-.btn-nav.dropdown-open::after {
+.btn-nav.dropdown-open::after,
+.btn-nav--active::after {
   transform: scaleX(1);
   transform-origin: left;
 }
