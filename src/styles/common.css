@@ -322,7 +322,7 @@
 /* Texto de card */
 .card__text {
   font-size: 1.3rem;
-  margin: 0;
+  margin: 0 6rem;
   color: rgb(60, 60, 60);
   text-align: center;
 }
