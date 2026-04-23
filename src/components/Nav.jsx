@@ -243,7 +243,7 @@ export default function Nav() {
                   "/conceptualizacion/queEsUnBucle",
                   <>
                     <div>
-                      <p>¿Que es un bucle?</p>
+                      <p>¿Qué es un bucle?</p>
                       <img src={flechaLink} alt="" />
                     </div>
                     <span>
@@ -306,7 +306,7 @@ export default function Nav() {
                   "/bucleFor/queEsUnBucleFor",
                   <>
                     <div>
-                      <p>¿Que es un bucle For?</p>
+                      <p>¿Qué es un bucle For?</p>
                       <img src={flechaLink} alt="" />
                     </div>
                     <span>
@@ -373,7 +373,7 @@ export default function Nav() {
                   "/bucleWhile/queEsUnBucleWhile",
                   <>
                     <div>
-                      <p>¿Que es un bucle While?</p>
+                      <p>¿Qué es un bucle While?</p>
                       <img src={flechaLink} alt="" />
                     </div>
                     <span>
@@ -548,7 +548,7 @@ export default function Nav() {
                       "/conceptualizacion/queEsUnBucle",
                     )}
                   >
-                    ¿Que es un bucle?
+                    ¿Qué es un bucle?
                   </Link>
                   <Link
                     to="/conceptualizacion/horaDePracticar"
@@ -610,7 +610,7 @@ export default function Nav() {
                     to="/bucleFor/queEsUnBucleFor"
                     onClick={handleMobileLinkClick("/bucleFor/queEsUnBucleFor")}
                   >
-                    ¿Que es un bucle For?
+                    ¿Qué es un bucle For?
                   </Link>
                   <Link
                     to="/bucleFor/horaDePracticar"
@@ -674,7 +674,7 @@ export default function Nav() {
                       "/bucleWhile/queEsUnBucleWhile",
                     )}
                   >
-                    ¿Que es un bucle While?
+                    ¿Qué es un bucle While?
                   </Link>
                   <Link
                     to="/bucleWhile/horaDePracticar"

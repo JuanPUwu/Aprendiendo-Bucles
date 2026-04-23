@@ -80,15 +80,12 @@ export default function SettingsModal({ isOpen, modalType, onClose }) {
                 </p>
                 <p>Universidad Pedagógica y Tecnológica de Colombia</p>
                 <p>Trabajo de Grado</p>
-                <p>Colegio de Boyacá - Sección Rafael Londoño Barajas</p>
+                <p>Colegio de Boyacá - Sección José Ignacio de Márquez</p>
                 <p>
                   <strong>Semestre:</strong> Décimo
                 </p>
                 <p>
                   <strong>Correo electrónico:</strong> iyui.sanchez@uptc.edu.co
-                </p>
-                <p>
-                  <strong>Celular:</strong> 3205681926
                 </p>
                 <p>2026</p>
               </div>

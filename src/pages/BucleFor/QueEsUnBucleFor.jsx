@@ -34,7 +34,7 @@ export default function QueEsUnBucleFor() {
       "II. ¿Es necesario darle instrucciones al inicio y al final, al bucle for?",
     ],
     comprension: [
-      "Al comprender el bucle for puedes hacer que tus personajes repitan una acción exactamente las veces que quieras, ya sea por medio de contar saltos, pasos o giros",
+      "Se utiliza cuando sabemos de antemano cuántas veces queremos repetir un bloque de código. Generalmente incluye tres partes: inicio, condición y actualización (por ejemplo, contar de 1 a 10)",
     ],
   };
 

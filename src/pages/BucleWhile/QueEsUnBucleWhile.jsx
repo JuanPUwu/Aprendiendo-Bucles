@@ -36,7 +36,7 @@ export default function QueEsUnBucleWhile() {
       "II. ¿Qué ejemplos de la vida cotidiana se pueden representar con un bucle while?",
     ],
     comprension:
-      "El bucle while es ideal para ejecutar tareas hasta que una condición cambie",
+      "Se emplea cuando no sabemos el número exacto de repeticiones, y la ejecución depende de que una condición siga siendo verdadera. El ciclo continúa hasta que la condición deja de cumplirse.",
   };
 
   return (
